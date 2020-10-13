@@ -6,7 +6,8 @@ namespace _336Labs
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string a = Console.ReadLine();
+            Console.WriteLine("Hi, "+a);
         }
     }
 }
