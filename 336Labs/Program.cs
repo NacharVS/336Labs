@@ -1,13 +1,19 @@
 ﻿using System;
 
-namespace _336Labs
+namespace _336Labs.Bayburin
+
 {
-    class Program
+    class MethodCalc
     {
         static void Main(string[] args)
         {
-            string a = Console.ReadLine();
-            Console.WriteLine("Hi, "+a);
+
         }
     }
 }
+
+        
+
+    
+
+
