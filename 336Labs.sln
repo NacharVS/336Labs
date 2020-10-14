@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MethodCalculator", "MethodCalculator\MethodCalculator.csproj", "{126DB507-E97F-4D33-B6E7-EC0AE440B6C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "336Labs", "336Labs\336Labs.csproj", "{DCFEB1E8-7F39-460B-BF4D-E8877AB24E40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{126DB507-E97F-4D33-B6E7-EC0AE440B6C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{126DB507-E97F-4D33-B6E7-EC0AE440B6C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{126DB507-E97F-4D33-B6E7-EC0AE440B6C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{126DB507-E97F-4D33-B6E7-EC0AE440B6C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCFEB1E8-7F39-460B-BF4D-E8877AB24E40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCFEB1E8-7F39-460B-BF4D-E8877AB24E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCFEB1E8-7F39-460B-BF4D-E8877AB24E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCFEB1E8-7F39-460B-BF4D-E8877AB24E40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7A34C19A-BF72-4DD2-B06A-3214E0B59BAE}
+		SolutionGuid = {FAC4D3EB-C60D-49AD-A03B-AE56160D108D}
 	EndGlobalSection
 EndGlobal

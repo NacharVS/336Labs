@@ -1,13 +1,11 @@
 ﻿using System;
 
-
-namespace program
+namespace _336Labs
 {
     class Program
     {
         static void Main(string[] args)
         {
-         
         }
     }
 }
