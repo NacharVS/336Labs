@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _336Labs.Nacharov;
+using System;
 
 namespace _336Labs
 {
@@ -6,8 +7,6 @@ namespace _336Labs
     {
         static void Main(string[] args)
         {
-            string a = Console.ReadLine();
-            Console.WriteLine("Hi, "+a);
         }
     }
 }

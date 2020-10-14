@@ -6,5 +6,9 @@ namespace _336Labs.Nacharov
 {
     class MethodCalcullator
     {
+        public static void Sum(int a, int b)
+        {
+            Console.WriteLine(a + b);
+        }
     }
 }
