@@ -7,7 +7,8 @@ namespace _336Labs
     {
         static void Main(string[] args)
         {
-            MethodCalculator.Calculator();
+            //MethodCalculator.Calculator();
+            ClassesAndObjects.ClaAndObj();
         }
     }
 }
