@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _336Labs.Sabirov_E
 {
-    class ClassesandObjects
+    class clas 1
     {
     }
 }
