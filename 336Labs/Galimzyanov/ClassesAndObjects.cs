@@ -4,19 +4,26 @@ using System.Text;
 
 namespace _336Labs.Galimzyanov
 {
-   static void Main(string[] args)
+    private static void Main(string[] args)
     {
 
 
 
     }
 
-    static int Array()
+    private static int Array()
     class ClassesAndObjects
     {
         int[,] array = new int[10, 10];
         Random rnd = new Random();
-        for (int i=0; i<Array.GetLength(0);i++)
+        for (int i=0; i<Array.GetLength(0); i++)
+        {
+        int max = 0;
+        int min = 0;
+        for (int i=0; i<Array.GetLength(0); j++)
+        {
+
+         
 
     }
 }
