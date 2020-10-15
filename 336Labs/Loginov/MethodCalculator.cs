@@ -46,7 +46,7 @@ namespace _336Labs.Loginov
             Console.Write("Результат: ");
             return Math.Sqrt(NumberA);
         }
-        static void Main()
+        public static void Calc()
         {
             int a = 0;
             while (a != 1)
