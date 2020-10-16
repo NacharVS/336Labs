@@ -7,7 +7,7 @@ namespace _336Labs.Loginov
 
     class ClassAndObjects
     {
-        static void SortArray(int[] arr)
+        static int SortArray(int[] arr)
         {
             int cash = 0;
             for (int i = 0; i < 10; i-1)
