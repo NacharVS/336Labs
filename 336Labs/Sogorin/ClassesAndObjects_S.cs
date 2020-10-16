@@ -5,7 +5,7 @@ using System.Text;
 namespace _336Labs.Sogorin
 {
     class ClassesAndObjects_S
-    {
+    {/*
         static void Main(string[] args)
         {
             int[,] mas = new int[5, 5];
@@ -39,7 +39,7 @@ namespace _336Labs.Sogorin
                 Console.Write(su[i]);
             }
 
-        }
+        }*/
     }
 }
 
