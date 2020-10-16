@@ -10,7 +10,8 @@ namespace _336Labs
         static void Main()
         {
             //MethodCalculator.Calc();
-            ClassAndObjects.CaO();
+            //ClassAndObjects.CaO();
+
         }
     }
 }
