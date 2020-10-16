@@ -15,16 +15,24 @@ namespace _336Labs.Galimzyanov
         {
             _name = name;
             _mathMark = math;
-            _physicsMark = chemistry;
+            _physicsMark = physics;
+            _chemistryMark = chemistry;
         }
     }
     class StudentSelection
     {
-        static void Selection(Studentslist [] list, double AverageMark)
+        public static void Selection(Studentslist []list, double AverageMark)
         {
             for (int i = 0; i < list.Length; i++)
             {
-                if (list[i]._mathMark + list[i]._physicsMark + list[i]._chemistryMark) / 3 >== AverageMark)
+                if ((list[i]._mathMark + list[i]._physicsMark + list[i]._chemistryMark) / 3 >= AverageMark)
+                {
+                    Console.WriteLine($"Студент под именем {list[i]._name} допущен к экзамену");
+                }
+                else
+                {
+                    Console.WriteLine($"Студент под именем {list[i]._name} не допущен к экзамену");
+                }
             }
         }
     }
