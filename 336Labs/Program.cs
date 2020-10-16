@@ -16,7 +16,7 @@ namespace _336Labs
                 Console.Write($"{l} - ");
                 int sum = 0;
                 for (int j = 0; j < mas.GetLength(1); j++)
-                {                   
+                {
                     mas[i, j] = r.Next(0, 2);
                     Console.Write($"{mas[i, j]} ");
                     sum += mas[i, j];
@@ -29,14 +29,13 @@ namespace _336Labs
                         s2 = sum;
                         su[c] = s2;
                     }
-                    su[c] = sum;                    
-                }                                
+                    su[c] = sum;
+                }
             }
             for (int i = 0; i < su.GetLength(0); i++)
             {
                 Console.Write(su[i]);
             }
-            
         }
     }
 }
