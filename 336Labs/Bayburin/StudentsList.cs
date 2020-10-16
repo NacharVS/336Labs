@@ -20,17 +20,17 @@ namespace _336Labs.Bayburin
             _mdk0103Mark = mdk0103Mark;
 
         }
-        class StudentMethod
+        public static void Method(StudentsList[] list, double AveregeMark)
         {
-            public static void Method(StudentsList[] list, double AveregeMark)
+            for (int i = 0; i < list.Length; i++)
             {
-                for (int i = 0; i < list.Length; i++)
+                double a = list[i]._historyMark + list[i]._mathMark + list[i]._mdk0102Mark + list[i]._mdk0103Mark;
+                if (a / 4 >= AveregeMark)
                 {
-                    if ((list[i]._historyMark + list[i]._mathMark + list[i]._mdk0102Mark + list[i]._mdk0103Mark) / 4 >= AveregeMark)
-                    {
-                        Console.WriteLine($"{ list[i]._namestudent} допущен");
-                    }
+                    Console.WriteLine($"{ list[i]._namestudent} допущен");
                 }
+                else Console.WriteLine($"{list[i]._namestudent} не допущен!");
+                
             }
         }
     }
