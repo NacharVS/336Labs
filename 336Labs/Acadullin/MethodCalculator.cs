@@ -49,5 +49,6 @@ namespace _336Labs.Acadullin
             Console.WriteLine("Взведение в степень: " + Step(a, b));
             Console.ReadKey();
         }
+
     }
 }
