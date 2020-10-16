@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _336Labs.Ziatdinova
 {
-    class Class1
+    class StudentsList
     {
     }
 }
