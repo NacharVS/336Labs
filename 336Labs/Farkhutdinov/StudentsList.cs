@@ -22,7 +22,7 @@ namespace _336Labs.Farkhutdinov
         }
         class StudentMethod
         {
-            public static void Method(StudentsList[] list, double AveregeMark)
+            static void Method(StudentsList[] list, double AveregeMark)
             {
                 for (int i = 0; i < list.Length; i++)
                 {
