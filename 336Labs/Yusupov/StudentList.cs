@@ -11,31 +11,41 @@ namespace _336Labs.Yusupov
         public double _AlgebraMark;
         public double _RussianLanguageMark;
         public double _ProgrammingMark;
+      
 
-       
-        
-
-        public StudentList(String _NameOfStudent, double _GeometryMark, double _AlgebraMark, double _RussianLanguageMark, double _ProgrammingMark  )
+        public StudentList(string NameOfStudent, int GeometryMark , int AlgebraMark, int RussianLanguageMark ,int ProgrammingMark)
         {
-            _NameOfStudent = _NameOfStudent;
-            _GeometryMark = _GeometryMark;
-            _AlgebraMark = _AlgebraMark;
-            _RussianLanguageMark = _RussianLanguageMark;
-            _ProgrammingMark = _ProgrammingMark; 
+            _NameOfStudent = NameOfStudent;
+            _GeometryMark = GeometryMark;
+            _AlgebraMark = AlgebraMark;
+            _RussianLanguageMark = RussianLanguageMark;
+            _ProgrammingMark = ProgrammingMark; 
+        }
 
-        } 
+        public StudentList(string NameOfStudent, double GeometryMark, double AlgebraMark, double RussianLanguageMark, double ProgrammingMark)
+        {
+            _NameOfStudent = NameOfStudent;
+            _GeometryMark = GeometryMark;
+            _AlgebraMark = AlgebraMark;
+            _RussianLanguageMark = RussianLanguageMark;
+            _ProgrammingMark = ProgrammingMark;
+        }
+    }
         class List
         {
-         public static  void Method (StudentList[] lists , double AveregeMark )
+            internal static void Method(StudentList[] lists, double AveregeMark)
             {
                 for (int i = 0; i < lists.Length; i++)
                 {
-                    if (lists[i]._GeometryMark + lists[i]._AlgebraMark + lists[i]._ProgrammingMark + lists[i]._RussianLanguageMark/4 >=AveregeMark)
-                    {
-                        Console.WriteLine($"{lists[i]._NameOfStudent} ");
-                    }
+                    if (lists[i]._GeometryMark + lists[i]._AlgebraMark + lists[i]._ProgrammingMark + lists[i]._RussianLanguageMark / 4 >= AveregeMark)
+                    
+                        Console.WriteLine($"{lists[i]._NameOfStudent} access granted");
+                    
                 }
             }
         }
     }
-}
+
+
+
+    
