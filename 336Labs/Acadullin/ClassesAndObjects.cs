@@ -13,16 +13,21 @@ namespace _336Labs.Acadullin
         {
             int[,] mass = new int[6, 6];
             Random rnd = new Random();
-            int max = 0;
+            int sum = 0;
             for (int i = 0; i < mass.GetLength(0); i++)
-            {
+            { 
+                int a = i;
+                Console.Write($"{a} - ");
+
                 for (int j = 0; j < mass.GetLength(1); j++)
                 {
-                    mass[i, j] = rnd.Next(10, 50);
+                    mass[i, j] = rnd.Next(0, 10);
                     Console.Write($"{mass[i, j]} ");
-                    if (max < mass[i, j])
-                        max = mass[i, j];
+                    sum += mass[i, j];
                 }
+            }
+            {
+                Console.WriteLine("-- Сумма =  " + sum);
                 Console.WriteLine();
             }
         }
