@@ -12,28 +12,48 @@ namespace _336Labs.Ziatdinova
             int A = int.Parse(Console.ReadLine());
             Console.WriteLine("Введи число В");
             int B = int.Parse(Console.ReadLine());
-            Console.WriteLine("Выбери действие - summa/subtract/div/multip");
-            string SelectedAction = Console.ReadLine();
-
-        }
+            Console.WriteLine("Выбери действие: '+' '-' 'div' '*'");
+            string action = Console.ReadLine();
 
 
-        static int summa(int A, int B)
-        {
-            return A + B;
+
+
+            switch (action)
+            {
+                case "+":
+                    Console.WriteLine(A + B);
+                    break;
+                case "-":
+                    Console.WriteLine(A - B);
+                    break;
+                case "/":
+                    Console.WriteLine(A / B);
+                    break;
+                case "*":
+                    Console.WriteLine(A * B);
+                    break;
+                case "div":
+                    if (B == 0)
+                        Console.WriteLine("неверно!недопустимое выражение");
+
+                    else
+                    {
+                        Console.WriteLine(A / B);
+                    }    
+                    break;
+                default:
+                    Console.WriteLine("неверно!недопустимое выражение");
+                    break;
+
+            }
+            Console.ReadLine();
         }
-        static int subtract(int A, int B)
-        {
-            return A - B;
-        }
-        static int div(int A, int B)
-        {
-            return A / B;
-        }
-        static int multip(int A, int B)
-        {
-            return A * B;
-        }
-        
+
+
+
+
+
+
     }
 }
+ 
