@@ -16,9 +16,9 @@ namespace _336Labs.Kolpakova
                     array { c, d} = rndm.Next(a, b);
                     Console.Write($"[array{c,d}]");
                 }
-                Console.WriteLine("");
+                C
             }
-            return;
+            
 
         }
     }
