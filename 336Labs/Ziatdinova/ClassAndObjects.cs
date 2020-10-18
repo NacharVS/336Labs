@@ -6,19 +6,35 @@ namespace _336Labs.Ziatdinova
 {
     class ClassAndObjects
     {
-        static void 
+        static void Main(string[] args)
         {
+            Console.WriteLine("Сколько строк?");
             Random rndm = new Random();
-            for (int c = 0; c < array.GetLength(0); c++)
+            int len = Convert.ToInt32(Console.ReadLine()), sum = 0;
+            int[] array = new int[len];
+            for (int i = 0; i < len; i++)
             {
-                for (int d = 0; c < array.GetLength(0); d++)
                 {
-                    array { c, d} = rndm.Next(a, b);
-                    Console.Write($"[array{c,d}]");
+                    array [i] = rndm.Next(0, 100);
+                    sum += array[i];
+                    Console.WriteLine((i + 1) + "-" + array[i]);
                 }
-                Console.WriteLine("");
+                Console.WriteLine("Сумма цифр" + sum);
+                int[] sortArray = new int[len];
+                Array.Copy(array, sortArray, len);
+                Array.Sort(sortArray);
+                for (int i = 0; i < len; i++)
+                { 
+                    for (int j = 0; j < len; j++)
+                    {
+                        if (sortArray[i] == array[j])
+                        {
+                            Console.WriteLine(j + 1);
+                        }
+                    }
+                }
             }
-            return;
+            
 
         }
     }
