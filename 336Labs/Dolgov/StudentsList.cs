@@ -22,7 +22,7 @@ namespace _336Labs.Dolgov
 
     class StudentsSelection
     {
-        static void Selection(StudentsList[] list, double AverageMark)
+        public static void Selection(StudentsList[] list, double AverageMark)
         {
             for (int i = 0; i < list.Length; i++)
             {

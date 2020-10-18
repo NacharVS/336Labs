@@ -15,6 +15,7 @@ namespace _336Labs
             list[2] = new StudentsList("Maksim", 3, 3, 3);
             list[3] = new StudentsList("Vitya", 5, 5, 5);
             list[4] = new StudentsList("Nursinya", 4, 2, 3);
+            StudentsSelection.Selection(list, 3);
         }
     }
 }
