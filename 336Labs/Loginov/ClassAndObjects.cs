@@ -7,23 +7,25 @@ namespace _336Labs.Loginov
 
     class ClassAndObjects
     {
-        static int SortArray(int[] arr)
+        static void SortArray(int[] arr)
         {
-            int cash = 0;
-            for (int i = 0; i < 10; i-1)
+            int temp;
+            for (int i = 0; i < arr.Length - 1; i++)
             {
-                for (int n = 0; n < 10; n++)
+                for (int n = i + 1; n < arr.Length; n++)
                 {
-                    if (arr[i] < arr[i + 1])
+                    if (arr[i] > arr[n])
                     {
-                        cash = arr[i + 1];
-                        arr[i + 1] = arr[i];
-                        arr[i] = cash;
-                        cash = 0;
+                         temp = arr[i];
+                         arr[i] = arr[n];
+                         arr[n] = temp;
                     }
                 }
             }
+            return;
         }
+
+
         static void GenerationArray(int[,] arr, int MinN, int MaxN)
         {
             Random rnd = new Random();
@@ -44,18 +46,24 @@ namespace _336Labs.Loginov
         {
 
             int sum = 0;
-            int[,] array1 = new int[10, 10];
+            int[] sumArr = new int[10];
             int[] array2 = new int[10];
+            int[,] array1 = new int[10, 10];
             GenerationArray(array1, 0, 10);
             for (int i = 0; i < array1.GetLength(0); i++)
             {
                 for (int n = 0; n < array1.GetLength(1); n++)
                 {
-                        sum = sum + array1[i, n];
+                    sum = sum + array1[i, n];
+                    sumArr[i] = sum;
                 }
                 array2[i] = sum;
-                Console.WriteLine($"{i+1} - {sum}");
                 sum = 0;
+            }
+            SortArray(array2);
+            for (int i = 0; i < array2.Length; i++)
+            {
+                Console.WriteLine($"{i} - {sumArr[i]}   {array2[i]}");
             }
 
         }
