@@ -6,7 +6,7 @@ namespace _336Labs.Ziatdinova
 {
     class ClassAndObjects
     {
-        static void Massiv(int[,] array, int a, int b)
+        static void 
         {
             Random rndm = new Random();
             for (int c = 0; c < array.GetLength(0); c++)
