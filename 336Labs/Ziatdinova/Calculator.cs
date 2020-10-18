@@ -6,5 +6,6 @@ namespace _336Labs.Ziatdinova
 {
     class Calculator
     {
+        Console.WriteLine
     }
 }
