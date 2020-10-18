@@ -22,7 +22,7 @@ namespace _336Labs.Ziatdinova
 
     class StudentSelection
     {
-        static void Selection(StudentsList[] list, double AverageMark)
+        public static void Selection(StudentsList[] list, double AverageMark)
         {
             for (int i = 0; i < list.Length; i++)
             {
@@ -31,8 +31,12 @@ namespace _336Labs.Ziatdinova
                     Console.WriteLine($"{list[i]._name} acces granted");
                 }
                 else
+                {
+                    Console.WriteLine($"{ list[i]._name} Not acces granted");
+
+                }
             }
         }
     }
 }
-}
+
