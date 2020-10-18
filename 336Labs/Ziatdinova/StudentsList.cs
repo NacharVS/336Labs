@@ -30,6 +30,7 @@ namespace _336Labs.Ziatdinova
                 {
                     Console.WriteLine($"{list[i]._name} acces granted");
                 }
+                else
             }
         }
     }
