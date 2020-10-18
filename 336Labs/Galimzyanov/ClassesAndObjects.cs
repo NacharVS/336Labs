@@ -3,27 +3,28 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace _336Labs.Galimzyanov
-{
-    private static void Main(string[] args)
+{ 
+  class ClassesAndObjects
     {
-
-
-
-    }
-
-    private static int Array()
-    class ClassesAndObjects
-    {
-        int[,] array = new int[10, 10];
-        Random rnd = new Random();
-        for (int i=0; i<Array.GetLength(0); i++)
+        public static void Dvum(int[,] Array)
         {
-        int max = 0;
-        int min = 0;
-        for (int i=0; i<Array.GetLength(0); j++)
-        {
+            Random rnd = new Random();
+            for (int i = 0; i < Array.GetLength(0); i++)
+            {
+                for (int j = 0; j < Array.GetLength(0); j++)
+                {
+                    Array[i, j] = rnd.Next(100);
+                    Console.WriteLine(Array[i, j]);
+                }
+            }
 
-         
+        }
 
     }
 }
+  
+        
+
+      
+
+    
