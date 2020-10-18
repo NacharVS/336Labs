@@ -14,7 +14,13 @@ namespace _336Labs
             StudentsList Daminov = new StudentsList("Daminov", 4, 5, 4);
             StudentsList Dolgov = new StudentsList("Dolgov", 3, 2, 5);
             StudentsList[] studentsLists = new StudentsList[6];
-
+            studentsLists[0] = Kolpakova;
+            studentsLists[1] = Ziatdinova;
+            studentsLists[2] = Zalyalov;
+            studentsLists[3] = Galimzyanov;
+            studentsLists[4] = Daminov;
+            studentsLists[5] = Dolgov;
+            StudentSelection.Selection(studentsLists, 5);
         }
     }
 }

@@ -31,8 +31,16 @@ namespace _336Labs.Kolpakova
                     Console.WriteLine($"Студент под именем {list[i]._name} допущен к экзамену");
                 }
                 else
+                {
+                    Console.WriteLine($"Студент под именем {list[i]._name} не допущен к экзамену");
+                }
 
             }
+        }
+
+        internal static void Selection(StudentsList[] studentsLists, int v)
+        {
+            throw new NotImplementedException();
         }
     }
 }
