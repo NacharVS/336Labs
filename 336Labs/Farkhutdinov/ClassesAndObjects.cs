@@ -7,19 +7,23 @@ namespace _336Labs.Farkhutdinov
     class NumbersSumm
     {
         public int _number;
-        public int summ;
+        public int _summ;
     }
     class ClassesAndObject
     {
-        static void ArrayGeneration(int[] array)
+        public static void ArrayGenerationSum(int[,] array)
         {
-            int[,] mass = new int[5, 5];
             Random rnd = new Random();
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 0; i < array.GetLength(0); i++)
             {
-                array[i] = rnd.Next(0, 100);
-                Console.Write($"{array[i]} ");
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    array[i, j] = rnd.Next(0, 2);
+                    Console.Write($"{array[i, j]} ");
+                }
+                Console.WriteLine();
             }
+
         }
     }
 }
