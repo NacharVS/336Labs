@@ -8,7 +8,7 @@ namespace _336Labs
         static void Main(string[] args)
         {
             //MethodCalculator.Calculator();
-            ClassesAndObjects.ClaAndObj();
+            ClassesAndObjectss.ClaAndObj();
             StudentsList[] list = new StudentsList[5];
             list[0] = new StudentsList("Danil", 5, 4, 5);
             list[1] = new StudentsList("Bulat", 3, 5, 3);

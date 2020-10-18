@@ -5,7 +5,7 @@ using System.Text;
 namespace _336Labs.Dolgov
 {
 
-    class ClassesAndObjects
+    class ClassesAndObjectss
     {
         static void SortMas(int[] arr)
         {
