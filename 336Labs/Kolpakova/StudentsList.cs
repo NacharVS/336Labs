@@ -28,8 +28,10 @@ namespace _336Labs.Kolpakova
             {
                 if((list[i]._mathMark + list[i]._physicsMark + list[i]._chemistryMark) / 3 >= AverageMark)
                 {
-                    Console.WriteLine($"{list[i]._name} acces granted");
+                    Console.WriteLine($"Студент под именем {list[i]._name} допущен к экзамену");
                 }
+                else
+
             }
         }
     }
