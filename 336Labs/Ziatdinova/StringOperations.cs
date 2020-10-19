@@ -12,7 +12,7 @@ namespace _336Labs.Ziatdinova
             string ab = Console.ReadLine();
             string zi = "";
             string ks = "";
-            while (ab != "")
+            while (ab != ""
             {
 
             }
