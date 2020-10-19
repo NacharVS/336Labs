@@ -6,9 +6,9 @@ namespace _336Labs.Sogorin
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Введите текст:");
             string s = Console.ReadLine();
-            
-            Console.WriteLine(s + 2);
+            StringOperations.Split(s);           
         }
     }
 }
