@@ -31,13 +31,13 @@ namespace _336Labs.Ippolitova
             return a * a;
         }
 
-        static void Main(string[] args)
-        {
-            Console.WriteLine(Addition(10, 5));
-            Console.WriteLine(Subtracion(10, 5));
-            Console.WriteLine(Multiplication(10, 5));
-            Console.WriteLine(Division(10, 5));
-            Console.WriteLine(Square(10));
-        }
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine(Addition(10, 5));
+        //    Console.WriteLine(Subtracion(10, 5));
+        //    Console.WriteLine(Multiplication(10, 5));
+        //    Console.WriteLine(Division(10, 5));
+        //    Console.WriteLine(Square(10));
+        //}
     }
 }
