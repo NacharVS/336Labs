@@ -6,14 +6,52 @@ namespace _336Labs.Bayburin
 {
     class StringOperations
     {
-        public static string _letters = "Stewardesses";
-        public static void Delete(string Word)
+        //Чётные и нечётные.
+        public static void StringEven(string word)
         {
+            Console.Write("odd letters -  ");
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    Console.Write(word[i]);
+                }
+            }
+            Console.WriteLine();
+            Console.Write("even letters - ");
+        
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (i % 2 != 0)
+                {
+                    Console.Write(word[i]);
+                }
+            }
+            Console.WriteLine();
 
-            Console.WriteLine(Word.Replace("ss", "s"));
-            Console.WriteLine(Word.Replace("es", "s"));
-            Console.WriteLine(Word.Replace("es", ""));
+
         }
+        //Кол-во слов в строке.
+        public static void numberofwords(string theword)
+        {
+            int words = 1;
+            for (int i = 0; i < theword.Length; i++)
+            {
+                if (char.IsWhiteSpace(theword[i]))
+                {
+                    words++;
+                }
+               
+                
+            }
+            Console.WriteLine($"Number of words: {words}");
+        }
+        //Палиндром
+       
+        
+            
 
+        }
     }
-}
+
+

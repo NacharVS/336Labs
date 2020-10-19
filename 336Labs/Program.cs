@@ -7,7 +7,9 @@ namespace _336Labs.Bayburin
     {
         static void Main(string[] args)
         {
-
+            string s = "спать хочу";
+            StringOperations.StringEven(s);
+            StringOperations.numberofwords(s);
         }
     }
 }
