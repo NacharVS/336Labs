@@ -8,13 +8,20 @@ namespace _336Labs.Bitkova
     {
         public static void Chetn_Nechetn()
         {
-           string A = Console.ReadLine();
-            Console.WriteLine(A);
-            string[] words = A.Split(new char[] { ' ' });
-            
+
+            while (true)
+            {
+
+
+                var i = A[c].ToString();
+                A = A.Replace(i, "");
+                A = A.Insert(c, i);
+                c++;
+                if (A.Length - 1 < c)
+                    break;
 
 
 
-        }
+            }
     }
 }
