@@ -21,7 +21,7 @@ namespace _336Labs.Ippolitova
     }
     class StudentsSeelection
     {
-        public static void Selection(StudentsList[] list, double AverageMark)
+        internal static void Selection(StudentsList[] list, double AverageMark)
         {
             for (int i = 0; i < list.Length; i++)
             {
