@@ -4,7 +4,20 @@ using System.Text;
 
 namespace _336Labs.Ziatdinova
 {
-    class Class1
+    class StringOperations
     {
+        public static void StringOperations()
+        {
+            Console.WriteLine("Введите слово:");
+            string ab = Console.ReadLine();
+            string zi = "";
+            string ks = "";
+            while (ab != "")
+            {
+
+            }
+        }
+
+        
     }
 }
