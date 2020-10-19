@@ -9,9 +9,8 @@ namespace _336Labs.Acadullin
 {
     class ClassesAndObjects
     {
-        static void Main(string[] args)
-        {
-            int[,] mass = new int[6, 6];
+        public static void array(int[,] mass)
+        { 
             Random rnd = new Random();
             int sum = 0;
             for (int i = 0; i < mass.GetLength(0); i++)
@@ -23,11 +22,14 @@ namespace _336Labs.Acadullin
                 {
                     mass[i, j] = rnd.Next(0, 10);
                     Console.Write($"{mass[i, j]} ");
-                    sum += mass[i, j];
+                    sum += mass[i , j];
                 }
+                Console.Write("-- Сумма =  " + sum);
+                sum = 0;
+                Console.WriteLine();
             }
             {
-                Console.WriteLine("-- Сумма =  " + sum);
+                
                 Console.WriteLine();
             }
         }

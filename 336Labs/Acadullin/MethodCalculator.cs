@@ -36,19 +36,8 @@ namespace _336Labs.Acadullin
             }
             return result;
         }
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Введите число");
-            double a = Convert.ToDouble(Console.ReadLine());
-            double b = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Операции:");
-            Console.WriteLine("Сумма: " + Sum(a, b));
-            Console.WriteLine("Разность: " + Diff(a, b));
-            Console.WriteLine("Умножение: " + Comp(a, b));
-            Console.WriteLine("Деление: " + Div(a, b));
-            Console.WriteLine("Взведение в степень: " + Step(a, b));
-            Console.ReadKey();
-        }
+        
+        
 
     }
 }
