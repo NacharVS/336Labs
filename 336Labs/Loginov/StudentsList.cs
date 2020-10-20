@@ -11,11 +11,11 @@ namespace _336Labs.Loginov
             Console.WriteLine("Введите среднюю оценку");
             double AveregeMark = Convert.ToDouble(Console.ReadLine());
             StudentsList[] list = new StudentsList[5];
-            list[0] = new StudentsList("Splinter", 1, 7, 7);
-            list[1] = new StudentsList("Leonardo", 6, 5, 5);
-            list[2] = new StudentsList("Raphael", 3, 4, 5);
+            list[0] = new StudentsList("Splinter", 6, 1, 7);
+            list[1] = new StudentsList("Leonardo", 6, 1, 5);
+            list[2] = new StudentsList("Raphael", 1, 4, 5);
             list[3] = new StudentsList("Donatello", 5, 5, 5);
-            list[4] = new StudentsList("Michelangelo", 3, 2, 3);
+            list[4] = new StudentsList("Michelangelo", 3, 2, 10);
             StudentSelection.Selection(list, AveregeMark);
         }
     }
@@ -27,23 +27,20 @@ namespace _336Labs.Loginov
         private double _physicsMark;
         private double _chemistryMark;
 
-        public StudentsList(string name, double math, double physics, double chemisiry)
+        public StudentsList(string name, double math, double chemistry, double physics)
         {
             _name = name;
 
             _mathMark = math;
             MathMark = _mathMark;
+            _chemistryMark = chemistry;
+            ChemistryMark = _chemistryMark;
             _physicsMark = physics;
-            PhysicsMark = physics;
-            _chemistryMark = chemisiry;
-            ChhemistryMark = chemisiry;
+            PhysicsMark = _physicsMark;
         }
-        /*        public static void Name1 (StudentsList[] list)
-                {
-
-                }*/
-
-        /*public string Name
+        /*
+  
+        public string Name
         {
             set
             {
@@ -69,7 +66,7 @@ namespace _336Labs.Loginov
             }
             get { return _mathMark; }
         }
-        public double ChhemistryMark
+        public double ChemistryMark
         {
             set
             {
@@ -99,6 +96,7 @@ namespace _336Labs.Loginov
             }
             get { return _physicsMark; }
         }
+
     }
     class StudentSelection
     {
@@ -106,10 +104,10 @@ namespace _336Labs.Loginov
         {
             for (int i = 0; i < list.Length; i++)
             {
-                if (list[i].MathMark + list[i].ChhemistryMark + list[i].PhysicsMark / 3 >= AveregeMark)
+                if (list[i].MathMark + list[i].ChemistryMark + list[i].PhysicsMark / 3 >= AveregeMark)
                 {
                     Console.WriteLine($"{list[i]._name} acces granted");
-                    Console.WriteLine($"{ list[i].MathMark},  {list[i].ChhemistryMark},  {list[i].PhysicsMark}");
+                    Console.WriteLine($"{ list[i].MathMark},  {list[i].ChemistryMark},  {list[i].PhysicsMark}");
                 }
             }
         }
