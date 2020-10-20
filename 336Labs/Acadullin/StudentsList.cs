@@ -7,9 +7,9 @@ namespace _336Labs.Acadullin
     class StudentsList
     {
         public string _namestudent;
-        public double _mathMark;
-        public double _physicsMark;
-        public double _chemistryMark;
+        private double _mathMark;
+        private double _physicsMark;
+        private double _chemistryMark;
 
         public StudentsList(string name, double math, double physics, double chemisrty)
         {
@@ -21,28 +21,44 @@ namespace _336Labs.Acadullin
     }
     class StudentSelection
     {
-        public static void Selection(StudentsList[] list, double AverageMark)
+        //public static void Selection(StudentsList[] list, double AverageMark)
+        //{
+        //    for (int i = 0; i < list.Length; i++)
+        //    {
+        //        if ((list[i]._mathMark + list[i]._physicsMark + list[i]._chemistryMark) / 3 >= AverageMark)
+        //        {
+        //            Console.WriteLine($"Студент {list[i]._namestudent} с такими оценками допущен к экзамену!");
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine($"Студент {list[i]._namestudent} с такими оценками не допущен к экзамену!");
+        //        }
+        //    }
+        //}
+        public double _mathMark
         {
-            for (int i = 0; i < list.Length; i++)
+           get
             {
-                if ((list[i]._mathMark + list[i]._physicsMark + list[i]._chemistryMark) / 3 >= AverageMark)
+                return _mathMark;
+            }
+            set
+            {
+                if (value < 6 && value > 1)
                 {
-                    Console.WriteLine($"Студент {list[i]._namestudent} с такими оценками допущен к экзамену!");
+                    this._mathMark = value;
                 }
-                else
+                else 
                 {
-                    Console.WriteLine($"Студент {list[i]._namestudent} с такими оценками не допущен к экзамену!");
+                    if (value > 5)
+                    {
+                        this._mathMark = 5;
+                    }
+                    else 
+                    {
+                        this._mathMark = 2;
+                    }
                 }
             }
-        }
-        private int AverageMark;
-        public int Ocenka;
-        {
-           set
-            {
-                if (Value > 5)
-            }
-        }
+}
     }
 }
-
