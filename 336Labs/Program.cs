@@ -1,13 +1,17 @@
-﻿using System;
+﻿
+using System;
+using System.Collections.Generic;
+using System.Text;
+using _336Labs.Loginov;
 
 namespace _336Labs
 {
-    class Program
+    class program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            string a = Console.ReadLine();
-            Console.WriteLine("Hi, "+a);
+            SL.StL();
+            //StringOperations.StrOpr();
         }
     }
 }
