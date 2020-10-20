@@ -35,6 +35,13 @@ namespace _336Labs.Galimzyanov
                 }
             }
         }
+        public static void Ocenka(Studentslist [] list, double AverageMark)
+        {
+            for (int i = 0; i < list.Length; i++)
+            {
+                if (AverageMark )
+            }
+        }
     }
 }
 
