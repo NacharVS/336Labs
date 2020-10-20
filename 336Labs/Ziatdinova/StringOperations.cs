@@ -7,18 +7,22 @@ namespace _336Labs.Ziatdinova
 {
     class StringOperations
     {
-        public static void StringOperations()
+        static void Main(string[] args)
         {
             Console.WriteLine("Введите слово:");
-            string ab = Console.ReadLine();
-            string zi = "";
-            string ks = "";
-            while (ab != ""
+            string word = Console.ReadLine();
+            for (int i = 0; i < word.Length; i += 2)
             {
-
+                Console.Write(word[i] + "");
             }
-        }
+            Console.WriteLine();
+            for (int i = 1; i < word.Length; i += 2)
+            {
+                Console.Write(word[i] + "");
+            }
+            Console.WriteLine();
 
-        
+
+        }
     }
 }
