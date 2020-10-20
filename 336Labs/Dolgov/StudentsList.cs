@@ -6,14 +6,14 @@ namespace _336Labs.Dolgov
 {
     class StudentsList
     {
-        public string _name;
+        public string _namee;
         public double _mathMark;
         public double _physicsMark;
         public double _chemisrtyMark;
 
         public StudentsList(string name, double math, double physics, double chemistry)
         {
-            _name = name;
+            _namee = name;
             _mathMark = math;
             _physicsMark = physics;
             _chemisrtyMark = chemistry;
@@ -26,9 +26,9 @@ namespace _336Labs.Dolgov
         {
             for (int i = 0; i < list.Length; i++)
             {
-                if ((list[i]._mathMark + list[i]._physicsMark + list[i]._chemisrtyMark) / 3 >= AverageMark)
+                if ((list[i]._mathMark + list[i]._physicsMark + list[i]._chemisrtyMark) / 4 >= AverageMark)
                 {
-                    Console.WriteLine($"{list[i]._name} acces granted ");
+                    Console.WriteLine($"{list[i]._namee} acces granted ");
                 }
             }
         }
