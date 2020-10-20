@@ -34,6 +34,13 @@ namespace _336Labs.Loginov
             _physicsMark = physics;
             _chemistryMark = chemisiry;
         }
+        private double Number1
+        {
+            set 
+            {
+                if 
+            }
+        }
     }
     class StudentSelection
     {
