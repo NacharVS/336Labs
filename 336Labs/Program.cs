@@ -11,7 +11,8 @@ namespace _336Labs
             StudentsList Liana = new StudentsList("Liana", 3, 4, 5);
             StudentsList Karina = new StudentsList("Karina", 2, 3, 2);
             StudentsList Danil = new StudentsList("Danil", 5, 4, 5);
-            StudentsList Danil = new StudentsList("Danil", 5, 4, 5);
+            StudentsList Timur = new StudentsList("Danil", 5, 4, 5);
+            StudentsList Aizat = new StudentsList("Danil", 4, 5, 5);
             StudentsList Bulat = new StudentsList("Bulat", 5, 3, 5);
             StudentsList[] studentslists = new StudentsList[5];
             studentslists[0] = Ksenia;
