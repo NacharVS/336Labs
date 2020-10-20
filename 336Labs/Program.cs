@@ -11,7 +11,7 @@ namespace _336Labs
         {
             //MethodCalculator.Calc();
             //ClassAndObjects.CaO();
-            //SL.StL();
+            SL.StL();
             //StringOperations.StrOpr();
         }
     }
