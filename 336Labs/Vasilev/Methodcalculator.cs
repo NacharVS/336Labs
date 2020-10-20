@@ -32,7 +32,7 @@ namespace _336Labs.Vasilevcalculator
         {
             return Math.Pow(a, 1 / b);
         }
-        static void Main(string[] args)
+        static void NotMain(string[] args)
         {
             Console.WriteLine("Введите число");
             double a = Convert.ToDouble(Console.ReadLine());
