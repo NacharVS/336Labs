@@ -24,6 +24,22 @@ namespace _336Labs.Bitkova
             _physicsMark = physics;
             _informaticsMark = informatics;
         }
+
+        private int mark;
+        public int Mark
+        {
+            get
+            {
+                return mark;
+            }
+            set
+            {
+                if (value < 0 || value > 6)
+                {
+                    mark = value;
+                }
+            }
+        }
     }
 
     class StudentSelection
@@ -41,12 +57,18 @@ namespace _336Labs.Bitkova
 
         static void Main(string[] args)
         {
-            StudentList[] list = new StudentList[5];
-            list[0] = new StudentList("Oksana", 3, 4, 4, 5, 3, 5);
-            list[1] = new StudentList("Angela", 3, 3, 4, 4, 2, 4);
-            list[2] = new StudentList("Leila", 5, 5, 5, 5, 5, 5);
-            list[3] = new StudentList("Kamilla", 3, 4, 4, 5, 4, 2);
-            list[4] = new StudentList("Karina", 3, 4, 3, 5, 5, 2);
+            StudentList Oksana = new StudentList("Oksana", 3, 4, 4, 5, 3, 5);
+            StudentList Angela = new StudentList("Angela", 3, 3, 4, 4, 2, 4);
+            StudentList Leila = new StudentList("Leila", 5, 5, 5, 5, 5, 5);
+            StudentList Kamilla = new StudentList("Kamilla", 3, 4, 4, 5, 4, 2);
+            StudentList Karina = new StudentList("Karina", 3, 4, 3, 5, 4, 6);
+            StudentList[] studentlist = new StudentList[5];
+            studentlist[0] = Oksana;
+            studentlist[1] = Angela;
+            studentlist[2] = Leila;
+            studentlist[3] = Kamilla;
+            studentlist[4] = Karina;
+            StudentSelection.Selection(studentlist, 4);
         }
     }
 }
