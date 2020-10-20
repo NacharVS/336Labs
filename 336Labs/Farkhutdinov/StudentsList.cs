@@ -35,7 +35,38 @@ namespace _336Labs.Farkhutdinov
         }
     }
     //2
+    class Properties
+    {
+        private double mark;
+        public double Mark
+        {
+            get
+            {
+                return mark;
+            }
+            set
+            {
+                mark = value;
+                if (mark > 5) Console.WriteLine(5);
+                if (mark < 2) Console.WriteLine(2);
+                else Console.WriteLine(mark);
+             
+
+            }
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
