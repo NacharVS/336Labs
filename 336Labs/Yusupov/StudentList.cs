@@ -1,35 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace _336Labs.Yusupov
 {
     class StudentList
     {
-        public string _NameOfStudent;
-        public double _GeometryMark;
-        public double _AlgebraMark;
-        public double _RussianLanguageMark;
-        public double _ProgrammingMark;
+        public string _name;
+        public double _MathMark;
+        public double _PhisMark;
+        public double _GeometryMark; 
+
       
 
-        public StudentList(string NameOfStudent, int GeometryMark , int AlgebraMark, int RussianLanguageMark ,int ProgrammingMark)
+        public StudentList(string name , double MathMark , double PhisMark, double GeometryMark )
         {
-            _NameOfStudent = NameOfStudent;
+            _name = name;
+            _MathMark = MathMark;
+            _PhisMark = PhisMark;
             _GeometryMark = GeometryMark;
-            _AlgebraMark = AlgebraMark;
-            _RussianLanguageMark = RussianLanguageMark;
-            _ProgrammingMark = ProgrammingMark; 
         }
 
-        public StudentList(string NameOfStudent, double GeometryMark, double AlgebraMark, double RussianLanguageMark, double ProgrammingMark)
-        {
-            _NameOfStudent = NameOfStudent;
-            _GeometryMark = GeometryMark;
-            _AlgebraMark = AlgebraMark;
-            _RussianLanguageMark = RussianLanguageMark;
-            _ProgrammingMark = ProgrammingMark;
-        }
     }
         class List
         {
@@ -37,14 +30,37 @@ namespace _336Labs.Yusupov
             {
                 for (int i = 0; i < lists.Length; i++)
                 {
-                    if (lists[i]._GeometryMark + lists[i]._AlgebraMark + lists[i]._ProgrammingMark + lists[i]._RussianLanguageMark / 4 >= AveregeMark)
+                    if (lists[i]._GeometryMark + lists[i]._GeometryMark + lists[i]._MathMark + lists[i]._PhisMark / 3 >= AveregeMark)
                     
-                        Console.WriteLine($"{lists[i]._NameOfStudent} access granted");
+                        Console.WriteLine($"{lists[i]._name} access granted");
                     
                 }
             }
         }
+
+    class Person
+    {
+        StudentList list = new StudentList(); 
+    
+        
+        private double mark = Convert.ToDouble(Console.ReadLine());
+        public double Mark
+        {
+            set
+            {
+                if(mark > list._GeometryMark) {
+                    mark = 5; 
+                    Console.WriteLine( mark);
+                }
+                
+            }
+            get
+            {
+                return mark; 
+            }
+        }
     }
+ }
 
 
 
