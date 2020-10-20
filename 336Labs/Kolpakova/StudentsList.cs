@@ -10,6 +10,7 @@ namespace _336Labs.Kolpakova
         public double _mathMark;
         public double _physicsMark;
         public double _chemistryMark;
+        public
        
         public StudentsList(string name, double math, double physics, double chemistry)
         {
