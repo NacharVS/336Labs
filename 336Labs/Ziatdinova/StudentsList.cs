@@ -6,18 +6,41 @@ namespace _336Labs.Ziatdinova
 {
     class StudentsList
     {
-        public string _name;
-        public double _mathMark;
-        public double _physicsMark;
-        public double _chemistryMark;
-        public 
-
+        public string name;
+        public double mathMark;
+        public double physicsMark;
+        public double chemistryMark;
+        
+        public string Name { get => name; set => name = value; }
+        public double MathMark { get => mathMark; set => mathMark = CheckNoMore5(value); }
+        public double PhysicsMark { get => physicsMark; set => physicsMark = CheckNoMore5(value); }
+        public double ChemistryMark { get => chemistryMark; set => chemistryMark = CheckNoMore5(value); }
         public StudentsList(string name, double math, double physics, double chemistry)
         {
-            _name = name;
-            _mathMark = math;
-            _physicsMark = physics;
-            _chemistryMark = chemistry;
+            Name = name;
+            MathMark = math;
+            PhysicsMark = physics;
+            ChemistryMark = chemistry;
+        }
+        double CheckNoMore5(double value)
+        {
+            if(value > 5)
+            {
+                return 5;
+            }
+            else
+            {
+                return value;
+            }
+        }
+        public int CompareTo(object obj)
+        {
+            if (obj is StudentsList a)
+            {
+                return this.Name.CompareTo(a.Name);
+            }
+            else
+                throw new Exception("Не студенты");
         }
     }
 
@@ -25,16 +48,30 @@ namespace _336Labs.Ziatdinova
     {
         public static void Selection(StudentsList[] list, double AverageMark)
         {
+            Array.Sort(list);
+            int index = 1;
             for (int i = 0; i < list.Length; i++)
             {
-                if ((list[i]._mathMark + list[i]._physicsMark + list[i]._chemistryMark) / 3 >= AverageMark)
+                string strIndex = index > 1 ? $"{index}" : "";
+                if ((list[i].MathMark + list[i].PhysicsMark + list[i].ChemistryMark) / 3 >= AverageMark)
                 {
-                    Console.WriteLine($"{list[i]._name} acces granted");
+                    Console.WriteLine($"{list[i].Name} acces granted");
                 }
                 else
                 {
-                    Console.WriteLine($"{ list[i]._name} Not acces granted");
+                    Console.WriteLine($"{ list[i].Name} Not acces granted");
 
+                }
+                if (i + 1 < list.Length)
+                {
+                    if (list[i].Name == list[i + 1].Name)
+                    {
+                        index++;
+                    }
+                    else
+                    {
+                        index = 1;
+                    }
                 }
             }
         }
