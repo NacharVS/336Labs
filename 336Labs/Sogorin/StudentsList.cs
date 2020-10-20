@@ -24,14 +24,64 @@ namespace _336Labs.Sogorin
         {
             for (int i = 0; i < list.Length; i++)
             {
-                if ((list[i]._MathMa + list[i]._phisMa + list[i]._RussMa)/3 >= Avma)
+                if ((list[i]._MathMa + list[i]._phisMa + list[i]._RussMa) / 3 >= Avma)
                 {
                     Console.WriteLine($"{list[i]} is sucssefull");
                 }
             }
         }
     }
+    public class Person
+    {
+
+
+        private string _Name;
+        private int _Age;
+
+        public Person(string Name, int Age)
+        {
+            _Name = Name;
+            _Age = Age;
+        }
+
+        public string Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                _Name = value;
+            }
+        }
+
+        public int Age
+        {
+            get
+            {
+                return _Age;
+            }
+            set
+            {                
+                if (_Age < 2)
+                {
+                    _Age = 2;
+                }
+                if (_Age > 5 )
+                {
+                    _Age = 5;
+                }
+                _Age = value;
+            }
+        }
+
+    }
 }
+
+
+
+
 /*
  *    StudentsList[] list = new StudentsList[5];
             list[0] = new StudentsList("Ivan", 5, 5, 5);
