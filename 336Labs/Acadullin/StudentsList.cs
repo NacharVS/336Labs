@@ -35,6 +35,14 @@ namespace _336Labs.Acadullin
                 }
             }
         }
+        private int AverageMark;
+        public int Ocenka;
+        {
+           set
+            {
+                if (Value > 5)
+            }
+        }
     }
 }
 
