@@ -62,7 +62,11 @@ namespace _336Labs.Ziatdinova
                     Console.WriteLine($"{ list[i].Name} Not acces granted");
 
                 }
-                Console
+                Console.WriteLine("Оценки");
+                Console.WriteLine($"Математика: {list[i].MathMark}");
+                Console.WriteLine($"Физика: {list[i].PhysicsMark}");
+                Console.WriteLine($"Химия: {list[i].ChemistryMark}\n");
+
                 if (i + 1 < list.Length)
                 {
                     if (list[i].Name == list[i + 1].Name)
