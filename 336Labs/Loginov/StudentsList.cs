@@ -10,12 +10,15 @@ namespace _336Labs.Loginov
         {
             Console.WriteLine("Введите среднюю оценку");
             double AveregeMark = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine();
             StudentsList[] list = new StudentsList[5];
             list[0] = new StudentsList("Splinter", 6, 1, 7);
             list[1] = new StudentsList("Leonardo", 6, 1, 5);
             list[2] = new StudentsList("Raphael", 1, 4, 5);
             list[3] = new StudentsList("Donatello", 5, 5, 5);
-            list[4] = new StudentsList("Michelangelo", 3, 2, 10);
+            list[4] = new StudentsList("Splinter", 3, 2, 10);
+            StudentSelection._ShowInfo(list);
+            Console.WriteLine();
             StudentSelection.Selection(list, AveregeMark);
         }
     }
@@ -38,19 +41,7 @@ namespace _336Labs.Loginov
             _physicsMark = physics;
             PhysicsMark = _physicsMark;
         }
-        /*
-  
-        public string Name
-        {
-            set
-            {
-                if (value == )
-                {
-                    _name = _name + "1";
-                }
-            }
 
-        }*/
         public double MathMark
         {
             set
@@ -97,18 +88,44 @@ namespace _336Labs.Loginov
             get { return _physicsMark; }
         }
 
+        public string Name
+        {
+            get 
+            {
+                return _name + "1"; 
+            }
+        }
+
+        public void Check()
+        {
+            _name = _name + "1";
+        }
+
+        public void ShowInfo()
+        {
+                Console.WriteLine($"{_name} - { MathMark},  {ChemistryMark},  {PhysicsMark}");
+        }
     }
+
     class StudentSelection
     {
         public static void Selection(StudentsList[] list, double AveregeMark)
         {
             for (int i = 0; i < list.Length; i++)
             {
-                if (list[i].MathMark + list[i].ChemistryMark + list[i].PhysicsMark / 3 >= AveregeMark)
+                if ((list[i].MathMark + list[i].ChemistryMark + list[i].PhysicsMark) / 3 >= AveregeMark)
                 {
                     Console.WriteLine($"{list[i]._name} acces granted");
-                    Console.WriteLine($"{ list[i].MathMark},  {list[i].ChemistryMark},  {list[i].PhysicsMark}");
                 }
+            }
+
+        }
+
+        public static void _ShowInfo(StudentsList[] list)
+        {
+            for (int i = 0; i < list.Length; i++)
+            {
+                list[i].ShowInfo();
             }
         }
     }
