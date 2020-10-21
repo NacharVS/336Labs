@@ -5,14 +5,11 @@ namespace _336Labs.Sogorin
     class Program
     {
         static void Main(string[] args)
-        {
-            /*
-            Console.WriteLine("Введите текст:");
-            string s = Console.ReadLine();
-            StringOperations.Split(s); 
-            
-            Console.WriteLine(StudentsList);*/       
-            
+        { 
+            Person s = new Person();
+            s.Name = "Nui";
+            s.Age = 15;
+            Console.WriteLine(s.Shinfo);
         }        
     }   
 }

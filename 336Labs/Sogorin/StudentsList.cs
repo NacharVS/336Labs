@@ -33,17 +33,9 @@ namespace _336Labs.Sogorin
     }
     public class Person
     {
-
-
         private string _Name;
-        private int _Age;
-
-        public Person(string Name, int Age)
-        {
-            _Name = Name;
-            _Age = Age;
-        }
-
+        private int _Age;    
+        
         public string Name
         {
             get
@@ -56,6 +48,14 @@ namespace _336Labs.Sogorin
             }
         }
 
+        public string Shinfo
+        {
+            get
+            {
+                return _Name + " " + _Age;                
+            }          
+        }
+
         public int Age
         {
             get
@@ -64,15 +64,16 @@ namespace _336Labs.Sogorin
             }
             set
             {                
-                if (_Age < 2)
+                if (value < 2)
                 {
-                    _Age = 2;
+                    value = 2;
                 }
-                if (_Age > 5 )
+                if (value > 5 )
                 {
-                    _Age = 5;
+                    value = 5;
                 }
                 _Age = value;
+                Console.WriteLine(_Age);
             }
         }
 

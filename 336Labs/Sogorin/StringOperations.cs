@@ -20,3 +20,8 @@ namespace _336Labs.Sogorin
         }
     }
 }
+/*
+ * Console.WriteLine("Введите текст:");
+            string s = Console.ReadLine();
+            StringOperations.Split(s);
+ */
