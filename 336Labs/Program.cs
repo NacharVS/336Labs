@@ -20,7 +20,7 @@ namespace _336Labs
             studentsLists[3] = Galimzyanov;
             studentsLists[4] = Daminov;
             studentsLists[5] = Dolgov;
-            StudentSelection.Selection(studentsLists, 5);
+            StudentSelection.Selection(studentsLists, 4);
         }
     }
 }
