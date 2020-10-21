@@ -8,10 +8,24 @@ namespace _336Labs.Ippolitova
     {
         public static void ShowWords (string s)
         {
-            string[] words = s.Split("wodrs words");
-            foreach (var item in words)
+            class StringOperations
+        {
+            static void Main(string[] args)
             {
-                Console.WriteLine(item);
+                Console.WriteLine("Введите слово:");
+                string word = Console.ReadLine();
+                for (int i = 0; i < word.Length; i += 2)
+                {
+                    Console.Write(word[i] + "");
+                }
+                Console.WriteLine();
+                for (int i = 1; i < word.Length; i += 2)
+                {
+                    Console.Write(word[i] + "");
+                }
+                Console.WriteLine();
+
+
             }
         }
     }
