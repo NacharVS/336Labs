@@ -62,6 +62,7 @@ namespace _336Labs.Ziatdinova
                     Console.WriteLine($"{ list[i].Name} Not acces granted");
 
                 }
+                Console
                 if (i + 1 < list.Length)
                 {
                     if (list[i].Name == list[i + 1].Name)
