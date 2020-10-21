@@ -61,6 +61,7 @@ namespace _336Labs.Kolpakova
                 {
                     Console.WriteLine($"Студент под именем {list[i]._name} не допущен к экзамену");
                 }
+                Console
                 if (i + 1 < list.Length)
                 {
                     if (list[i].Name == list [i + 1].Name)
