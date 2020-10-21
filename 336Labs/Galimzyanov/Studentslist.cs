@@ -93,6 +93,8 @@ namespace _336Labs.Galimzyanov
             }
 
         }
+       
+
 
         public Studentslist(string name, double math, double physics, double chemistry)
         {
@@ -106,6 +108,12 @@ namespace _336Labs.Galimzyanov
     {
         public static void Selection(Studentslist []list, double AverageMark)
         {
+            Arr.Sortirovka(list);
+            int Ind = 1;
+            for(int i = 0; i < list.Length; i++)
+            {
+                string stringInd = Ind > 1 $"(Ind)" : "";
+            }
             for (int i = 0; i < list.Length; i++)
             {
                 if ((list[i]._MathMark + list[i]._PhysicsMark + list[i]._ChemistryMark) / 3 >= AverageMark)
@@ -115,9 +123,27 @@ namespace _336Labs.Galimzyanov
                 else
                 {
                     Console.WriteLine($"Студент под именем {list[i]._name} не допущен к экзамену");
+             
                 }
+
+                if (i + 1 < list.Length)
+                {
+                    if (list[i]._name == list[i+1]._name)
+                {
+                        index++;
+                }
+                else
+                {
+                   index = 1;
+                }
+
+
+                }
+                
             }
+
         }
     }
+   
 }
 
