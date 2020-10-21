@@ -49,4 +49,48 @@ namespace _336Labs.Vasilev
             }
         }
     }
+
+
+    newCompanyName = newCompanyName.Trim();
+         var firstLetter = newCompanyName[0];
+    var otherLetters = newCompanyName.Remove(0, 1);
+
+    public void ShowCompanyName()
+    {
+        Console.WriteLine(_Company);
+    }
+
+    public void Showinfo()
+    {
+        Console.WriteLine($"Student: {_Name} in {_Company}");
+    }
+
+}
+
+
+
+   private string_Company;
+    public string Name
+    {
+    get
+    {
+       return_name;
+    
+    }
+    }
+          
+    class program
+    {
+        static void Main(string[] args)
+        {
+            Student stud = new Student();
+            stud.SetName("Palpatine");
+            stud.SetCompanyName("Empire");
+            stud.ShowName();
+            stud.ShowCompanyName();
+            Console.WriteLine();
+            stud.ShowInfo();
+
+        }
+    }
 }
