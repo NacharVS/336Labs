@@ -84,6 +84,7 @@ namespace _336Labs.Sogorin
 
 
 /*
+
  *    StudentsList[] list = new StudentsList[5];
             list[0] = new StudentsList("Ivan", 5, 5, 5);
             list[0] = new StudentsList("Frank", 5, 4, 4);
@@ -91,4 +92,9 @@ namespace _336Labs.Sogorin
             list[0] = new StudentsList("Inga", 5, 3, 5);
             list[0] = new StudentsList("Rev", 3, 5, 4);
             Stsel.Sel(list, 4.0);
- */
+
+ *  Person s = new Person();
+           s.Name = "Nui";
+           s.Age = 15;
+           Console.WriteLine(s.Shinfo);
+*/
