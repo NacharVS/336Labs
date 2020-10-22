@@ -10,8 +10,9 @@ namespace _336Labs.Vasilev
         {
             //MethodCalculator.Calc();
             //ClassAndObjects.CaO();
-            StudentList.StL();
+            //studentList.StL();
             //StringOperations.StrOpr();
-        }
-    }
+
+}
+}
 }
