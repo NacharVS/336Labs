@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _336Labs.Vasilev
 {
-    class Class1
+    class BankAccount
     {
     }
 }
