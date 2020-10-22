@@ -8,9 +8,10 @@ namespace _336Labs.Bitkova
     {
         private string _name;
         private string _surname;
-        private string _id;
-        private static double _rate = 6.7 ;
-        private double _paymentAccount;
+        private string _bank;
+        private double _id;
+        public static double _rate;
+        public string _paymentAccount;
 
         public void SetName(string newName)
         {
@@ -18,7 +19,6 @@ namespace _336Labs.Bitkova
             var firstletter = newName[0];
             var otherletters = newName.Remove(0, 1);
             _name = firstletter.ToString().ToUpper() + otherletters;
-               
         }
 
         public void SetSurname(string newSurname)
@@ -27,42 +27,53 @@ namespace _336Labs.Bitkova
             var firstletter = newSurname[0];
             var otherletters = newSurname.Remove(0, 1);
             _surname = firstletter.ToString().ToUpper() + otherletters;
-            
+
         }
-        
-        public void SetId(string newId)
+
+        public void SetBank(string newBank)
         {
-            int[] ID = new int[10];
-            ID[0] = 0;
-            ID[1] = 1;
-            ID[2] = 2;
-            ID[3] = 3;
-            ID[4] = 4;
-            ID[5] = 5;
-            ID[6] = 6;
-            ID[7] = 7;
-            ID[8] = 8;
-            ID[9] = 9;
-            
-            for (int i = 3; ID.Length; i++)
+            newBank = newBank.Trim();
+            var firstletter = newBank[0];
+            var otherletters = newBank.Remove(0, 1);
+            _bank = firstletter.ToString().ToUpper() + otherletters;
+
+        }
+
+        public void SetId(int newID)
+        {
+            Random rnd = new Random();
+            int[] ID = new int[1];
+            for (int i = 0; i < ID.Length; i++)
             {
-
-
-
+                ID[i] = rnd.Next(0, 1000);
             }
+            _id = newID;
+        }
 
+        public void SetRate(double Rate)
+        {
+            Random rmd = new Random();
+            double[] newRate = new double[1];
+            for (int i = 0; i < newRate.Length; i++)
+            {
+                newRate[i] = rmd.Next(0, 100);
+            }
+            _rate = Rate;
+        }
+
+        public void SetPaymentAccount(string newPaymentAccount)
+        {
+            
+            _paymentAccount = newPaymentAccount;
 
         }
 
         static void Main(string[] args)
         {
-
             BankAccount account = new BankAccount();
             account.SetName(Console.ReadLine());
             account.SetSurname(Console.ReadLine());
-            BankAccount._rate = 0.089;
-            Console.WriteLine(BankAccount._rate);
-            
+            account.SetBank(Console.ReadLine());
         }
     }
 }
