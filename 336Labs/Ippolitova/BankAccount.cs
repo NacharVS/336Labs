@@ -35,5 +35,10 @@ namespace _336Labs.Ippolitova
             _paymentAccount = _paymentAccount - withdraw;
             Console.WriteLine("На вашем счету:" + _paymentAccount + "рублей");
         }
+
+        static void main (string [] args)
+        {
+
+        }
     }
 }
