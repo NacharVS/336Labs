@@ -10,6 +10,8 @@ namespace _336Labs.Melenteva
         public double _mathMark;
         public double _physicsMark;
         public double _chemistryMark;
+        public double mathMark
+
 
         public StudentsList(string name, double math, double physics, double chemistry)
         {
@@ -18,6 +20,7 @@ namespace _336Labs.Melenteva
             _physicsMark = physics;
             _chemistryMark = chemistry;
         }
+
     }
 
     class StudentSelection
