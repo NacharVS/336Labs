@@ -62,6 +62,8 @@ namespace _336Labs.Sapegin
 
 
         }
+
+        public void SetPaymentAccount(double paymentAccount)
     }
 }
     
