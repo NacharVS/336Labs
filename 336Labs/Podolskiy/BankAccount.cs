@@ -33,12 +33,10 @@ namespace _336Labs.Podolskiy
             Console.WriteLine("На вашем счету " + _paymentAccount + " рублей ");
 
         }
-        static void main(string[] args)
+        static void Main(string[] args)
         {
-            BankAccount bank = new BankAccount();
-            BankAccount._rate = 0.089;
-            Console.WriteLine(BankAccount._rate); 
-            Acc
+            
+            
 
             _paymentAccount = 100000;
             bank.Deposit(1000);
