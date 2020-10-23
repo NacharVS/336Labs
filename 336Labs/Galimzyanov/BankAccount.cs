@@ -28,6 +28,26 @@ namespace _336Labs.Galimzyanov
             _surname = firstLetter.ToString().ToUpper() + otherLetters;
 
         }
+        public double GetRate()
+        {
+            return _rate;
+        }
+        public void SetRate(double rate)
+        {
+            _rate = rate;
+        }
+
+        public void Vnesti(double vnesti)
+        {
+            _paymentAccount = _paymentAccount + vnesti;
+            //Console.WriteLine("Счёт" + _paymentAccount + "рублей");
+        }
+        public void Snytia (double snytia)
+        {
+            _paymentAccount = _paymentAccount - snytia;
+            //Console.WriteLine("Счёт" + _paymentAccount + "рублей");
+        }
+        
 
     }
 }
