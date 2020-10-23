@@ -10,9 +10,6 @@ namespace _336Labs.Melenteva
         public double _mathMark;
         public double _physicsMark;
         public double _chemistryMark;
-        public double mathMark
-
-
         public StudentsList(string name, double math, double physics, double chemistry)
         {
             _name = name;
@@ -21,8 +18,24 @@ namespace _336Labs.Melenteva
             _chemistryMark = chemistry;
         }
 
-    }
+        private int mark;
+        public int Mark
+        {
 
+            get
+            {
+                return mark;
+            }
+            set
+            {
+                if (value < 0 || value > 3)
+                {
+                    mark = value;
+                }
+            }
+        }
+
+    }
     class StudentSelection
     {
         static void Selection(StudentsList[] list, double AverageMark)
@@ -35,5 +48,10 @@ namespace _336Labs.Melenteva
                 }
             }
         }
+
+
     }
-}
+}  
+
+
+        
