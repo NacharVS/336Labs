@@ -38,7 +38,13 @@ namespace _336Labs.Ippolitova
 
         static void main (string [] args)
         {
-
+            BankAccount bank = new BankAccount();
+            BankAccount._rate = 0.089;
+            Console.WriteLine(BankAccount._rate);
+            bank._paymentAccount = 200000;
+            bank.Deposit(1000);
+            bank.Withdraw(1500);
         }
     }
+
 }
