@@ -9,7 +9,7 @@ namespace _336Labs
         {
             //MethodCalculator.Calculator();
             //ClassesAndObjectss.ClaAndObj();
-            StudentsList[] list = new StudentsList[5];
+            //StudentsList[] list = new StudentsList[5];
             list[0] = new StudentsList("Danil", 5, 4, 5);
             list[1] = new StudentsList("Bulat", 3, 5, 3);
             list[2] = new StudentsList("Maksim", 3, 3, 3);
@@ -17,6 +17,7 @@ namespace _336Labs
             list[4] = new StudentsList("Zilya", 5, 5, 5);
             StudentsSelection.Selection(list, 3);
             //StringOperations.StringOperationss();
+            BankAccount.();
 
         }
     }
