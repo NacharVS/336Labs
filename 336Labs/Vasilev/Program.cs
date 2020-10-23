@@ -12,7 +12,7 @@ namespace _336Labs.Vasilev
             //ClassAndObjects.CaO();
             //studentList.StL();
             //StringOperations.StrOpr();
-
+            Studentcompany.main();
 }
 }
 }

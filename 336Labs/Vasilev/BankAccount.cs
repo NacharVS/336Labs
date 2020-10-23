@@ -9,7 +9,7 @@ namespace _336Labs.Vasilev
         private string _name;
         private string _sername;
         private string _id;
-        public static double _rate = 0.067;
+        public static double _rate = 0.1;
         private double _paymentAccount;
 
         public void SetName(string newName)
@@ -19,4 +19,5 @@ namespace _336Labs.Vasilev
             var otherLetters = newName.Remove(0, 1);
             _name = firstLetter.ToString().ToUpper() + otherLetters.ToString();
         }
+    }
 }

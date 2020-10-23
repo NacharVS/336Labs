@@ -23,10 +23,12 @@ namespace _336Labs.Vasilev
     class StudentsList
     {
 
-        public string _name;
+        public string _Name;
         public double _mathMark;
         public double _physicsMark;
         public double _chemistryMark;
+        public string _Company;
+
 
         public StudentsList(string name, double math, double physics, double chemisiry)
         {
@@ -49,12 +51,21 @@ namespace _336Labs.Vasilev
             }
         }
     }
-
-
-    newCompanyName = newCompanyName.Trim();
-         var firstLetter = newCompanyName[0];
-    var otherLetters = newCompanyName.Remove(0, 1);
-
+    class Studentcompany
+    {
+        private string Company;
+        private string newCompanyName;
+        public string _Company;
+        public string _Name;
+        public string nejopa
+    {
+            set
+            {
+                newCompanyName = newCompanyName.Trim();
+                var firstLetter = newCompanyName[0];
+                var otherLetters = newCompanyName.Remove(0, 1);
+            }
+    }
     public void ShowCompanyName()
     {
         Console.WriteLine(_Company);
@@ -69,17 +80,19 @@ namespace _336Labs.Vasilev
 
 
 
-   private string_Company;
-    public string Name
+    class chtoto2
     {
-    get
-    {
-       return_name;
-    
-    }
+        public string Name
+        {
+            get
+            {
+                return_name;
+
+            }
+        }
     }
           
-    class program
+    class chtoto
     {
         static void Main(string[] args)
         {
