@@ -17,8 +17,29 @@ namespace _336Labs.Acadullin
             newName = newName.Trim();
             var firstLetter = newName[0];
             var otherLetters = newName.Remove(0, 1);
-            _name = firstLetter.ToString().ToUpper()
+            _name = firstLetter.ToString().ToUpper() + otherLetters;
         }
+        public void SetSurname(string newSurname)
+        {
+            newSurname = newSurname.Trim();
+            var firstLetter = newSurname[0];
+            var otherLetters = newSurname.Remove(0, 1);
+            _surname = firstLetter.ToString().ToUpper() + otherLetters;
+        }
+        public double GetRate()
+        {
+            return _rate;
+        }
+        public void SetRate(double rate)
+        {
+            _rate = rate;
+        }
+        public void Polosh(double polosh)
+        {
+            _paymentAccount = _paymentAccount + polosh;
+        }
+        public void
+
 
     }
 }
