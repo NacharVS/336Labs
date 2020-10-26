@@ -8,13 +8,11 @@ namespace _336Labs
     {
         static void Main(string[] args)
         {
-            Person person = new Person();
-            StudentList[] list = new StudentList[3];
-            list[0] = new StudentList("Ainur", 5, 4, 3);
-            list[1] = new StudentList("Amir", 4, 4, 4);
-            list[2] = new StudentList("Andrey", 3, 3, 5);
+            BankAccount bank = new BankAccount();
 
-            List.Method(list, person.Mark);
+            bank.SetName("Даня");
+            bank.Deposit();
+            bank.Withdraw();
         }
     }
 }
