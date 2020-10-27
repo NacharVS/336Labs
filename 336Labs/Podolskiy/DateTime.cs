@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _336Labs.Podolskiy
 {
-    class DATETime
+    class BankAccount
     {
         private string _name;
         private string _surname;
@@ -38,5 +38,11 @@ namespace _336Labs.Podolskiy
 
             Console.WriteLine("На вашем счету осталось : " + _paymentAccount);
         }
+
+        DateTime dayOfBirth = new DateTime(2000, 2, 22);
+         
+         
+           
     }
-}
+
+    }

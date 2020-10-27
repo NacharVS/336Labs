@@ -8,7 +8,7 @@ namespace _336Labs
     {
         static void Main(string[] args)
         {
-            DATETime time = new DATETime();
+            BankAccount time = new BankAccount();
             time.Deposit();
             time.Withdraw(); 
         }
