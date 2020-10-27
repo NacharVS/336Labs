@@ -4,18 +4,25 @@ using System.Text;
 
 namespace _336Labs.Farkhutdinov
 {
-    class BankAccount
-    {
-        public class BankAccount
+    class BankAccoun
+    { 
         {
-            private string name;
-            private string surname;
-            private string id;
-            private double payment;
-            private double contribution;
-            private double removal;
-            private static double rate = 7.7;
+            private string _name;
+            private string _surname;
+            private string _id;
+            private double _payment;
+            private double _contribution;
+            private double _removal;
+            private static double _rate = 7.7;
+        
+        public void SetName(string newName)
+        {
+            newName = newName.Trim();
+            var firstLetters = newName[0];
+            var otherLetters = newName.Remove(0, 1);
+            _name = firstLetters.ToString().ToUpper() + otherLetters;
+        }
 
-            public client(string name, )
+
     }
 }
