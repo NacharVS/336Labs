@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace _336Labs.Bayburin
 {
-    class BankAccoun
-    { 
-        {
-            private string _name;
+    class BankAccount
+    {
+        private string _name;
         private string _surname;
-        private string _id;
-        private double _payment;
-        private double _contribution;
-        private double _removal;
+        private static int _id = Environment.TickCount;
         private static double _rate = 7.7;
 
         public void SetName(string newName)
@@ -23,6 +20,17 @@ namespace _336Labs.Bayburin
             _name = firstLetters.ToString().ToUpper() + otherLetters;
         }
 
+        public void SetSurName(string newSurName)
+        {
+            newSurName = newSurName.Trim();
+            var firstLetters = newSurName[0];
+            var otherLetters = newSurName.Remove(0, 1);
+            _surname = firstLetters.ToString().ToUpper() + otherLetters;
+        }
 
+        public int personid
+        { 
+          get { return Interlocked.Increment(ref _id ); }
+        }
     }
 }
