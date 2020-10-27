@@ -10,6 +10,11 @@ namespace _336Labs
             //string aizat = "ккалиина этоо ммашшинаа";
             //StringOperations.Parity(aizat); 
             //StringOperations.LishSymbol(aizat);
+            //int a = Console.ReadLine();
+            //int b = Console.ReadLine();
+            BankAccount.People();
+            Console.WriteLine(DateTime.Now);
+
         }
     }         
 }   

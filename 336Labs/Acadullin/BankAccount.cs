@@ -38,8 +38,18 @@ namespace _336Labs.Acadullin
         {
             _paymentAccount = _paymentAccount + polosh;
         }
-        public void
+        public void Vzyat(double vzyat)
+        {
+            _paymentAccount = _paymentAccount + vzyat;
+        }
+        public void People(string people)
+        {
+            
 
-
+        
+        }
     }
-}
+} 
+    
+        
+  
