@@ -8,10 +8,10 @@ namespace _336Labs.Loginov
     {
         private string _name;
         private string _surname;
-        private int _id;
-        private DateTime _age;
+        private int _id, _age;
         public static double _rate = 0.067;
         private double _paymentAccount;
+        private DateTime DayOfBirth = new DateTime();
 
 
         //Установка
@@ -35,10 +35,10 @@ namespace _336Labs.Loginov
         {
             DateTime dayofbirth = DateTime.Now.Date;
         }
-        public void SetId()
+        public static void SetId(BankAccount bank)
         {
             Random rnd = new Random();
-            _id = rnd.Next(10, 100);
+            bank._id = rnd.Next(10, 100);
         }
         public static void SetNameSurnameIdAge(BankAccount bank)
         {
@@ -46,10 +46,23 @@ namespace _336Labs.Loginov
             bank.SetName(Console.ReadLine());
             Console.WriteLine("Введите фамилию");
             bank.SetSurname(Console.ReadLine());
-            bank.SetId();
-            Console.WriteLine("Введите дату рождения");
-            bank.SetAge(Console.ReadLine());
         }
+        public static void SetAge(BankAccount bank)
+        {
+            Console.WriteLine("Введите год рождения");
+            int year = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите месяц рождения");
+            int month = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите день рождения");
+            int day = Convert.ToInt32(Console.ReadLine());
+            bank.DayOfBirth = new DateTime(year, month, day);
+            Console.WriteLine(bank.DayOfBirth);
+            DateTime Today = DateTime.Now;
+            Console.WriteLine(Today);
+            bank._age = Today.Year - bank.DayOfBirth.Year;
+            Console.WriteLine(bank._age);
+        }
+
 
         //Выдача
         public static void GetNameSurnameId(BankAccount bank)
@@ -57,6 +70,8 @@ namespace _336Labs.Loginov
             Console.WriteLine($"Имя:     {bank._name}");
             Console.WriteLine($"Фамилия: {bank._surname}");
             Console.WriteLine($"ID:      {bank._id}");
+            Console.WriteLine($"Дата рождения: {bank.DayOfBirth.ToString("dd:MM:yyyy")}");
+            Console.WriteLine($"Возраст: {bank._age}");
         }
         // Операции
         public void Deposit()
@@ -86,11 +101,12 @@ namespace _336Labs.Loginov
         {
             BankAccount bank = new BankAccount();
             BankAccount.SetNameSurnameIdAge(bank);
+            BankAccount.SetId(bank);
+            BankAccount.SetAge(bank);
             BankAccount.GetNameSurnameId(bank);
             int n = 1;
             while (n >0)
             {
-                BankAccount.GetNameSurnameId(bank);
                 bank.Deposit();
                 bank.Withdraw();
             }
