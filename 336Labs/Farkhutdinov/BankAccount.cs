@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace _336Labs.Farkhutdinov
 {
@@ -31,5 +32,6 @@ namespace _336Labs.Farkhutdinov
         {
             get { return Interlocked.Increment(ref _id); }
         }
+
     }
 }
