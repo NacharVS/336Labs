@@ -10,7 +10,7 @@ namespace _336Labs.Ippolitova
         private string _surname;
         private string _id;
         public static double _rate = 0.0067;
-        private double _paymentAccount;
+        private double _paymentAccount = 15000 ;
 
         public void SetName(string newName)
         {
