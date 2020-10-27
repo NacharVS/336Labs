@@ -7,44 +7,34 @@ namespace _336Labs.Ippolitova
     class BankAccount
     {
         private string _name;
-        private string _surname;
-        private string _id;
-        public static double _rate = 0.0067;
-        private double _paymentAccount = 15000 ;
+        private static double _rate = 0.021;
+        private double _paymentAccount = 12000;
 
         public void SetName(string newName)
         {
             newName = newName.Trim();
             var firstLetter = newName[0];
-            var otherLetters = newName.Remove(0, 1);
-            _name = firstLetter.ToString().ToUpper() + otherLetters;
+            var otherLetter = newName.Remove(0, 1);
+            _name = firstLetter.ToString().ToUpper() + otherLetter;
+        }
+        public void Deposit()
+        {
+            Console.WriteLine("Сколько хотите внести >>> ");
+
+            double depos = Convert.ToDouble(Console.ReadLine());
+
+            _paymentAccount = _paymentAccount + depos;
+
+            Console.WriteLine("На вашем счету стало " + _paymentAccount);
         }
 
-        public void Deposit (double deposit)
+        public void Withdraw()
         {
-            Console.WriteLine("Какую сумму вы намерены внести? :");
-            deposit = Convert.ToDouble(Console.ReadLine());
-            _paymentAccount = _paymentAccount + deposit;
-            Console.WriteLine("На вашем счету:" + _paymentAccount + "рублей");
-        }
-
-        public void Withdraw (double withdraw)
-        {
-            Console.WriteLine("Какую сумму вы намерены снять? :");
-            withdraw = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Сколько хотите снять  >>> ");
+            double withdraw = Convert.ToDouble(Console.ReadLine());
             _paymentAccount = _paymentAccount - withdraw;
-            Console.WriteLine("На вашем счету:" + _paymentAccount + "рублей");
-        }
 
-        static void main (string [] args)
-        {
-            BankAccount bank = new BankAccount();
-            BankAccount._rate = 0.089;
-            Console.WriteLine(BankAccount._rate);
-            bank._paymentAccount = 200000;
-            bank.Deposit(1000);
-            bank.Withdraw(1500);
+            Console.WriteLine("На вашем счету осталось : " + _paymentAccount);
         }
     }
-
 }
