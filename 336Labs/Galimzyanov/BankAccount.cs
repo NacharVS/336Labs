@@ -47,7 +47,12 @@ namespace _336Labs.Galimzyanov
             _paymentAccount = _paymentAccount - snytia;
             //Console.WriteLine("Счёт" + _paymentAccount + "рублей");
         }
-        
+
+        public void Chelovek(string chelovek)
+
+        { 
+            
+        }
 
     }
 }
