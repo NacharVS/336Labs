@@ -11,6 +11,7 @@ namespace _336Labs.Sapegin
         private string _id;
         private static double _rate = 6.7;
         private double _paymentAccount;
+        private int _age; 
 
         public void SetName(string newName)
         {
@@ -61,6 +62,14 @@ namespace _336Labs.Sapegin
             
         }
 
+
+        public void SetAge(int age)
+        {
+            
+            DateTime year = DateTime.Now;
+            Console.WriteLine(year.ToString("yyyy"));
+
+        }
        
     }
 }

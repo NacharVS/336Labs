@@ -6,7 +6,7 @@ namespace _336Labs.Sapegin
 {
     class StringOperations
     {
-        public static void Substring(string[] A)
+        public static void Substring()
         {
 
             int A = 0;
