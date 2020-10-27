@@ -47,20 +47,18 @@ namespace _336Labs.Sapegin
         {
             int k = 0;
             string str = "";
-            
 
             for (int i =0;  i < 3; i++ )
             {
                 str = (char)(k % 10) + str;
                 k = k / 10;
             }
-
             _id = str;
+       
+        }
+        public void SetPaymentAccount()
+        {
             
-           
-
-
-
         }
 
        
