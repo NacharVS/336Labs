@@ -62,16 +62,12 @@ namespace _336Labs.Sapegin
             
         }
 
-
-        public void SetAge(int age)
+        public void SetAge(double age)
         {
-            
-            DateTime year = DateTime.Now;
-            Console.WriteLine(year.ToString("yyyy"));
-
+            double BirthDate = double.Parse(Console.ReadLine());
+            DateTime nowDate = DateTime.Today;
+            double age = nowDate.Year - BirthDate;
         }
-
-        public static void
        
     }
 }
