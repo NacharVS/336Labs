@@ -48,10 +48,17 @@ namespace _336Labs.Galimzyanov
             //Console.WriteLine("Счёт" + _paymentAccount + "рублей");
         }
 
-        public void Chelovek(string chelovek)
+        private void Chelovek(string chelovek)
 
-        { 
+        {
             
+                DateTime dateBirthday = new DateTime(2002, 4, 25);
+            int a;
+           
+            
+
+
+
         }
 
     }

@@ -7,7 +7,10 @@ namespace _336Labs
     {
         static void Main(string[] args)
         {
-         
+            a = DateTime.Now.Year - "28.12.1999";
+            Console.WriteLine(a);
+            Console.ReadKey();
+            
         }
     }
 }
