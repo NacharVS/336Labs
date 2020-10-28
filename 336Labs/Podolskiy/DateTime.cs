@@ -6,11 +6,13 @@ namespace _336Labs.Podolskiy
 {
     class BankAccount
     {
+
         private string _name;
         private string _surname;
         private string _id;
         private static double _rate = 0.021;
         private double _paymentAccount = 12000;
+
 
         public void SetName(string newName)
         {
@@ -38,11 +40,26 @@ namespace _336Labs.Podolskiy
 
             Console.WriteLine("На вашем счету осталось : " + _paymentAccount);
         }
+        public  void MethodDate()
+        {
+            Console.WriteLine("Введите ваш год рождения");
+            int  years = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите месяц, когда вы родились");
+            int month = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите день, когда вы родились");
+            int days = int.Parse(Console.ReadLine());
 
-        DateTime dayOfBirth = new DateTime(2000, 2, 22);
-         
-         
-           
+            DateTime dayOfBirth = new DateTime(2002 , 4, 4 );
+  
+            dayOfBirth.AddYears(years);
+            dayOfBirth.AddMonths(month );
+            dayOfBirth.AddDays(days );
+
+            Console.WriteLine( $"Год: {years} Месяц:{month} День:{days}");
+            
+
+        }
+       
     }
 
-    }
+}

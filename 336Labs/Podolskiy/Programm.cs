@@ -10,7 +10,8 @@ namespace _336Labs
         {
             BankAccount time = new BankAccount();
             time.Deposit();
-            time.Withdraw(); 
+            time.Withdraw();
+            time.MethodDate(); 
         }
     }
 }
