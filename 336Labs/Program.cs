@@ -14,6 +14,8 @@ namespace _336Labs
             list[3] = new StudentsList("Podol", 3, 2, 3);
             list[4] = new StudentsList("Naimon", 4, 3, 4);
             StudentsSelection.Selection(list, 3);
+            BankAc.BankAcco;
         }
     }
+}
 }
