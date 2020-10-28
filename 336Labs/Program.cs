@@ -7,13 +7,15 @@ namespace _336Labs
     {
         static void Main(string[] args)
         {
-            //string aizat = "ккалиина этоо ммашшинаа";
-            //StringOperations.Parity(aizat); 
-            //StringOperations.LishSymbol(aizat);
-            //int a = Console.ReadLine();
-            //int b = Console.ReadLine();
-            BankAccount.People();
-            Console.WriteLine(DateTime.Now);
+
+            //BankAccount.People();
+
+            //Console.WriteLine(a);
+            //Console.ReadKey();
+            BankAccount account = new BankAccount();
+            account.SetName(Console.ReadLine());
+            account.SetSurname(Console.ReadLine());
+            
 
         }
     }         

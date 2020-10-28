@@ -42,11 +42,16 @@ namespace _336Labs.Acadullin
         {
             _paymentAccount = _paymentAccount + vzyat;
         }
-        public void People(string people)
+        private void People(object sender, RoutedEventArgs e)
         {
-            
+            //int a =
 
-        
+            //var date = DateTime.ParseExact(a, "dd.MM.yyyy");
+            //var age = DateTime.Now.Year - date.Year;
+            DateTime dateBirthday = new DateTime(2002, 4, 25);
+
+
+
         }
     }
 } 
