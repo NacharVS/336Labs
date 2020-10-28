@@ -7,7 +7,7 @@ namespace _336Labs.Galimzyanov
     class StringOperations
     {
         //1
-       public static void StringRazdelit(string sg)
+        public static void StringRazdelit(string sg)
         {
             Console.Write("Нечетные: ");
             for (int i = 0; i < sg.Length; i++)
@@ -32,7 +32,7 @@ namespace _336Labs.Galimzyanov
         {
             for (int i = 0; i < sg.Length; i++)
             {
-                if (i+1 < sg.Length)
+                if (i + 1 < sg.Length)
                 {
                     if (sg[i] != sg[i + 1])
                     {
@@ -42,14 +42,18 @@ namespace _336Labs.Galimzyanov
             }
             Console.Write(sg[sg.Length - 1]);
         }
-       
         //4 
-        public static bool Palindrom (string a)
+        public static bool Palindrom(string a)
         {
             for (int i = 1, j = a.Length - 1; i < j; i++, j--)
                 if (a[i] != a[j])
                     return false;
             return true;
         }
+        //3
+        public static void SK(string sk);
+     
+            
+
     }
 }
