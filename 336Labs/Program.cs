@@ -10,9 +10,13 @@ namespace _336Labs
         {
             BankAccount bank = new BankAccount();
 
-            bank.SetName("Даня");
+            bank.SetName("даня");
+            bank.SetName("кашин "); 
+             
             bank.Deposit();
             bank.Withdraw();
+            bank.MethodDates(); 
+ 
         }
     }
 }

@@ -18,6 +18,9 @@ namespace _336Labs.Yusupov
                 var firstLetter = newName[0];
                 var otherLetter = newName.Remove(0, 1);
                 _name = firstLetter.ToString().ToUpper() + otherLetter;
+                 _surname  = firstLetter.ToString().ToUpper() + otherLetter;
+            Console.WriteLine(_name);
+                  
             }
             public void Deposit()
         {
@@ -38,5 +41,25 @@ namespace _336Labs.Yusupov
 
                 Console.WriteLine("На вашем счету осталось : " + _paymentAccount);
             }
+
+            public void MethodDates()
+        {
+            DateTime dayOfBirthday = new DateTime();
+            int toYear = DateTime.Now.Year; 
+           
+            Console.WriteLine("Введите год:");
+            int years = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите месяц:");
+            int month = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите день:");
+            int days = int.Parse(Console.ReadLine());
+
+            dayOfBirthday.AddYears(years);
+            dayOfBirthday.AddMonths(month);
+            dayOfBirthday.AddDays(days);
+
+            Console.WriteLine("Вам сейчас: ");
+            Console.WriteLine(toYear - years);
         }
+    }
 }
