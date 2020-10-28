@@ -17,8 +17,7 @@ namespace _336Labs.Sogorin
             Table[6] = new BankAcc("Kuzax", "dvan");
             Table[7] = new BankAcc("Kuzaz", "gvan");
             Table[8] = new BankAcc("Kuzal", "jvan");
-            Table[9] = new BankAcc("Kuzaj", "avan");
-            BankAcc acc1 = new BankAcc("Kuzak", "pvan");
+            Table[9] = new BankAcc("Kuzaj", "avan");           
             account.shinfo(1);
         }        
     }   
