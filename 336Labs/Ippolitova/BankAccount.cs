@@ -7,8 +7,10 @@ namespace _336Labs.Ippolitova
     class BankAccount
     {
         private string _name;
-        private static double _rate = 0.021;
-        private double _paymentAccount = 12000;
+        private string _surname;
+        private string _id;
+        private double _paymentAccount = 2000;
+        private double _age;
 
         public void SetName(string newName)
         {
@@ -16,6 +18,8 @@ namespace _336Labs.Ippolitova
             var firstLetter = newName[0];
             var otherLetter = newName.Remove(0, 1);
             _name = firstLetter.ToString().ToUpper() + otherLetter;
+           
+                
         }
         public void Deposit()
         {
@@ -36,5 +40,7 @@ namespace _336Labs.Ippolitova
 
             Console.WriteLine("На вашем счету осталось : " + _paymentAccount);
         }
+
+
     }
 }
