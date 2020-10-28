@@ -8,10 +8,10 @@ namespace _336Labs.Bitkova
     {
         private string _name;
         private string _surname;
-        private string _bank;
         private double _id;
-        public static double _rate;
-        public string _paymentAccount;
+        private static double _rate = 6.7;
+        private double _paymentAccount;
+        private int _age;
 
         public void SetName(string newName)
         {
@@ -19,6 +19,8 @@ namespace _336Labs.Bitkova
             var firstletter = newName[0];
             var otherletters = newName.Remove(0, 1);
             _name = firstletter.ToString().ToUpper() + otherletters;
+            Console.WriteLine("Ведите имя: ");
+            newName = Console.ReadLine();
         }
 
         public void SetSurname(string newSurname)
@@ -27,15 +29,8 @@ namespace _336Labs.Bitkova
             var firstletter = newSurname[0];
             var otherletters = newSurname.Remove(0, 1);
             _surname = firstletter.ToString().ToUpper() + otherletters;
-
-        }
-
-        public void SetBank(string newBank)
-        {
-            newBank = newBank.Trim();
-            var firstletter = newBank[0];
-            var otherletters = newBank.Remove(0, 1);
-            _bank = firstletter.ToString().ToUpper() + otherletters;
+            Console.WriteLine("Ведите Фамилию: ");
+            newSurname = Console.ReadLine();
 
         }
 
@@ -49,31 +44,49 @@ namespace _336Labs.Bitkova
             }
             _id = newID;
         }
+        public double GetRate()
+        {
+            return _rate;
+        }
 
         public void SetRate(double Rate)
         {
-            Random rmd = new Random();
-            double[] newRate = new double[1];
-            for (int i = 0; i < newRate.Length; i++)
-            {
-                newRate[i] = rmd.Next(0, 100);
-            }
             _rate = Rate;
         }
 
-        public void SetPaymentAccount(string newPaymentAccount)
+        public void SetAge(double age)
         {
-            
+            DateTime nowDate = DateTime.Today;
+            double birthDate = double.Parse(Console.ReadLine());
+            age = nowDate.Year - birthDate;
+            if(age < 14)
+            {
+                Console.WriteLine("Вы слишком молоды чтобы заводить свой счёт");
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        public void SetPaymentAccount(double newPaymentAccount)
+        {
             _paymentAccount = newPaymentAccount;
+            Console.WriteLine("Сколько хотите внести?");
+            newPaymentAccount = double.Parse(Console.ReadLine());
+            Console.WriteLine(newPaymentAccount);
+            Console.WriteLine("Сколько хотите снять?");
+            int a = int.Parse(Console.ReadLine());
+            newPaymentAccount = newPaymentAccount - a;
+            Console.WriteLine(newPaymentAccount);
 
         }
 
         static void Main(string[] args)
         {
             BankAccount account = new BankAccount();
-            account.SetName(Console.ReadLine());
-            account.SetSurname(Console.ReadLine());
-            account.SetBank(Console.ReadLine());
+            account.SetName();
+
         }
     }
 }
