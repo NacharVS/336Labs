@@ -14,7 +14,7 @@ namespace _336Labs.Kolpakova
 
         public void SetName(string newName)
         {
-
+            рпр
         }
     }
 }
