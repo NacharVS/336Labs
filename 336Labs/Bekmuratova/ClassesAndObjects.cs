@@ -9,19 +9,30 @@ namespace _336Labs.Bekmuratova
         public static void array(int[,] mass)
         {
             Random rnd = new Random();
-
-            for (m = 0; m < array.GetLength(0); m++)
+            int sum = 0;
+            for (int i = 0; i < mass.GetLength(0); i++)
             {
-                for (int n = 0; n < array.GetLength(0); n++)
+                int a = i;
+                Console.Write($"{a} - ");
+
+
+                for (int n = 0; n < mass.GetLength(0); n++)
                 {
-                    array[m, n] = rnd.Next(g, i);
-                    Console.WriteLine($"{array[m, n]} ");
+                    mass[i, n] = rnd.Next(0, 10);
+                    Console.WriteLine($"{mass[i, n]} ");
+                    sum += mass[i, n];
                 }
-                Console.WriteLine("");
-
-
+                Console.WriteLine("-- Sum = " + sum);
+                sum = 0;
+                Console.WriteLine();
             }
-            return;
+
+            {
+                Console.WriteLine();
+            }
+
+
+
         }
     }
 }
