@@ -12,9 +12,22 @@ namespace _336Labs.Kolpakova
         private static double _rate;
         private double _paymentAccount;
 
-        public void SetName(string newName)
+        public void list (string sur, string nam)
         {
-            рпр
+            nam = nam.Trim();
+            var oneLet = nam[0];
+            var lastLet = nam.Remove(0, 1);
+            _name = oneLet.ToString().ToUpper() + lastLet;
+
+            sur = sur.Trim();
+            var oneLet1 = sur[0];
+            var lastLet1 = sur.Remove(0, 1);
+            _SURNAME = oneLet1.ToString().ToUpper() + lastLet1;
+
         }
+            public void SetName(string newName)
+              {
+            
+              }
     }
 }
