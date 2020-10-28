@@ -6,7 +6,7 @@ namespace _336Labs.Melenteva
 {
     class ClassesAndObjects
     {
-        static void Gen(int[,] array, int g, int i)
+       public static void array(int[,] mass)
         {
             Random rnd = new Random();
 
