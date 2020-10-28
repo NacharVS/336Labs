@@ -8,8 +8,9 @@ namespace _336Labs.Sogorin
     {
         private static double _rate;
         private double _paymentac;
-        string _name;
-        string _surname;
+        public string _name;
+        public string _surname;
+        int _old;
         private int[] _id = { };
         public void spisok(string sur, string nam)
         {
@@ -22,22 +23,26 @@ namespace _336Labs.Sogorin
             var firstLet1 = sur[0];
             var lastLet1 = sur.Remove(0, 1);
             _surname = firstLet1.ToString().ToUpper() + lastLet1;
+
+            
         }
         public void shinfo(int j)
         {
-            //for (int i = 0; i < length; i++)
-            //{
-            //    if (j == )
-            //    {
-            //        Console.WriteLine(_name + " " + _surname);
-            //    }
-            //    Console.WriteLine();
-            //}            
+            BankAcc[] reg = new BankAcc[10];
+            for (int i = 0; i < reg.Length; i++)
+            {
+                if (j == i)
+                {
+                    Console.WriteLine(_name + " " + _surname);
+                }
+                Console.WriteLine();
+            }
         }
         public void Getid(string us)
         {
             Random rnd = new Random();
             string[] Accid = { };
+
             for (int j = 0; j < Accid.Length; j++)
             {
                 if (_surname == us)
@@ -58,11 +63,20 @@ namespace _336Labs.Sogorin
                 }
             }
         }
-         
+        public void Getold()
+        {
+            //DateTime;
+        }
     }
     class BankAcc
     {        
-      
+      public BankAcc(string sur, string nam)
+      {
+        Account account = new Account();
+        account._surname = sur;
+        account._name = nam;
+      }
+        
     }
 }
 

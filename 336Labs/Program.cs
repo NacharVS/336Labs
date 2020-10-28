@@ -7,17 +7,18 @@ namespace _336Labs.Sogorin
         static void Main(string[] args)
         {
             Account account = new Account();            
-            Account[] Table = new Account[10];
-            Table[0].spisok("Kuzak", "pvan");
-            Table[1].spisok("Kuzap", "uvan");
-            Table[2].spisok("Kuzam", "tvan");
-            Table[3].spisok("Kuzan", "yvan");
-            Table[4].spisok("Kuzab", "evan");
-            Table[5].spisok("Kuzac", "qvan");
-            Table[6].spisok("Kuzax", "dvan");
-            Table[7].spisok("Kuzaz", "gvan");
-            Table[8].spisok("Kuzal", "jvan");
-            Table[9].spisok("Kuzaj", "avan");
+            BankAcc[] Table = new BankAcc[10];
+            Table[0] = new BankAcc("Kuzak", "pvan");
+            Table[1] = new BankAcc("Kuzap", "uvan");
+            Table[2] = new BankAcc("Kuzam", "tvan");
+            Table[3] = new BankAcc("Kuzan", "yvan");
+            Table[4] = new BankAcc("Kuzab", "evan");
+            Table[5] = new BankAcc("Kuzac", "qvan");
+            Table[6] = new BankAcc("Kuzax", "dvan");
+            Table[7] = new BankAcc("Kuzaz", "gvan");
+            Table[8] = new BankAcc("Kuzal", "jvan");
+            Table[9] = new BankAcc("Kuzaj", "avan");
+            BankAcc acc1 = new BankAcc("Kuzak", "pvan");
             account.shinfo(1);
         }        
     }   
