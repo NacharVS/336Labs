@@ -72,20 +72,35 @@ namespace _336Labs.Bitkova
         public void SetPaymentAccount(double newPaymentAccount)
         {
             _paymentAccount = newPaymentAccount;
-            Console.WriteLine("Сколько хотите внести?");
-            newPaymentAccount = double.Parse(Console.ReadLine());
-            Console.WriteLine(newPaymentAccount);
+            double depos = Convert.ToDouble(Console.ReadLine());
+            newPaymentAccount = newPaymentAccount + depos;
+            Console.WriteLine("На вашем счету стало " + newPaymentAccount);
             Console.WriteLine("Сколько хотите снять?");
             int a = int.Parse(Console.ReadLine());
             newPaymentAccount = newPaymentAccount - a;
-            Console.WriteLine(newPaymentAccount);
+            Console.WriteLine("На вашем счету стало " + newPaymentAccount);
+
+        }
+
+        public void SetPaymentAccount2(double newPaymentAccount2)
+        {
+            _paymentAccount = newPaymentAccount2;
+            int a = int.Parse(Console.ReadLine());
+            newPaymentAccount2 = newPaymentAccount2 - a;
+            Console.WriteLine("На вашем счету стало " + newPaymentAccount2);
 
         }
 
         static void Main(string[] args)
         {
             BankAccount account = new BankAccount();
-            account.SetName();
+            Console.WriteLine("Введите имя: ");
+            account.SetName(Console.ReadLine());
+            Console.WriteLine("Введите фамилию: ");
+            account.SetPaymentAccount(Double.Parse(Console.ReadLine()));
+            Console.WriteLine("Сколько хотите внести?");
+            account.SetPaymentAccount2(Double.Parse(Console.ReadLine()));
+            Console.WriteLine("Сколько хотите снять?");
 
         }
     }
