@@ -23,6 +23,8 @@ namespace _336Labs.Ippolitova
             var firstLetter = newName[0];
             var otherLetter = newName.Remove(0, 1);
             _name = firstLetter.ToString().ToUpper() + otherLetter;
+            Console.WriteLine(_name);
+
                    
         }
         public void Deposit()
@@ -46,20 +48,24 @@ namespace _336Labs.Ippolitova
         }
 
 
-        public static void SetAge(BankAccount bank)
-        { 
-            Console.WriteLine("Введите год рождения");
-            int year = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Введите месяц рождения");
-            int month = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Введите день рождения");
-            int day = Convert.ToInt32(Console.ReadLine());
-            bank.DayOfBirth = new DateTime(year, month, day);
-            Console.WriteLine(bank.DayOfBirth);
-            DateTime Today = DateTime.Now;
-            Console.WriteLine(Today);
-            bank._age = Today.Year - bank.DayOfBirth.Year;
-            Console.WriteLine(bank._age);
+        public void MethodDates()
+        {
+            DateTime dayOfBirthday = new DateTime();
+            int toYear = DateTime.Now.Year;
+
+            Console.WriteLine("Введите год:");
+            int years = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите месяц:");
+            int month = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите день:");
+            int days = int.Parse(Console.ReadLine());
+
+            dayOfBirthday.AddYears(years);
+            dayOfBirthday.AddMonths(month);
+            dayOfBirthday.AddDays(days);
+
+            Console.WriteLine("Вам сейчас: ");
+            Console.WriteLine(toYear - years);
         }
 
         public static void GetNameSurnameId(BankAccount bank)
