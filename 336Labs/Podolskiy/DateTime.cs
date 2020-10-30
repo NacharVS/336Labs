@@ -42,6 +42,9 @@ namespace _336Labs.Podolskiy
         }
         public  void MethodDate()
         {
+            DateTime dayOfBirthday = new DateTime();
+            int toYear = DateTime.Now.Year;
+
             Console.WriteLine("Введите ваш год рождения");
             int  years = int.Parse(Console.ReadLine());
             Console.WriteLine("Введите месяц, когда вы родились");
@@ -56,8 +59,9 @@ namespace _336Labs.Podolskiy
             dayOfBirth.AddDays(days );
 
             Console.WriteLine( $"Год: {years} Месяц:{month} День:{days}");
-            
 
+            Console.WriteLine("Вам сейчас: ");
+            Console.WriteLine(toYear - years);
         }
        
     }
