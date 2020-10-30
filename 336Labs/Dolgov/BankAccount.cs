@@ -10,7 +10,7 @@ namespace _336Labs.Dolgov
         private string _name;
         private string _surname;
         private int _id, _age;
-        public static double _rate = 0.067;
+        public static double _rate = 0.67;
         private double _paymentAccount;
         private DateTime B = new DateTime();
 
@@ -19,7 +19,7 @@ namespace _336Labs.Dolgov
             newName = newName.Trim();
             var firstLetter = newName[0];
             var otherLetters = newName.Remove(0, 1);
-            _name = firstLetter.ToString().ToUpper() + otherLetters;
+            _name = firstLetter.ToString().ToUpper() + otherLetters.ToString().ToLower();
         }
         public void SetSurname(string newSurname)
         {
@@ -27,7 +27,7 @@ namespace _336Labs.Dolgov
             newSurname = newSurname.Trim();
             var firstletter = newSurname[0];
             var otherletters = newSurname.Remove(0, 1);
-            _surname = firstletter.ToString().ToUpper() + otherletters;
+            _surname = firstletter.ToString().ToUpper() + otherletters.ToString().ToLower();
 
         }
         public void SetAge(DateTime newAge)
@@ -65,19 +65,27 @@ namespace _336Labs.Dolgov
             Console.WriteLine("День рож.");
             int D = Convert.ToInt32(Console.ReadLine());
             bank.B = new DateTime(Y, M, D);
-            Console.WriteLine(bank.B);
             DateTime T = DateTime.Now;
-            Console.WriteLine(T);
             bank._age = T.Year - bank.B.Year;
-            Console.WriteLine(bank._age);
+            Console.WriteLine();
         }
-        public static void GetNSNID(BankAccount bank)
+        public static bool GetNSNIDR(BankAccount bank)
         {
-            Console.WriteLine($"Имя:{bank._name}");
-            Console.WriteLine($"Фамилия:{bank._surname}");
-            Console.WriteLine($"ID:{bank._id}");
-            Console.WriteLine($"Дата рож.:{bank.B.ToString("dd:MM:yyyy")}");
-            Console.WriteLine($"Возраст:{bank._age}");
+            if(bank._age < 16)
+            {
+                Console.WriteLine("Ваш возраст слишком мал для заведения счета.");
+                return false;
+            }
+            else
+            {
+                Console.WriteLine($"Имя:{bank._name}");
+                Console.WriteLine($"Фамилия:{bank._surname}");
+                Console.WriteLine($"ID:{bank._id}");
+                Console.WriteLine($"Дата рож.:{bank.B.ToString("dd:MM:yyyy")}");
+                Console.WriteLine($"Возраст:{bank._age}");
+                Console.WriteLine($"Ставка: {_rate}");
+                return true;
+            }
         }
         public void Dep()
         {
@@ -97,20 +105,25 @@ namespace _336Labs.Dolgov
             Console.WriteLine("Ваш баланс: " + _paymentAccount);
         }
     }
-    class BankAcсo
+    class BankAcco
     {
-        public static void BankAcc()
+
+        public static void BnkAcc()
         {
             BankAccount bank = new BankAccount();
             BankAccount.SetNSNIDA(bank);
             BankAccount.SetId(bank);
             BankAccount.SetAge(bank);
-            BankAccount.GetNSNID(bank);
-            int n = 1;
-            while (n > 0)
+            if (BankAccount.GetNSNIDR(bank) == true)
             {
-                bank.Dep();
-                bank.WD();
+                int n = 0;
+                while (n == 0)
+                {
+                    Console.WriteLine();
+                    bank.Dep();
+                    Console.WriteLine();
+                    bank.WD();
+                }
             }
         }
     }
