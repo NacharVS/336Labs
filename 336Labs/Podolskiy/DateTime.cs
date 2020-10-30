@@ -21,6 +21,13 @@ namespace _336Labs.Podolskiy
             var otherLetter = newName.Remove(0, 1);
             _name = firstLetter.ToString().ToUpper() + otherLetter;
         }
+        public void SetSurname(string newSurname )
+        {
+            newSurname = newSurname.Trim();
+            var firstLetter = newSurname[0];
+            var otherLetter = newSurname.Remove(0, 1);
+            _surname = firstLetter.ToString().ToUpper() + otherLetter.ToString().ToLower(); 
+        }
         public void Deposit()
         {
             Console.WriteLine("Сколько хотите внести >>> ");
@@ -30,6 +37,12 @@ namespace _336Labs.Podolskiy
             _paymentAccount = _paymentAccount + depos;
 
             Console.WriteLine("На вашем счету стало " + _paymentAccount);
+        }
+
+      public void GenerationID(BankAccount bank )
+        {
+            Random random = new Random();
+            bank._id = random.Next(10, 100);
         }
 
         public void Withdraw()
