@@ -11,20 +11,19 @@ namespace _336Labs.Ippolitova
         private string _id;
         private double _paymentAccount = 2000;
         private double _age;
+        public static double _rate = 0.067;
         private DateTime DayOfBirth = new DateTime();
-
+        
         
         DateTime dayofbirth = DateTime.Now.Date;
-    
-
+       
     public void SetName(string newName)
         {
             newName = newName.Trim();
             var firstLetter = newName[0];
             var otherLetter = newName.Remove(0, 1);
             _name = firstLetter.ToString().ToUpper() + otherLetter;
-           
-                
+                   
         }
         public void Deposit()
         {
@@ -46,8 +45,9 @@ namespace _336Labs.Ippolitova
             Console.WriteLine("На вашем счету осталось : " + _paymentAccount);
         }
 
+
         public static void SetAge(BankAccount bank)
-        {
+        { 
             Console.WriteLine("Введите год рождения");
             int year = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Введите месяц рождения");
@@ -70,6 +70,6 @@ namespace _336Labs.Ippolitova
             Console.WriteLine($"Дата рождения: {bank.DayOfBirth.ToString("dd:MM:yyyy")}");
             Console.WriteLine($"Возраст: {bank._age}");
         }
-
     }
 }
+ 
