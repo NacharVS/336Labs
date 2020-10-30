@@ -10,7 +10,7 @@ namespace _336Labs.Galimzyanov
         private string _surname;
         private string _id, _age;
         private static double _rate = 0.067;
-        private double _paymentAccount;
+        private double _paymentAccount = 0;
         
 
         public void SetName(string newName)
@@ -61,10 +61,14 @@ namespace _336Labs.Galimzyanov
             int month = int.Parse(Console.ReadLine());
             Console.WriteLine("День вашего рождения:");
             int day = int.Parse(Console.ReadLine());
-            DateTime F = new DateTime(years, month, day);
-            Console.WriteLine(F);
-            bank._age = DateTime.Now.Year - DateTime F;
-            Console.WriteLine(bank._age);
+
+            DateTime Birthday = new DateTime(2002, 04, 25);
+
+            Birthday.AddYears(years);
+            Birthday.AddMonths(month);
+            Birthday.AddDays(day);
+
+            Console.WriteLine();
             
         }
         public static void SetId(BankAccount bank)
