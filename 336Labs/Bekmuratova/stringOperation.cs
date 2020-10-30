@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace _336Labs.Bekmuratova
+{
+    class stringOperation
+    {
+        public static void StrOpr()
+        {
+            Console.WriteLine("Введите текст");
+            string _string = Console.ReadLine();
+            string _evenLetters = "";
+            string _unevenLetters = "";
+            Console.WriteLine(_string);
+            while (_string != "")
+            {
+                _unevenLetters = _unevenLetters + _string.Substring(0, 1);
+                _string = _string.Remove(0, 1);
+                if (_string != "")
+                {
+                    _evenLetters = _evenLetters + _string.Substring(0, 1);
+                    _string = _string.Remove(0, 1);
+                }
+            }
+            Console.WriteLine(_evenLetters);
+            Console.WriteLine(_unevenLetters);
+        }
+
+
+    }
+}
+
+
