@@ -58,7 +58,7 @@ namespace _336Labs.Acadullin
             int m = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Ваш день рождения:");
             int d = Convert.ToInt32(Console.ReadLine());
-            banks.A = new DateTime(y,m,d);
+            banks.A = new DateTime(y, m, d);
             Console.WriteLine(banks.A);
             DateTime T = DateTime.Now;
             Console.WriteLine(T);
@@ -84,6 +84,18 @@ namespace _336Labs.Acadullin
             Console.WriteLine("Введите сколько хотите снять со счета?");
             _paymentAccount = _paymentAccount - vzyat;
             Console.WriteLine("Ваш баланс:" + _paymentAccount);
+        }
+        abstract class Person
+        {
+
+        }
+        class Client : Person
+        { 
+            
+        }
+        class Employee : Person 
+        {
+            
         }
     }
 }   
