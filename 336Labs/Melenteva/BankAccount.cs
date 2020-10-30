@@ -16,15 +16,7 @@ namespace _336Labs.Melenteva
             nName = nName.Trim();
             var firstLetter = nName[0];
             var oLetters = nName.Remove(0, 1);
-            _name = firstLetter.ToString().ToUpper() + oLetters;
-
-        }
-        public void SetSurname(string nSurname)
-        {
-            nSurname = nSurname.Trim();
-            var firstletter = nSurname[0];
-            var oLetters = nSurname.Remove(0, 1);
-            _surname = firstletter.ToString().ToUpper() + oLetters;
+            _surname = firstLetter.ToString().ToUpper() + oLetters;
 
         }
         public void SetId()
