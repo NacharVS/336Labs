@@ -62,14 +62,41 @@ namespace _336Labs.Sapegin
        
         }
 
-        public void AddSum(double S)
+        public void PaymentAccount(double S)
         {
-            _paymentAccount = _paymentAccount + S;
+            _paymentAccount = S;
         }
        
         public double GetPaymentAccount()
         {
             return _paymentAccount;
+        }
+
+        public void AddSum(double S)
+        {
+            _paymentAccount = _paymentAccount + S;
+            Console.WriteLine(_paymentAccount);
+        }
+
+        public void AddDiff(double S)
+        {
+            _paymentAccount = _paymentAccount - S;
+            Console.WriteLine(_paymentAccount);
+        }
+
+        public void Age()
+        {
+            DateTime BirthDate = new DateTime();
+            int NowYear = DateTime.Now.Year;
+            Console.WriteLine("Введите дату своего рождения(дд/мм/гг): ");
+            int d = int.Parse(Console.ReadLine());
+            int m = int.Parse(Console.ReadLine());
+            int y = int.Parse(Console.ReadLine());
+            BirthDate.AddYears(y);
+            BirthDate.AddMonths(m);
+            BirthDate.AddDays(d);
+            Console.WriteLine("Возраст клиента: ");
+            Console.WriteLine(NowYear - y);
         }
 
        
@@ -90,4 +117,22 @@ namespace _336Labs.Sapegin
 
     }
 }
-    
+
+//Тo что в классе Program
+//BankAccount account = new BankAccount();
+//Console.WriteLine("Ваше имя: ");
+//account.SetName(Console.ReadLine());
+//Console.WriteLine("Ваша фамилия: ");
+//account.SetSurname(Console.ReadLine());
+//Console.WriteLine("Ставка: ", account.GetRate());
+//Console.WriteLine("Ваш ID: ");
+//account.SetId();
+//Console.WriteLine(account.GetId());
+//account.Age();
+//Console.WriteLine("Ваш счёт");
+//account.PaymentAccount(double.Parse(Console.ReadLine()));
+//Console.WriteLine("Пополнить счёт: ");
+//account.AddSum(double.Parse(Console.ReadLine()));
+//Console.WriteLine("Снять со счёта: ");
+//account.AddDiff(double.Parse(Console.ReadLine()));
+
