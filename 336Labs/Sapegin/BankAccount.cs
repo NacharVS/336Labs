@@ -10,7 +10,7 @@ namespace _336Labs.Sapegin
         private string _surname;
         private string _id;
         private static double _rate = 6.7;
-        private double _paymentAccount;
+        private double _paymentAccount = 0;
         private int _age;
 
         public void SetName(string newName)
@@ -44,6 +44,10 @@ namespace _336Labs.Sapegin
             _rate = rate;
         }
 
+        public string GetId()
+        {
+            return _id;
+        }
         public void SetId()
         {
             int k = 0;
@@ -51,23 +55,24 @@ namespace _336Labs.Sapegin
 
             for (int i =0;  i < 3; i++ )
             {
-                str = (char)(k % 10) + str;
+                str = (char)(k % 10 + '0' ) + str;
                 k = k / 10;
             }
             _id = str;
        
         }
-        public void SetPaymentAccount()
+
+        public void AddSum(double S)
         {
-            
+            _paymentAccount = _paymentAccount + S;
+        }
+       
+        public double GetPaymentAccount()
+        {
+            return _paymentAccount;
         }
 
-        public void SetAge(double age)
-        {
-            double BirthDate = double.Parse(Console.ReadLine());
-            DateTime nowDate = DateTime.Today;
-            double age = nowDate.Year - BirthDate;
-        }
+       
        
     }
 }
