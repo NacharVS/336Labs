@@ -75,5 +75,19 @@ namespace _336Labs.Sapegin
        
        
     }
+
+   abstract class Person
+    {
+
+    }
+    class Client : Person
+    {
+
+    }
+
+    class Employee : Person
+    {
+
+    }
 }
     
