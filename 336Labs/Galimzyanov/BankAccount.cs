@@ -74,12 +74,35 @@ namespace _336Labs.Galimzyanov
 
         }
 
+        abstract class Person
+        {
+            //public string Name { get; set }
+
+            //public Person(string name)
+            //{
+            //    Name = name;
+            //}
+
+            //public void Display()
+            //{
+            //    Console.WriteLine(Name);
+            //}
+        }
+        class Client : Person
+        {
+            //public int Sum { get; set }
 
 
+        }
+        class Employee : Person
+        {
+
+        }
 
 
 
 
     }
+
 }
 
