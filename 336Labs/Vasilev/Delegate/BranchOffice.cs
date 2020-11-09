@@ -6,5 +6,14 @@ namespace _336Labs.Vasilev.Deligate
 {
     class BranchOffice
     {
+       public void sort()
+       {
+
+       }
+       public void elementsum()
+       {
+
+       }
+       public void 
     }
 }
