@@ -26,7 +26,7 @@ namespace _336Labs.Loginov
         }
 
 
-        static void GenerationArray(int[,] arr, int MinN, int MaxN)
+        public static void GenerationArray(int[,] arr, int MinN, int MaxN)
         {
             Random rnd = new Random();
             for (int i = 0; i < arr.GetLength(0); i++)
