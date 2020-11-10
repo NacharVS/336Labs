@@ -21,6 +21,7 @@ namespace _336Labs.Sogorin
                 Console.WriteLine($"{Surname} {Name}");
             }
         }
+        /*
         class Acc : Info
         {
             public int Old { get; set; }
@@ -31,5 +32,6 @@ namespace _336Labs.Sogorin
                 Old = old;
             }
         }
+        */
     }
 }
