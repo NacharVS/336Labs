@@ -28,11 +28,13 @@ namespace _336Labs.Bitkova.Deligates
                     }
                 }
             }
-
+            Console.WriteLine("Сортировка:");
             for (int i = 0; i < array.Length; i++)
             {
-                Console.WriteLine("Сортировка массива - " + array[i]);
+                Console.Write(array[i] + " ");
+
             }
+            Console.WriteLine();
         }
         public static void ElementSum()
         {
@@ -47,10 +49,10 @@ namespace _336Labs.Bitkova.Deligates
             foreach (int value in array)
             {
                 sum += value;
-                Console.WriteLine(array);
             }
-            
-            Console.WriteLine("Сумма элеиентов массива - " + sum);
+            Console.WriteLine("Cумма элементов массива:");
+            Console.Write(sum);
+            Console.WriteLine();
         }
         public static void MaxArray()
         {
@@ -61,10 +63,10 @@ namespace _336Labs.Bitkova.Deligates
             {
                 array[i] = rnd.Next(0, 10);
                 if (max < array[i]) max = array[i];
-                Console.WriteLine(array);
             }
-            
-            Console.WriteLine("Максимальный элемент массива - " + max);
+            Console.WriteLine("Максимальный элемент массива:");
+            Console.Write(max);
+            Console.WriteLine();
         }
         public static void Sum()
         {
@@ -74,16 +76,16 @@ namespace _336Labs.Bitkova.Deligates
             for (int i = 0; i < array.Length; i++)
             {
                 array[i] = rnd.Next(0, 10);
-                Console.WriteLine(array);
                 array2[i] = rnd.Next(0, 10);
-                Console.WriteLine(array2);
             }
+                Console.WriteLine("Сумма двух массивов:");
             int[] array3 = new int[5];
             for (int i = 0; i < array.Length; i++)
             {
                 array3[i] = array[i] + array2[i];
-                Console.WriteLine("Сумма двух массивов" + array3[i]);
+                Console.Write(array3[i] + " ");
             }
+            Console.WriteLine();
         }
         public static void Minus()
         {
@@ -93,16 +95,16 @@ namespace _336Labs.Bitkova.Deligates
             for (int i = 0; i < array.Length; i++)
             {
                 array[i] = rnd.Next(0, 10);
-                Console.WriteLine(array);
                 array2[i] = rnd.Next(0, 10);
-                Console.WriteLine(array2);
             }
+            Console.WriteLine("Разность двух массивов:");
             int[] array3 = new int[5];
             for (int i = 0; i < array.Length; i++)
             {
                 array3[i] = array[i] - array2[i];
-                Console.WriteLine("Разность двух массивов" + array3[i]);
+                Console.Write(array3[i] + " ");
             }
+            Console.WriteLine();
         }
         public static void Multiplus()
         {
@@ -112,15 +114,17 @@ namespace _336Labs.Bitkova.Deligates
             for (int i = 0; i < array.Length; i++)
             {
                 array[i] = rnd.Next(0, 10);
-                Console.WriteLine(array);
                 array2[i] = rnd.Next(0, 10);
-                Console.WriteLine(array2);
             }
+            Console.Write("Произведение двух массивов:");
+
+            Console.WriteLine();
             int[] array3 = new int[5];
             for (int i = 0; i < array.Length; i++)
             {
                 array3[i] = array[i] * array2[i];
-                Console.WriteLine("Умножение двух массивов" + array3[i]);
+                
+                 Console.Write(array3[i] + " ");
             }
         }
     }
