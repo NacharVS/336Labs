@@ -10,8 +10,9 @@ namespace _336Labs
     {
         static void Main()
         {
-            SL.StL();
+            //SL.StL();
             //StringOperations.StrOpr();
+            Base.B();
         }
     }
 }
