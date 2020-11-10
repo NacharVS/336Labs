@@ -6,5 +6,6 @@ namespace _336Labs.Bekmuratova
 {
     class deligate
     {
+        private delegate void Trainee(string mes);
     }
 }
