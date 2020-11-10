@@ -6,12 +6,21 @@ namespace _336Labs.Podolskiy.Deligates
 {
     class Filial
     {
-        private delegate void Calculator();
+        private delegate void Calculator(int [] mass);
       static void   Main(String [] args )
         {
+            int[] mass = new int[5];
+            
             Calculator calc1;
             Calculator calc2;
-          
+            calc1 = General.MassGeneration;
+            calc1(mass);
+            calc1 = General.Sort;
+            calc1(mass ); 
+            calc1 = General.SumMassive;
+            calc1(mass);
+            calc1 = General.MaxElements;
+            calc1(mass); 
         }
      
     }
