@@ -4,21 +4,28 @@ using System.Text;
 
 namespace _336Labs.Sabirov.Deligate
 {
-    class Class1
+    public class Class1
     {
         static void Main(string[] args)
         {
-            int[,] massive = new int[5, 5];
+            int[] massive = new int[10];
             Random rnd = new Random();
 
-            for (int g = 0; g < massive.GetLength(0): g++)
+            for (int g = 0; g < massive.GetLength(0); g++)
             {
-                for (int i = 0; i < massive.GetLength(0): g++)
-                {
-                    massive[g, i] = rnd.Next(10, 100);
-                    Console.WriteLine($"{massive[g, i]");
-                }
+                massive[g] = rnd.Next(10, 100);
+                Console.Write($"{massive[g]} ");
             }
+        }
+        public static void GenerationArray(int[] arr, int Min, int Max)
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                arr[i] = rnd.Next(Min, Max);
+                Console.WriteLine($"{arr[i]} ");
+            }
+            Console.WriteLine();
         }
     }
 }
