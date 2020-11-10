@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _336Labs.Bayburin.Deligates
 {
-    class _
+    class Branch
     {
     }
 }
