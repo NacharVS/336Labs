@@ -6,5 +6,6 @@ namespace _336Labs.Dolgov.Branch
 {
     class Bs
     {
+
     }
 }
