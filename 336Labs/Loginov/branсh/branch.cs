@@ -4,10 +4,11 @@ using System.Text;
 
 namespace _336Labs.Loginov.branсh
 {
-    class Branch
+    class Branch1
     {
         public static void GenerationArray(int[] arr, int MinN, int MaxN)
         {
+            Console.Write($"GenArr:  ");
             Random rnd = new Random();
             for (int i = 0; i < arr.GetLength(0); i++)
             {
@@ -19,6 +20,7 @@ namespace _336Labs.Loginov.branсh
         public static void SortArray(int[] arr)
         {
             int temp;
+            Console.Write("Sort:    ");
             for (int i = 0; i < arr.Length - 1; i++)
             {
                 for (int n = i + 1; n < arr.Length; n++)
@@ -40,6 +42,7 @@ namespace _336Labs.Loginov.branсh
 
         public static void SumArray(int[] arr)
         {
+            Console.Write("Sum:     ");
             int temp = 0;
             for (int i = 0; i < arr.Length; i++)
             {
@@ -50,6 +53,7 @@ namespace _336Labs.Loginov.branсh
 
         public static void MaxArray(int[] arr)
         {
+            Console.Write("Max:     ");
             int max = 0;
             for (int i = 0; i < arr.Length; i++)
             {
@@ -60,15 +64,40 @@ namespace _336Labs.Loginov.branсh
             }
             Console.WriteLine($"{max}");
         }
+    }
 
+    class Branch2
+    {
+        public static void SumTwoArray(int[] arr1, int[] arr2)
+        {
+            Console.Write("SumTwo:  ");
+            for (int i = 0; i < arr1.Length; i++)
+            {
+                arr1[i] = arr1[i] + arr2[i];
+                Console.Write($"{arr1[i]} ");
+            }
+            Console.WriteLine();
+        }
 
-
-
-
-
-
-
-
-
+        public static void DiffTwoArray(int[] arr1, int[] arr2)
+        {
+            Console.Write("DiffTwo: ");
+            for (int i = 0; i < arr1.Length; i++)
+            {
+                arr1[i] = arr1[i] - arr2[i];
+                Console.Write($"{arr1[i]} ");
+            }
+            Console.WriteLine();
+        }
+        public static void MultTwoArray(int[] arr1, int[] arr2)
+        {
+            Console.Write("MultTwo: ");
+            for (int i = 0; i < arr1.Length; i++)
+            {
+                arr1[i] = arr1[i] * arr2[i];
+                Console.Write($"{arr1[i]} ");
+            }
+            Console.WriteLine();
+        }
     }
 }
