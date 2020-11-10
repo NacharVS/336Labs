@@ -25,7 +25,7 @@ namespace _336Labs.Ippolitova.Delegates
 
         public static void Sorted(string[] args)
         {
-
+            if 
         }
     }  
 }
