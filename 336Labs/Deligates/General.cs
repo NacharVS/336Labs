@@ -6,8 +6,9 @@ namespace _336Labs.Deligates
 {
     class General
     {
-        public void sort(int[] array)
+        public void sort()
         {
+            int[] array = new int[4];
             Random rnd = new Random();
             int tr;
             for (int i = 0; i < array.Length - 1; i++)
@@ -24,22 +25,24 @@ namespace _336Labs.Deligates
             }
             for (int i = 0; i < array.Length; i++)
             {
-                Console.Write($"{array[i]}");
+                Console.Write("Сортировка = " + array[i]);
             }
             Console.WriteLine();
         }
-        public void sum(int[] array)
+        public void sum()
         {
+            int[] array = new int[4];
             Random rmd = new Random();
-            int tr = 0;
+            int sum = 0;
             for (int i = 0; i < array.Length; i++)
             {
-                tr = tr + array[i];
+                sum = sum + array[i];
             }
-            Console.WriteLine($"{tr}");
+            Console.WriteLine("Сумма = " + sum);
         }
-        public void max(int[] array)
+        public void max()
         {
+            int[] array = new int[4];
             Random rnd = new Random();
             int max = 0;
             for (int i = 0; i < array.Length; i++)
@@ -49,25 +52,64 @@ namespace _336Labs.Deligates
                     max = max + array[i];
                 }
             }
-            Console.WriteLine($"{max}");
+            Console.WriteLine("Максимум = " + max);
         }
         public void sum2()
         {
             Random rnd = new Random();
+            int[] array = new int[4];
+            int[] array2 = new int[4];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = rnd.Next(0, 20);
+                Console.WriteLine(array);
+                array2[i] = rnd.Next(0, 20);
+                Console.WriteLine(array2);
+            }
+            int[] arraySum = new int[4];
+            for (int i = 0; i < array.Length; i++)
+            {
+                arraySum[i] = array[i] + array2[i];
+                Console.WriteLine("Сумма = " + arraySum);
+            }
         }
         public void raznost()
         {
-
+            Random rnd = new Random();
+            int[] array = new int[4];
+            int[] array2 = new int[4];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = rnd.Next(0, 20);
+                Console.WriteLine(array);
+                array2[i] = rnd.Next(0, 20);
+                Console.WriteLine(array2);
+            }
+            int[] arraySum = new int[4];
+            for (int i = 0; i < array.Length; i++)
+            {
+                arraySum[i] = array[i] - array2[i];
+                Console.WriteLine("Разность = " + arraySum);
+            }
         }
         public void proizvedenie(int[] a)
         {
-            static double multyF(int n)
-            {
-               
-                double p = 1;
-                for (int k = 0; k < n; k++)
-                    p = p * a[k];
-                return p;
+                Random rnd = new Random();
+                int[] array = new int[4];
+                int[] array2 = new int[4];
+                for (int i = 0; i < array.Length; i++)
+                {
+                    array[i] = rnd.Next(0, 20);
+                    Console.WriteLine(array);
+                    array2[i] = rnd.Next(0, 20);
+                    Console.WriteLine(array2);
+                }
+                int[] arraySum = new int[4];
+                for (int i = 0; i < array.Length; i++)
+                {
+                    arraySum[i] = array[i] * array2[i];
+                    Console.WriteLine("Произведение = " + arraySum);
+                }
             }
     }
 }
