@@ -11,6 +11,7 @@ namespace _336Labs.Bitkova
         private string _id;
         private static double _rate;
         private double _paymentAccount;
+        private string _phoneNumber;
 
         public void SetName(string newName)
         {
@@ -78,6 +79,22 @@ namespace _336Labs.Bitkova
             Console.WriteLine(_paymentAccount);
         }
 
+          public int Sum
+        {
+            get
+            {
+                return _sum;
+            }
+            set
+            {
+                _
+            }
+        }
+           
+
+        public string PhoneNumber { get; private set; }
+        
+
         public void Age()
         {
             DateTime BirthDate = new DateTime();
@@ -94,6 +111,6 @@ namespace _336Labs.Bitkova
             Console.WriteLine("Ваш возраст: ");
             Console.WriteLine(NowDate - year);
         }
-
+         
     }
 }
