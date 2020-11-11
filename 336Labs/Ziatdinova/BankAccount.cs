@@ -26,7 +26,7 @@ namespace _336Labs.Ziatdinova
 
         public void SetName(string newName)
         {
-        
+        длдлд
         }
     }
 
