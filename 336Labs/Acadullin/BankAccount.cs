@@ -97,6 +97,14 @@ namespace _336Labs.Acadullin
         {
             
         }
+        public static void MessageSending(string Phonenomer)
+        {
+            Console.WriteLine($"Message send at: {Phonenomer}");
+        }
+        public static void MessageSending2(string Phonenomer)
+        {
+            Console.WriteLine($"Message send at: {Phonenomer}");
+        }
     }
 }   
 
