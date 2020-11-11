@@ -22,9 +22,7 @@ namespace _336Labs.Sogorin
             sur = sur.Trim();
             var firstLet1 = sur[0];
             var lastLet1 = sur.Remove(0, 1);
-            _surname = firstLet1.ToString().ToUpper() + lastLet1;
-
-            
+            _surname = firstLet1.ToString().ToUpper() + lastLet1;                      
         }        
         public void shinfo(int j)
         {
