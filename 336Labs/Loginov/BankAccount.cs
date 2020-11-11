@@ -14,12 +14,6 @@ namespace _336Labs.Loginov
         private double _paymentAccount;
         private DateTime DayOfBirth = new DateTime();
 
-
-
-
-        delegate void AccountHandler(string message);
-        event AccountHandler Notify;
-
         //Установка
         public void SetName(string newName)
         {
@@ -84,8 +78,36 @@ namespace _336Labs.Loginov
                 return true;
             }
         }
-        // Операции
-        public void Deposit()
+    }
+    class Account
+    {
+    public delegate void AccountHandler(string message);
+    public event AccountHandler Notify;              // 1.Определение события
+    public Account(int sum)
+    {
+        Sum = sum;
+    }
+    public int Sum { get; private set; }
+    public void Put(int sum)
+    {
+        Sum += sum;
+        Notify?.Invoke($"На счет поступило: {sum}");   // 2.Вызов события 
+    }
+    public void Take(int sum)
+    {
+        if (Sum >= sum)
+        {
+            Sum -= sum;
+            Notify?.Invoke($"Со счета снято: {sum}");   // 2.Вызов события
+        }
+        else
+        {
+            Notify?.Invoke($"Недостаточно денег на счете. Текущий баланс: {Sum}"); ;
+        }
+    }
+}
+// Операции
+/*        public void Deposit()
         {
             Console.Write("Сколько хотите внести >>> ");
 
@@ -103,30 +125,39 @@ namespace _336Labs.Loginov
             _paymentAccount = _paymentAccount - withdraw;
             Console.Write("На вашем счету осталось : " + _paymentAccount);
         }
-    }
+    }*/
 
 
 
-    class BA
-    {
-
-        public static void BnkAc()
+class BA
         {
-            BankAccount bank = new BankAccount();
-            BankAccount.SetNameSurnameIdAge(bank);
-            BankAccount.SetId(bank);
-            BankAccount.SetAge(bank);
-            if (BankAccount.GetNameSurnameIdAgeRate(bank) == true)
+
+            public static void BnkAc()
             {
-                int n = 0;
-                while (n == 0)
+                BankAccount bank = new BankAccount();
+                BankAccount.SetNameSurnameIdAge(bank);
+                BankAccount.SetId(bank);
+                BankAccount.SetAge(bank);
+                if (BankAccount.GetNameSurnameIdAgeRate(bank) == true)
                 {
-                    Console.WriteLine();
-                    bank.Deposit();
-                    Console.WriteLine();
-                    bank.Withdraw();
+                    /*  int n = 0;
+                      while (n == 0)
+                      {
+                          Console.WriteLine();
+                          bank.Deposit();
+                          Console.WriteLine();
+                          bank.Withdraw();
+                      }*/
+
+                    Account acc = new Account(100);
+                    acc.Put(20);    // добавляем на счет 20
+                    Console.WriteLine($"Сумма на счете: {acc.Sum}");
+                    acc.Take(70);   // пытаемся снять со счета 70
+                    Console.WriteLine($"Сумма на счете: {acc.Sum}");
+                    acc.Take(180);  // пытаемся снять со счета 180
+                    Console.WriteLine($"Сумма на счете: {acc.Sum}");
+                    Console.Read();
                 }
             }
         }
     }
-}
