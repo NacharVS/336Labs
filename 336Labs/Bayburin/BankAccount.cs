@@ -63,5 +63,8 @@ namespace _336Labs.Bayburin
                 Console.WriteLine($" Уникальный id - {_id}");
                 Console.WriteLine($" Процентная ставка - {_rate}");
             }
+        public void Events()
+        { 
+            }
         }
     }
