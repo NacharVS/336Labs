@@ -6,6 +6,36 @@ namespace _336Labs.Sogorin
 {
     class Account
     {
+        private int _sum;
+        private string _phnum;
+        public void BankAccount(int sum, string phnum)
+        {
+            _sum = sum;
+            _phnum = phnum;
+        }
+        public int Sum
+        {
+            get
+            {
+                return _sum;
+            }
+            set
+            {
+                _sum = value;
+                Notify?.Invoke(Phonnum);
+            }
+        }
+        public string Phonnum
+        {
+            get
+            {
+                return _phnum;
+            }
+            set
+            {
+                _phnum = value;                
+            }
+        }
         private static double _rate;
         private double _paymentac;
         public string _name;
