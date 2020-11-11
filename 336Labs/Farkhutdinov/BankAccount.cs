@@ -32,7 +32,7 @@ namespace _336Labs.Farkhutdinov
         {
             _datebirth = ($"{day}.{month}.{year}");
             if (DateTime.Now.Month >= month && DateTime.Now.Day >= day)
-            { _age = DateTime.Now.Year - year;}
+            { _age = DateTime.Now.Year - year; }
             else _age = DateTime.Now.Year - year - 1;
         }
         public void SetRate(double newRate)
@@ -42,7 +42,7 @@ namespace _336Labs.Farkhutdinov
         public void SetID()
         {
             Random rnd = new Random();
-            _id = rnd.Next(1,1000000);
+            _id = rnd.Next(1, 1000000);
             // будет доработано, а пока так. Шанс выпадения идентичного id = 1/1000000
         }
         public void GetName()
@@ -55,7 +55,7 @@ namespace _336Labs.Farkhutdinov
         }
         public void GetDateBirth()
         {
-            Console.WriteLine($" Дата рождения - { _datebirth}"); 
+            Console.WriteLine($" Дата рождения - { _datebirth}");
         }
         public void GetID()
         {
@@ -86,6 +86,11 @@ namespace _336Labs.Farkhutdinov
         public void GetBalance()
         {
             Console.WriteLine($" Ваш текущий баланс - {_balance}");
+
+        }
+        public void Events()
+        {
+
         }
     }
 }
