@@ -95,27 +95,5 @@ namespace _336Labs.Bitkova
             Console.WriteLine(NowDate - year);
         }
 
-        static void Main(string[] args)
-        {
-            BankAccount account = new BankAccount();
-            Console.WriteLine("Введите имя: ");
-            account.SetName(Console.ReadLine());
-            Console.WriteLine("Введите фамилию: ");
-            account.SetSurname(Console.ReadLine());
-            Console.WriteLine("Ваш ID: ");
-            account.SetId();
-            Console.WriteLine(account.GetID());
-            Console.WriteLine("Ваша ставка: ");
-            account.SetRate();
-            Console.WriteLine(account.GetRate());
-            Console.WriteLine("Введите свой день рождения.");
-            account.Age();
-            Console.WriteLine("Ваш счет: ");
-            account.SetPaymentAccount(double.Parse(Console.ReadLine()));
-            Console.WriteLine("сколько хотите закинуть? ");
-            account.SetSum(double.Parse(Console.ReadLine()));
-            Console.WriteLine("сколько хотите снять? ");
-            account.SetMinus(double.Parse(Console.ReadLine()));
-        }
     }
 }
