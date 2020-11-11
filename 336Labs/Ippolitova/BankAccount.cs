@@ -24,6 +24,7 @@ namespace _336Labs.Ippolitova
             var otherLetter = newName.Remove(0, 1);
             _name = firstLetter.ToString().ToUpper() + otherLetter;
             Console.WriteLine(_name);
+                
 
                    
         }
@@ -35,7 +36,7 @@ namespace _336Labs.Ippolitova
 
             _paymentAccount = _paymentAccount + depos;
 
-            Console.WriteLine("На вашем счету стало " + _paymentAccount);
+            Console.WriteLine("На вашем счету стало:" + _paymentAccount);
         }
 
         public void Withdraw()
