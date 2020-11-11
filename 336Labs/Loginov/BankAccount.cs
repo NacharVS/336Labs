@@ -14,6 +14,12 @@ namespace _336Labs.Loginov
         private double _paymentAccount;
         private DateTime DayOfBirth = new DateTime();
 
+
+
+
+        delegate void AccountHandler(string message);
+        event AccountHandler Notify;
+
         //Установка
         public void SetName(string newName)
         {
