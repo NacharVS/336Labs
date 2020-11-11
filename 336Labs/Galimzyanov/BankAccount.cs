@@ -103,7 +103,7 @@ namespace _336Labs.Galimzyanov
 
         }
 
-
+        public static void MessageSending(string phoneNumber);
 
 
     }
