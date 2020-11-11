@@ -6,12 +6,18 @@ namespace _336Labs.Bitkova
 {
     class BankAccount
     {
+        public delegate void Number(string phonenumber);
         private string _name;
         private string _surname;
         private string _id;
         private static double _rate;
         private double _paymentAccount;
         private string _phoneNumber;
+
+        public BankAccount(string phoneNumber)
+        {
+            PhoneNumber = phoneNumber;
+        }
 
         public void SetName(string newName)
         {
@@ -29,7 +35,7 @@ namespace _336Labs.Bitkova
             _surname = firstletter.ToString().ToUpper() + otherletters;
 
         }
-
+        
         public string GetID()
         {
             return _id;
@@ -70,31 +76,30 @@ namespace _336Labs.Bitkova
         public void SetSum(double newPaymentAccount)
         {
             _paymentAccount = _paymentAccount + newPaymentAccount;
+            Notify?.Invoke(PhoneNumber);
             Console.WriteLine(_paymentAccount);
         }
 
         public void SetMinus(double newPaymentAccount)
         {
             _paymentAccount = _paymentAccount - newPaymentAccount;
+            Notify?.Invoke(PhoneNumber);
             Console.WriteLine(_paymentAccount);
         }
 
-          public int Sum
+        public event Number Notify;
+        public string PhoneNumber
         {
             get
             {
-                return _sum;
+                return _phoneNumber;
             }
             set
             {
-                _
+                _phoneNumber = value;
+
             }
         }
-           
-
-        public string PhoneNumber { get; private set; }
-        
-
         public void Age()
         {
             DateTime BirthDate = new DateTime();
