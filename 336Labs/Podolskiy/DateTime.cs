@@ -39,11 +39,11 @@ namespace _336Labs.Podolskiy
             Console.WriteLine("На вашем счету стало " + _paymentAccount);
         }
 
-      public void GenerationID(BankAccount bank )
-        {
-            Random random = new Random();
-            bank._id = random.Next(10, 100);
-        }
+      //public void GenerationID(BankAccount bank )
+      //  {
+      //      Random random = new Random();
+      //      bank._id = random.Next(10, 100);
+      //  }
 
         public void Withdraw()
         {
