@@ -40,7 +40,7 @@ namespace _336Labs.Yusupov
             }
         }
 
-        static void Main(string[] args)
+        static void main(string[] args)
         {
             ClassesAndObjects obj = new ClassesAndObjects();
             obj.ArrGenerate();
