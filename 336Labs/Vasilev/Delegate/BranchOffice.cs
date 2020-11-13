@@ -48,6 +48,24 @@ namespace _336Labs.Vasilev.Deligate
             Console.WriteLine();
         }
         public static void Multiplus()
+        {
+            Random rnd = new Random();
+            int[] array = new int[5];
+            int[] array2 = new int[5];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = rnd.Next(0, 10);
+                array[i] = rnd.Next(0, 10);
+            }
+            Console.Write("Умножение массивов");
+            Console.WriteLine();
+            int[] array3 = new int[5];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array3[i] = array[i] * array2[i];
+                Console.Write(array3[i] + " ");
+            }
+        }
     }
 
 }
