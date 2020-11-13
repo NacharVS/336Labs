@@ -11,7 +11,7 @@ namespace _336Labs.Loginov
         private string _surname;
         private int _id, _age;
         private static double _rate = 0.67;
-        private double _paymentAccount;
+        //private double _paymentAccount;
         private DateTime DayOfBirth = new DateTime();
 
         //Установка
@@ -79,85 +79,105 @@ namespace _336Labs.Loginov
             }
         }
     }
+    class AccountEventArgs
+    {
+        // Сообщение
+        public string Message { get; }
+        // Сумма, на которую изменился счет
+        public int Sum { get; }
+
+        public AccountEventArgs(string mes, int sum)
+        {
+            Message = mes;
+            Sum = sum;
+        }
+    }
     class Account
     {
-    public delegate void AccountHandler(string message);
-    public event AccountHandler Notify;              // 1.Определение события
-    public Account(int sum)
-    {
-        Sum = sum;
-    }
-    public int Sum { get; private set; }
-    public void Put(int sum)
-    {
-        Sum += sum;
-        Notify?.Invoke($"На счет поступило: {sum}");   // 2.Вызов события 
-    }
-    public void Take(int sum)
-    {
-        if (Sum >= sum)
+        public delegate void AccountHandler(object sender, AccountEventArgs e);
+        public event AccountHandler Notify;
+        public Account(int sum)
         {
-            Sum -= sum;
-            Notify?.Invoke($"Со счета снято: {sum}");   // 2.Вызов события
+            Sum = sum;
         }
-        else
+        public int Sum { get; private set; }
+        public void Put(int sum)
         {
-            Notify?.Invoke($"Недостаточно денег на счете. Текущий баланс: {Sum}"); ;
+            Sum += sum;
+            Notify?.Invoke(this, new AccountEventArgs($"На счет поступило {sum}", sum));
         }
-    }
-}
-// Операции
-/*        public void Deposit()
+        public void Take(int sum)
         {
-            Console.Write("Сколько хотите внести >>> ");
-
-            double depos = Convert.ToDouble(Console.ReadLine());
-
-            _paymentAccount = _paymentAccount + depos;
-
-            Console.Write("На вашем счету стало " + _paymentAccount);
-        }
-
-        public void Withdraw()
-        {
-            Console.Write("Сколько хотите снять  >>> ");
-            double withdraw = Convert.ToDouble(Console.ReadLine());
-            _paymentAccount = _paymentAccount - withdraw;
-            Console.Write("На вашем счету осталось : " + _paymentAccount);
-        }
-    }*/
-
-
-
-class BA
-        {
-
-            public static void BnkAc()
+            if (Sum >= sum)
             {
-                BankAccount bank = new BankAccount();
-                BankAccount.SetNameSurnameIdAge(bank);
-                BankAccount.SetId(bank);
-                BankAccount.SetAge(bank);
-                if (BankAccount.GetNameSurnameIdAgeRate(bank) == true)
-                {
-                    /*  int n = 0;
-                      while (n == 0)
-                      {
-                          Console.WriteLine();
-                          bank.Deposit();
-                          Console.WriteLine();
-                          bank.Withdraw();
-                      }*/
-
-                    Account acc = new Account(100);
-                    acc.Put(20);    // добавляем на счет 20
-                    Console.WriteLine($"Сумма на счете: {acc.Sum}");
-                    acc.Take(70);   // пытаемся снять со счета 70
-                    Console.WriteLine($"Сумма на счете: {acc.Sum}");
-                    acc.Take(180);  // пытаемся снять со счета 180
-                    Console.WriteLine($"Сумма на счете: {acc.Sum}");
-                    Console.Read();
-                }
+                Sum -= sum;
+                Notify?.Invoke(this, new AccountEventArgs($"Сумма {sum} снята со счета", sum));
+            }
+            else
+            {
+                Notify?.Invoke(this, new AccountEventArgs("Недостаточно денег на счете", sum)); ;
             }
         }
     }
+    // Операции
+    /*        public void Deposit()
+            {
+                Console.Write("Сколько хотите внести >>> ");
+
+                double depos = Convert.ToDouble(Console.ReadLine());
+
+                _paymentAccount = _paymentAccount + depos;
+
+                Console.Write("На вашем счету стало " + _paymentAccount);
+            }
+
+            public void Withdraw()
+            {
+                Console.Write("Сколько хотите снять  >>> ");
+                double withdraw = Convert.ToDouble(Console.ReadLine());
+                _paymentAccount = _paymentAccount - withdraw;
+                Console.Write("На вашем счету осталось : " + _paymentAccount);
+            }
+        }*/
+
+
+
+    class BA
+    {
+        //private static void DisplayMessage(string message) => Console.WriteLine(message);
+        /* public static void DisplayMessage(string message)
+         {
+             Console.WriteLine(message);
+         }*/
+        private static void DisplayMessage(object sender, AccountEventArgs e)
+        {
+            Console.WriteLine($"Сумма транзакции: {e.Sum}");
+            Console.WriteLine(e.Message);
+        }
+        private static void DisplayRedMessage(String message)
+        {
+            // Устанавливаем красный цвет символов
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            // Сбрасываем настройки цвета
+            Console.ResetColor();
+        }
+
+        public static void BnkAc()
+        {
+            BankAccount bank = new BankAccount();
+            BankAccount.SetNameSurnameIdAge(bank);
+            BankAccount.SetId(bank);
+            BankAccount.SetAge(bank);
+            if (BankAccount.GetNameSurnameIdAgeRate(bank) == true)
+            {
+                Account acc = new Account(100);
+                acc.Notify += DisplayMessage;
+                acc.Put(20);
+                acc.Take(70);
+                acc.Take(150);
+                Console.Read();
+            }
+        }
+    }
+}
