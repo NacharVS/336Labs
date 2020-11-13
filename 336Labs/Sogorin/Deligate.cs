@@ -73,3 +73,17 @@ namespace _336Labs.Sogorin
         }
     }
 }
+
+
+/*
+int[] mass1 = new int[4];
+int[] mass2 = new int[4];
+Deligate.mas(mass1, mass2);
+            Trainee tr1;
+//tr1 = Deligate.summas;
+tr1 = Deligate.sortmas;
+tr1(mass1);
+Tramass tr2;
+tr2 = Delmass.disdualmas;
+tr2(mass1, mass2);
+*/

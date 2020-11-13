@@ -6,42 +6,18 @@ namespace _336Labs.Sogorin
 {
     class Account
     {
-        private int _sum;
-        private string _phnum;
-        public void BankAccount(int sum, string phnum)
-        {
-            _sum = sum;
-            _phnum = phnum;
-        }
-        public int Sum
-        {
-            get
-            {
-                return _sum;
-            }
-            set
-            {
-                _sum = value;
-                Notify?.Invoke(Phonnum);
-            }
-        }
-        public string Phonnum
-        {
-            get
-            {
-                return _phnum;
-            }
-            set
-            {
-                _phnum = value;                
-            }
-        }
+        
         private static double _rate;
         private double _paymentac;
         public string _name;
         public string _surname;
         int _old;
         private int[] _id = { };
+        public Account(string sur, string nam)
+        {
+            _surname = sur;
+            _name = nam;
+        }
         public void spisok(string sur, string nam)
         {
             nam = nam.Trim();
@@ -56,24 +32,17 @@ namespace _336Labs.Sogorin
         }        
         public void shinfo(int j)
         {
-            BankAcc[] Table = new BankAcc[10];
-            Table[0] = new BankAcc("Kuzak", "pvan");
-            Table[1] = new BankAcc("Kuzap", "uvan");
-            Table[2] = new BankAcc("Kuzam", "tvan");
-            Table[3] = new BankAcc("Kuzan", "yvan");
-            Table[4] = new BankAcc("Kuzab", "evan");
-            Table[5] = new BankAcc("Kuzac", "qvan");
-            Table[6] = new BankAcc("Kuzax", "dvan");
-            Table[7] = new BankAcc("Kuzaz", "gvan");
-            Table[8] = new BankAcc("Kuzal", "jvan");
-            Table[9] = new BankAcc("Kuzaj", "avan");
+            Account acc1 = new Account("Kuzak", "pvan");
+            Account acc2 = new Account("Kuzap", "uvan");
+            Account acc3 = new Account("Kuzam", "tvan");
+            Account acc4 = new Account("Kuzan", "yvan");
+            Account acc5 = new Account("Kuzab", "evan");
             
-            for (int i = 0; i < Table.Length; i++)
+            for (int i = 0; i < Account.Lenght; i++)
             {
                 
                 if (j == i)
-                {
-                    Console.WriteLine(Table[i]);
+                {                    
                     //Console.WriteLine(_name + " " + _surname);
                     //Console.WriteLine();
                 }
@@ -111,14 +80,39 @@ namespace _336Labs.Sogorin
         }
     }
     class BankAcc
-    {        
-      public BankAcc(string sur, string nam)
-      {
-        Account account = new Account();
-        account._surname = sur;
-        account._name = nam;
-      }
-        
+    { 
+        public BankAcc(int sum, string phnum)
+        {
+            _sum = sum;
+            _phnum = phnum;
+        }
+        private int _sum;
+        private string _phnum;
+        public string Notify = "Massage ";
+        public int Sum
+        {
+
+            get
+            {
+                return _sum;
+            }
+            set
+            {
+                _sum = value;
+                //Notify?.Invoke(Phonnum);
+            }
+        }
+        public string Phonnum
+        {
+            get
+            {
+                return _phnum;
+            }
+            set
+            {
+                _phnum = value;
+            }
+        }
     }
 }
 
