@@ -24,10 +24,20 @@ namespace _336Labs.Ziatdinova
             _SURNAME = oneLet1.ToString().ToUpper() + lastLet1;
         }
 
-        public void SetName(string newName)
+        public void shinfo(int j)
         {
-        длдлд
+
+        }
+
+        public void Getid(string us)
+        {
+            Random rndm = new Random();
+            string[] Accid = { };
+            for (int j = 0; j < )
+
+
         }
     }
+    
 
 }
