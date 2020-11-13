@@ -11,12 +11,14 @@ namespace _336Labs.Bitkova
         private string _surname;
         private string _id;
         private static double _rate;
-        private double _paymentAccount;
+        private int _sum;
         private string _phoneNumber;
 
-        public BankAccount(string phoneNumber)
+        public BankAccount(string phoneNumber, int sum)
         {
             PhoneNumber = phoneNumber;
+            Sum = sum;
+
         }
 
         public void SetName(string newName)
@@ -63,30 +65,31 @@ namespace _336Labs.Bitkova
             _rate = 6.7;
         }
 
-        public void SetPaymentAccount(double newPaymentAccount)
+       public int Sum
         {
-            _paymentAccount = newPaymentAccount;
+            get
+            {
+                return _sum;
+            }
+            set
+            {
+                _sum = value;
+
+            }
         }
 
-        public double GetPaymentAccount()
+        public void Deposit(int sum)
         {
-            return _paymentAccount;
-        }
-
-        public void SetSum(double newPaymentAccount)
-        {
-            _paymentAccount = _paymentAccount + newPaymentAccount;
+            Sum += sum;
             Notify?.Invoke(PhoneNumber);
-            Console.WriteLine(_paymentAccount);
         }
 
-        public void SetMinus(double newPaymentAccount)
+        public void Widthraw(int sum)
         {
-            _paymentAccount = _paymentAccount - newPaymentAccount;
+            Sum -= sum;
             Notify?.Invoke(PhoneNumber);
-            Console.WriteLine(_paymentAccount);
         }
-
+       
         public event Number Notify;
         public string PhoneNumber
         {
@@ -119,3 +122,29 @@ namespace _336Labs.Bitkova
          
     }
 }
+
+
+//public void SetPaymentAccount(double newPaymentAccount)
+//       {
+//           _paymentAccount = newPaymentAccount;
+//       }
+
+//       public double GetPaymentAccount()
+//       {
+//           return _paymentAccount;
+//       }
+
+
+//public void SetSum(double newPaymentAccount)
+//{
+//    _paymentAccount = _paymentAccount + newPaymentAccount;
+//    Notify?.Invoke(PhoneNumber);
+//    Console.WriteLine(_paymentAccount);
+//}
+
+//public void SetMinus(double newPaymentAccount)
+//{
+//    _paymentAccount = _paymentAccount - newPaymentAccount;
+//    Notify?.Invoke(PhoneNumber);
+//    Console.WriteLine(_paymentAccount);
+//}

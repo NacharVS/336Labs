@@ -6,7 +6,7 @@ namespace _336Labs.Bitkova
     {
         static void Main(string[] args)
         {
-            BankAccount account = new BankAccount("+79003279046");
+            BankAccount account = new BankAccount("+79003279046", 5000);
             Console.WriteLine("Введите имя: ");
             account.SetName(Console.ReadLine());
             Console.WriteLine("Введите фамилию: ");
@@ -20,22 +20,24 @@ namespace _336Labs.Bitkova
             Console.WriteLine("Введите свой день рождения.");
             account.Age();
             Console.WriteLine("Ваш счет: ");
-            account.SetPaymentAccount(double.Parse(Console.ReadLine()));
+            Console.WriteLine($"Ваш счет: {account.Sum}");
             account.Notify += MessageSetting;
-            Console.WriteLine("Cколько хотите закинуть? ");
-            account.SetSum(double.Parse(Console.ReadLine()));
+            account.Deposit(50);
+            Console.WriteLine($"Ваш счет: {account.Sum}");
             account.Notify += MessageSetting2;
-            Console.WriteLine("Cколько хотите снять? ");
-            account.SetMinus(double.Parse(Console.ReadLine()));
+            account.Deposit(1400);
+            Console.WriteLine($"Ваш счет: {account.Sum}");
         }
 
-       public static void MessageSetting(string phoneNumber)
+       
+        
+        public static void MessageSetting(string phoneNumber)
         {
             Console.WriteLine($"На {phoneNumber} поступила сумма");
         }
         public static void MessageSetting2(string phoneNumber)
         {
-            Console.WriteLine($"На {phoneNumber} сняли сумму");
+            Console.WriteLine($"С {phoneNumber} сняли сумму");
         }
     }
 }
