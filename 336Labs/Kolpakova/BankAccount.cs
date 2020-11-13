@@ -12,7 +12,7 @@ namespace _336Labs.Kolpakova
         private static double _rate;
         private double _paymentAccount;
 
-        public void list (string sur, string nam)
+        public void list(string sur, string nam)
         {
             nam = nam.Trim();
             var oneLet = nam[0];
@@ -25,9 +25,19 @@ namespace _336Labs.Kolpakova
             _SURNAME = oneLet1.ToString().ToUpper() + lastLet1;
 
         }
-            public void SetName(string newName)
-              {
-            ллллд
-              }
+
+        public void shinfo(int j)
+        {
+
+        }
+        public void Getid(string us)
+        {
+            Random rndm = new Random();
+            string[] Accid = { };
+            for (int j = 0; j < )
+        
+        }
+    }
+
     }
 }
