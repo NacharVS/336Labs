@@ -19,13 +19,14 @@ namespace _336Labs.Bitkova
             Console.WriteLine(account.GetRate());
             Console.WriteLine("Введите свой день рождения.");
             account.Age();
-            Console.WriteLine("Ваш счет: ");
             Console.WriteLine($"Ваш счет: {account.Sum}");
+            Console.WriteLine("Сколько хотите закинуть?");
             account.Notify += MessageSetting;
-            account.Deposit(50);
+            account.Deposit(int.Parse(Console.ReadLine()));
             Console.WriteLine($"Ваш счет: {account.Sum}");
+            Console.WriteLine("Сколько хотите снять?");
             account.Notify += MessageSetting2;
-            account.Deposit(1400);
+            account.Widthraw(int.Parse(Console.ReadLine()));
             Console.WriteLine($"Ваш счет: {account.Sum}");
         }
 
@@ -35,6 +36,7 @@ namespace _336Labs.Bitkova
         {
             Console.WriteLine($"На {phoneNumber} поступила сумма");
         }
+
         public static void MessageSetting2(string phoneNumber)
         {
             Console.WriteLine($"С {phoneNumber} сняли сумму");
