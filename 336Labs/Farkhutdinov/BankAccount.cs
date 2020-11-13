@@ -14,6 +14,7 @@ namespace _336Labs.Farkhutdinov
         private static int _id;
         private static double _rate = 7.7;
         private static double _balance = 0;
+        private string _phoneNumber;
         public void SetName(string newName)
         {
             newName = newName.Trim();
@@ -88,9 +89,8 @@ namespace _336Labs.Farkhutdinov
             Console.WriteLine($" Ваш текущий баланс - {_balance}");
 
         }
-        public void Events()
-        {
+        public string PhoneNumber{ get; private set }
 
-        }
+
     }
 }
