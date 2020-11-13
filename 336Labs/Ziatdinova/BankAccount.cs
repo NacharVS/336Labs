@@ -33,7 +33,26 @@ namespace _336Labs.Ziatdinova
         {
             Random rndm = new Random();
             string[] Accid = { };
-            for (int j = 0; j < )
+            for (int j = 0; j < Accid.Length; j++)
+            {
+                if (_SURNAME == us)
+                {
+                    for (int i = 0; i < _id.Length; i++)
+                    {
+                        if (i == j)
+                            Console.WriteLine(_id[i]);
+                        else
+                        {
+                            if (i == _id.Length)
+                            {
+                                _id[i] = rndm.Next(000000, 100000);
+                                Console.WriteLine;
+                            }
+                        }
+                    }
+                }
+
+            }
 
 
         }
