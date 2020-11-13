@@ -11,7 +11,7 @@ namespace _336Labs.Galimzyanov
         private string _id, _age;
         private static double _rate = 0.067;
         private double _paymentAccount = 0;
-        
+
 
         public void SetName(string newName)
         {
@@ -20,7 +20,7 @@ namespace _336Labs.Galimzyanov
             var otherLetters = newName.Remove(0, 1);
             _name = firstLetter.ToString().ToUpper() + otherLetters;
         }
-        
+
         public void SetSurname(string newSurname)
         {
             newSurname = newSurname.Trim();
@@ -43,7 +43,7 @@ namespace _336Labs.Galimzyanov
             _paymentAccount = _paymentAccount + vnesti;
             Console.WriteLine("Счёт" + _paymentAccount + "рублей");
         }
-        public void Snytia (double snytia)
+        public void Snytia(double snytia)
         {
             _paymentAccount = _paymentAccount - snytia;
             Console.WriteLine("Счёт" + _paymentAccount + "рублей");
@@ -53,7 +53,7 @@ namespace _336Labs.Galimzyanov
         {
             DateTime d = DateTime.Now.Date;
         }
-        public static void SetAge (BankAccount bank)
+        public static void SetAge(BankAccount bank)
         {
             Console.WriteLine("Ваш год рождения:");
             int уеars = int.Parse(Console.ReadLine());
@@ -64,19 +64,19 @@ namespace _336Labs.Galimzyanov
 
             DateTime Birthday = new DateTime(2002, 04, 25);
 
-            Birthday.AddYears(years);
+            //Birthday.AddYears(years);
             Birthday.AddMonths(month);
             Birthday.AddDays(day);
 
             Console.WriteLine();
-            
-        }
-        public static void SetId(BankAccount bank)
-        {
-            Random rnd = new Random();
-            bank._id = rnd.Next(0, 20);
 
         }
+        //public static void SetId(BankAccount bank)
+        //{
+        //    Random rnd = new Random();
+        //    bank._id = rnd.Next(0, 20);
+
+        //}
 
         abstract class Person
         {
@@ -103,7 +103,25 @@ namespace _336Labs.Galimzyanov
 
         }
 
-        public static void MessageSending(string phoneNumber);
+        
+        public static void MessageSending(string phoneNumber)
+        {
+            Console.WriteLine($"Message send at {phoneNumber}");
+        }
+        public static void MessageSending2(string phoneNumber)
+        {
+            Console.WriteLine($"Message send at {phoneNumber}");
+        }
+
+        public delegate void Handler(string phoneNumber)
+
+            private int_sum;
+            private string _phoneNumber;
+            public BankAccount(int sum, string phoneNumber)
+        {
+            _sum = sum;
+           
+        }
 
 
     }
