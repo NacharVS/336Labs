@@ -5,13 +5,16 @@ using System.Text;
 namespace _336Labs.Acadullin
 {
     class BankAccount
-    {
+    { 
+        
         private string _name;
         private string _surname;
         private string _id, _age;
         private static double _rate = 0.021;
         private double _paymentAccount;
         private DateTime a = new DateTime();
+
+       
         public void SetName(string newName)
         {
             newName = newName.Trim();
@@ -40,8 +43,9 @@ namespace _336Labs.Acadullin
         }
         public static void SetId(BankAccount banks)
         {
+          
             Random rnd = new Random();
-            banks._id = rnd.Next(0, 10);
+            banks._id = rnd.Next(0,10);
         }
         public static void SetFIO(BankAccount banks)
         {
@@ -99,13 +103,18 @@ namespace _336Labs.Acadullin
         }
         public static void MessageSending(string Phonenomer)
         {
-            Console.WriteLine($"Message send at: {Phonenomer}");
+            Console.WriteLine($"СМС отправлен на номер: {Phonenomer}");
         }
         public static void MessageSending2(string Phonenomer)
         {
-            Console.WriteLine($"Message send at: {Phonenomer}");
+            Console.WriteLine($"СМС отправлен на номер: {Phonenomer}");
+        }
+        public delegate void Hander(string phonenumber);
+        {
+
         }
     }
+    
 }   
 
     
