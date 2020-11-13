@@ -96,11 +96,11 @@ namespace _336Labs.Loginov
     {
         public delegate void AccountHandler(object sender, AccountEventArgs e);
         public event AccountHandler Notify;
+        public int Sum { get; private set; }
         public Account(int sum)
         {
             Sum = sum;
         }
-        public int Sum { get; private set; }
         public void Put(int sum)
         {
             Sum += sum;
@@ -119,48 +119,14 @@ namespace _336Labs.Loginov
             }
         }
     }
-    // Операции
-    /*        public void Deposit()
-            {
-                Console.Write("Сколько хотите внести >>> ");
-
-                double depos = Convert.ToDouble(Console.ReadLine());
-
-                _paymentAccount = _paymentAccount + depos;
-
-                Console.Write("На вашем счету стало " + _paymentAccount);
-            }
-
-            public void Withdraw()
-            {
-                Console.Write("Сколько хотите снять  >>> ");
-                double withdraw = Convert.ToDouble(Console.ReadLine());
-                _paymentAccount = _paymentAccount - withdraw;
-                Console.Write("На вашем счету осталось : " + _paymentAccount);
-            }
-        }*/
-
-
 
     class BA
     {
-        //private static void DisplayMessage(string message) => Console.WriteLine(message);
-        /* public static void DisplayMessage(string message)
-         {
-             Console.WriteLine(message);
-         }*/
+
         private static void DisplayMessage(object sender, AccountEventArgs e)
         {
             Console.WriteLine($"Сумма транзакции: {e.Sum}");
             Console.WriteLine(e.Message);
-        }
-        private static void DisplayRedMessage(String message)
-        {
-            // Устанавливаем красный цвет символов
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(message);
-            // Сбрасываем настройки цвета
-            Console.ResetColor();
         }
 
         public static void BnkAc()
@@ -171,9 +137,9 @@ namespace _336Labs.Loginov
             BankAccount.SetAge(bank);
             if (BankAccount.GetNameSurnameIdAgeRate(bank) == true)
             {
-                Account acc = new Account(100);
+                Account acc = new Account(10);
                 acc.Notify += DisplayMessage;
-                acc.Put(20);
+                acc.Put(120);
                 acc.Take(70);
                 acc.Take(150);
                 Console.Read();
