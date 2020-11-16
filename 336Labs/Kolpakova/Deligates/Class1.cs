@@ -6,13 +6,15 @@ namespace _336Labs.Kolpakova.Deligates
 {
     class Class1
     {
+        private static int max;
+
         public static void GenerationArray(int[] arr, int Min, int Max)
         { 
             Random rndm = new Random();
             for (int i = 0; i < arr.GetLength(0); i++)
             {
                 arr[i] = rndm.Next(Min, Max);
-                Console.WriteLine($"(arr[i])");
+                Console.WriteLine($"{arr[i]}");
             }
             Console.WriteLine();
         }
@@ -21,7 +23,7 @@ namespace _336Labs.Kolpakova.Deligates
             int tem;
             for (int i = 0; i < arr.Length - 1; i++)
             {
-               for (int n = i + 1; n < arr.Length; n++)
+                for (int n = i + 1; n < arr.Length; n++)
                 {
                     if (arr[i] > arr[n])
                     {
@@ -33,23 +35,36 @@ namespace _336Labs.Kolpakova.Deligates
             }
             for (int i = 0; i < arr.Length; i++)
             {
-                Console.WriteLine();
+                Console.WriteLine($"{arr[i]} ");
 
             }
-            public
+            Console.WriteLine();
+        }
+        public static void SumArray(int[] arr)
+        {
+            int temp = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                temp = temp + arr[i];
+            }
+            Console.WriteLine($"{temp}");
+
+        }
+        public static void MaxArray(int[] arr)
+        {
+            if max = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (max < arr[i])
+                {
+                    max = max + arr[i];
+                }
+            }
+            Console.WriteLine($"{max}");
+        }
+            
 
 
             
         }
-    } 
-    
-
-
-        
-        
-
-        
-
-
-    
-}
+    }  
