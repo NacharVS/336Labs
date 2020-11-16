@@ -36,6 +36,8 @@ namespace _336Labs.Kolpakova.Deligates
                 Console.WriteLine();
 
             }
+            public
+
 
             
         }
