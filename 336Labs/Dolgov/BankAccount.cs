@@ -71,7 +71,7 @@ namespace _336Labs.Dolgov
         }
         public static bool GetNSNIDR(BankAccount bank)
         {
-            if(bank._age < 16)
+            if (bank._age < 16)
             {
                 Console.WriteLine("Ваш возраст слишком мал для заведения счета.");
                 return false;
@@ -124,29 +124,18 @@ namespace _336Labs.Dolgov
                 }
             }
         }
-
-        public void Dep()
-        {
-            Console.WriteLine("Какую сумму хотите положить на счет?");
-
-            double DE = Convert.ToDouble(Console.ReadLine());
-
-            _paymentAccount = _paymentAccount + DE;
-
-            Console.WriteLine("Ваш баланс:" + _paymentAccount);
-        }
-        public void WD()
-        {
-            Console.WriteLine("Какую сумму хотите снять со счета?");
-            double withdraw = Convert.ToDouble(Console.ReadLine());
-            _paymentAccount = _paymentAccount - withdraw;
-            Console.WriteLine("Ваш баланс: " + _paymentAccount);
-        }
+       
     }
     class BankAcco
     {
 
-        public static void BnkAcc()
+        private static void DisplayMessage(object sender, AccountEventArgs e)
+        {
+            Console.WriteLine($"Сумма транзакции: {e.Sum}");
+            Console.WriteLine(e.Message);
+        }
+
+        public static void BnkAc()
         {
             BankAccount bank = new BankAccount();
             BankAccount.SetNSNIDA(bank);
@@ -154,14 +143,12 @@ namespace _336Labs.Dolgov
             BankAccount.SetAge(bank);
             if (BankAccount.GetNSNIDR(bank) == true)
             {
-                int n = 0;
-                while (n == 0)
-                {
-                    Console.WriteLine();
-                    bank.Dep();
-                    Console.WriteLine();
-                    bank.WD();
-                }
+                Account acc = new Account(10);
+                acc.Notify += DisplayMessage;
+                acc.Put(120);
+                acc.Take(70);
+                acc.Take(150);
+                Console.Read();
             }
         }
     }
