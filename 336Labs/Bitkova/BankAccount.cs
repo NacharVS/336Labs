@@ -7,10 +7,11 @@ namespace _336Labs.Bitkova
     class BankAccount
     {
         public delegate void Number(string phonenumber);
+        public delegate void RateChanged(double oldRate, double newRate);
         private string _name;
         private string _surname;
         private string _id;
-        private static double _rate;
+        private static double _rate = 0.035;
         private int _sum;
         private string _phoneNumber;
 
@@ -18,7 +19,6 @@ namespace _336Labs.Bitkova
         {
             PhoneNumber = phoneNumber;
             Sum = sum;
-
         }
 
         public void SetName(string newName)
@@ -55,17 +55,21 @@ namespace _336Labs.Bitkova
             _id = ID;
         }
 
-        public double GetRate()
+        public double Rate
         {
-            return _rate;
+            get
+            {
+                return _rate;
+            }
+            set
+            {
+                var oldRate = _rate;
+                _rate = value;
+                RateChangedEvent?.Invoke(oldRate, _rate);
+            }
         }
 
-        public void SetRate()
-        {
-            _rate = 6.7;
-        }
-
-       public int Sum
+        public int Sum
         {
             get
             {
@@ -74,23 +78,22 @@ namespace _336Labs.Bitkova
             set
             {
                 _sum = value;
-
+                PhoneNumberEvent?.Invoke(PhoneNumber);
             }
         }
 
         public void Deposit(int sum)
         {
             Sum += sum;
-            Notify?.Invoke(PhoneNumber);
         }
 
         public void Widthraw(int sum)
         {
             Sum -= sum;
-            Notify?.Invoke(PhoneNumber);
         }
        
-        public event Number Notify;
+        public event Number PhoneNumberEvent;
+        public event RateChanged RateChangedEvent;
         public string PhoneNumber
         {
             get
@@ -100,8 +103,12 @@ namespace _336Labs.Bitkova
             set
             {
                 _phoneNumber = value;
-
             }
+        }
+
+        public void newRate(double newRate)
+        {
+            _rate = newRate;
         }
         public void Age()
         {

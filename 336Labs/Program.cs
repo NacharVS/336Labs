@@ -14,18 +14,18 @@ namespace _336Labs.Bitkova
             Console.WriteLine("Ваш ID: ");
             account.SetId();
             Console.WriteLine(account.GetID());
-            Console.WriteLine("Ваша ставка: ");
-            account.SetRate();
-            Console.WriteLine(account.GetRate());
+            account.RateChangedEvent += RateMessage;
+            Console.WriteLine($"Ваша ставка: {account.Rate}");
+            account.newRate(0.47);
+            Console.WriteLine($"Ваша ставка: {account.Rate}");
             Console.WriteLine("Введите свой день рождения.");
             account.Age();
             Console.WriteLine($"Ваш счет: {account.Sum}");
+            account.PhoneNumberEvent += MessageSetting;
             Console.WriteLine("Сколько хотите закинуть?");
-            account.Notify += MessageSetting;
             account.Deposit(int.Parse(Console.ReadLine()));
             Console.WriteLine($"Ваш счет: {account.Sum}");
             Console.WriteLine("Сколько хотите снять?");
-            account.Notify += MessageSetting2;
             account.Widthraw(int.Parse(Console.ReadLine()));
             Console.WriteLine($"Ваш счет: {account.Sum}");
         }
@@ -34,12 +34,11 @@ namespace _336Labs.Bitkova
         
         public static void MessageSetting(string phoneNumber)
         {
-            Console.WriteLine($"На {phoneNumber} поступила сумма");
+            Console.WriteLine($"Message send at {phoneNumber}");
         }
-
-        public static void MessageSetting2(string phoneNumber)
+        public static void RateMessage(double oldRate, double newRate)
         {
-            Console.WriteLine($"С {phoneNumber} сняли сумму");
+            Console.WriteLine($"Old rate {oldRate} changed to {newRate}");
         }
     }
 }
