@@ -12,6 +12,14 @@ namespace _336Labs.Kolpakova
         private static double _rate;
         private double _paymentAccount;
         private string _surname;
+        private string v1;
+        private string v2;
+
+        public BankAccount(string v1, string v2)
+        {
+            this.v1 = v1;
+            this.v2 = v2;
+        }
 
         public static int Lenght { get; private set; }
 
