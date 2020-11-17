@@ -15,22 +15,22 @@ namespace _336Labs.Vasilev.Deligate
             int[] array3 = new int[10];
             Trainee tr1;
             Console.WriteLine("Arr for Number 1");
-            Branch1.GenerationArray(array1, 0, 10);
-            tr1 = Branch1.SortArray;
-            tr1 += Branch1.SumArray;
-            tr1 += Branch1.MaxArray;
+            Branch.GenerationArray(array1, 0, 10);
+            tr1 = Branch.SortArray;
+            tr1 += Branch.SumArray;
+            tr1 += Branch.MaxArray;
             Traineee tr2;
             Console.WriteLine("Arr for Number 2");
-            Branch1.GenerationArray(array2, 0, 10);
-            Branch1.GenerationArray(array3, 0, 10);
-            tr2 = Branch2.SumTwoArray;
-            tr2 += Branch2.DiffTwoArray;
-            tr2 += Branch2.MultTwoArray;
+            Branch.GenerationArray(array2, 0, 10);
+            Branch.GenerationArray(array3, 0, 10);
+            tr2 = Branch.SumTwoArray;
+            tr2 += Branch.DiffTwoArray;
+            tr2 += Branch.MultTwoArray;
 
-            //Вывод
-            Console.WriteLine("Number1");
+            
+            Console.WriteLine("Номер1");
             tr1(array1);
-            Console.WriteLine("Number2");
+            Console.WriteLine("Номер2");
             tr2(array2, array3);
 
         }
