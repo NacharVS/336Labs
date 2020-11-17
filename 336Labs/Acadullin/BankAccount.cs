@@ -6,16 +6,15 @@ namespace _336Labs.Acadullin
 {
     class BankAccount
     { 
-        
         private string _name;
         private string _surname;
         private string _id, _age;
-        public delegate
+        public delegate void SumChanged(string phonenumber);
+        public delegate void RateChanged(double oldRate, double newRate);
         private static double _rate = 0.021;
         private double _paymentAccount;
         private DateTime a = new DateTime();
-
-       
+        public delegate void Hander(string phonenumber);
         public void SetName(string newName)
         {
             newName = newName.Trim();
@@ -110,7 +109,7 @@ namespace _336Labs.Acadullin
         {
             Console.WriteLine($"СМС отправлен на номер: {Phonenomer}");
         }
-        public delegate void Hander(string phonenumber);
+      
         
 
         
