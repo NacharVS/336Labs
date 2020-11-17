@@ -46,7 +46,7 @@ namespace _336Labs.Ziatdinova
                             if (i == _id.Length)
                             {
                                 _id[i] = rndm.Next(000000, 100000);
-                                Console.WriteLine;
+                                Console.WriteLine();
                             }
                         }
                     }
