@@ -11,6 +11,7 @@ namespace _336Labs.Melenteva
         private static int _id;
         public static double _rate;
         private double _paymentAccount;
+        private DateTime B = new DateTime();
         public void SetName(string nName)
         {
             nName = nName.Trim();
