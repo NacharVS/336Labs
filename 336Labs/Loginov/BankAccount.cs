@@ -120,6 +120,11 @@ namespace _336Labs.Loginov
         }
     }
 
+    class Rate
+    {
+        
+    }
+
     class BA
     {
 
