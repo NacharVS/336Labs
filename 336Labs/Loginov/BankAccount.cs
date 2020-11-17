@@ -13,6 +13,7 @@ namespace _336Labs.Loginov
         private static double _rate = 0.67;
         //private double _paymentAccount;
         private DateTime DayOfBirth = new DateTime();
+        public  DateTime AccAge = DateTime.Now;
 
         //Установка
         public void SetName(string newName)
@@ -56,7 +57,13 @@ namespace _336Labs.Loginov
             bank.DayOfBirth = new DateTime(year, month, day);
             DateTime Today = DateTime.Now;
             bank._age = Today.Year - bank.DayOfBirth.Year;
-            Console.WriteLine();
+
+            /*            Console.WriteLine();
+                        Console.WriteLine();
+                        Console.WriteLine(Today);
+                        Console.WriteLine(Today.AddSeconds(10));
+                        Console.WriteLine();
+                        Console.WriteLine();*/
         }
 
         //Выдача
@@ -118,11 +125,13 @@ namespace _336Labs.Loginov
                 Notify?.Invoke(this, new AccountEventArgs("Недостаточно денег на счете", sum)); ;
             }
         }
-    }
 
-    class Rate
-    {
-        
+        public void Rate(BankAccount bank)
+        {
+            DateTime Check = DateTime.Now;
+            Check = bank.AccAge;
+        }
+
     }
 
     class BA
