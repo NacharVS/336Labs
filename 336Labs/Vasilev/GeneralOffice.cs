@@ -7,7 +7,7 @@ namespace _336Labs.Vasilev.Deligate
     class GeneralOffice
     {
         private delegate void Trainee(int[] arr);
-        private delegate void Traineee(int[] arr1, int[] arr2);
+        private delegate void Trainee2(int[] arr1, int[] arr2);
         public static void B()
         {
             int[] array1 = new int[10];
@@ -19,7 +19,7 @@ namespace _336Labs.Vasilev.Deligate
             tr1 = Branch.SortArray;
             tr1 += Branch.SumArray;
             tr1 += Branch.MaxArray;
-            Traineee tr2;
+            Trainee2 tr2;
             Console.WriteLine("Arr for Number 2");
             Branch.GenerationArray(array2, 0, 10);
             Branch.GenerationArray(array3, 0, 10);
