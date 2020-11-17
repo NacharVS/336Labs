@@ -6,6 +6,7 @@ namespace _336Labs.Galimzyanov
 {
     class BankAccount
     {
+        public delegate
         private string _name;
         private string _surname;
         private string _id, _age;
