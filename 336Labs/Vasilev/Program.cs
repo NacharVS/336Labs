@@ -6,28 +6,16 @@ namespace _336Labs.Vasilev
 {
     class Program
     {
-        private delegate void Trainee();
-        static void Main(String[] args)
+        static void Main()
+
         {
             //MethodCalculator.Calc();
             //ClassAndObjects.CaO();
             //studentList.StL();
             //StringOperations.StrOpr();
             //Studentcompany.main();
-            Trainee tr1;
-            tr1 = Deligate.SortArray;
-            tr1();
-            tr1 = Deligate.ElementSum;
-            tr1();
-            tr1 = Deligate.MaxArray;
-            tr1();
-            tr1 = Deligate.Sum;
-            tr1();
-            tr1 = Deligate.Minus
-            tr1();
-            tr1 = Deligate.Multiplus;
-            tr1();
-
+            //BA.BnkAc();
+            GeneralOffice.B();
         }
 
     }
