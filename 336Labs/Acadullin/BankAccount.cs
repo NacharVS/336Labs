@@ -10,6 +10,7 @@ namespace _336Labs.Acadullin
         private string _name;
         private string _surname;
         private string _id, _age;
+        public delegate
         private static double _rate = 0.021;
         private double _paymentAccount;
         private DateTime a = new DateTime();
@@ -110,9 +111,9 @@ namespace _336Labs.Acadullin
             Console.WriteLine($"СМС отправлен на номер: {Phonenomer}");
         }
         public delegate void Hander(string phonenumber);
-        {
+        
 
-        }
+        
     }
     
 }   
