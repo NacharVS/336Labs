@@ -12,6 +12,7 @@ namespace _336Labs.Podolskiy
         private string _id;
         private static double _rate = 0.021;
         private double _paymentAccount = 12000;
+        
 
 
         public void SetName(string newName)
@@ -39,11 +40,7 @@ namespace _336Labs.Podolskiy
             Console.WriteLine("На вашем счету стало " + _paymentAccount);
         }
 
-        //public void GenerationID(BankAccount bank )
-        //  {
-        //      Random random = new Random();
-        //      bank._id = random.Next(10, 100);
-        //  }
+       
 
         public void Withdraw()
         {
@@ -78,5 +75,14 @@ namespace _336Labs.Podolskiy
         }
 
     }
+    class Account
+    {
+        public delegate void AccountHandler(object sender, AccountEventArgs e);
+        public event AccountHandler Notify;
+        public int Sum { get; private set; }
+        public Account(int sum)
+        {
+            Sum = sum;
+        }
 
-}
+    }
