@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace _336Labs.Melenteva
@@ -12,14 +13,23 @@ namespace _336Labs.Melenteva
         public static double _rate;
         private double _paymentAccount;
         private DateTime B = new DateTime();
+
         public void SetName(string nName)
         {
             nName = nName.Trim();
             var firstLetter = nName[0];
             var oLetters = nName.Remove(0, 1);
-            _surname = firstLetter.ToString().ToUpper() + oLetters;
+            _name = firstLetter.ToString().ToUpper() + oLetters.ToString().ToLower();
+        }
+        public void SetSurName(string nSurName)
+            {
+            nSurName = nSurName.Trim();
+            var firstLetter = nSurName[0];
+            var oLetters = nSurName.Remove(0, 1);
+            _SurName = firstLetter.ToString().ToUpper() + oLetters.ToString().ToLower();
 
         }
+
         public void SetId()
         {
             int a = 0;
