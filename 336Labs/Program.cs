@@ -28,6 +28,7 @@ namespace _336Labs.Bitkova
             Console.WriteLine("Сколько хотите снять?");
             account.Widthraw(int.Parse(Console.ReadLine()));
             Console.WriteLine($"Ваш счет: {account.Sum}");
+            Console.WriteLine("Вы взяли кредит, случайно)))");
         }
 
        
