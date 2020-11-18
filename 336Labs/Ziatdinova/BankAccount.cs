@@ -95,7 +95,8 @@ class BankAcc
     private int _sum;
     private _phnum;
     public string Notify = "Message";
-    
+    private string _phnum;
+
     public int Sum
     {
         get
@@ -117,6 +118,13 @@ class BankAcc
         {
             _phnum = value;
         }
+    }
+}
+class BankAcc
+{
+    public BankAcc(int sum, string phnum)
+    {
+
     }
 }
 
