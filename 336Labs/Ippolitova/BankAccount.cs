@@ -9,7 +9,7 @@ namespace _336Labs.Ippolitova
         private string _name;
         private string _surname;
         private string _id;
-        private int _age;
+        public int _age;
         private double _paymentAccount = 2000;
         public static double _rate = 0.067;
         private DateTime DayOfBirth = new DateTime();
@@ -59,7 +59,7 @@ namespace _336Labs.Ippolitova
             Console.WriteLine("Введите месяц:");
             int month = int.Parse(Console.ReadLine());
             Console.WriteLine("Введите день:");
-            int days = int.Parse(Console.ReadLine()); 
+            int days = int.Parse(Console.ReadLine());
             dayOfBirthday.AddYears(years);
             dayOfBirthday.AddMonths(month);
             dayOfBirthday.AddDays(days);
@@ -134,22 +134,41 @@ namespace _336Labs.Ippolitova
                 Notify?.Invoke(this, new AccountEventArgs("Недостаточно денег на счете", sum)); ;
             }
         }
-        public void RateChange(double newRate)
-        {
-            Rate = newRate;
-        }
-        private set
-            {
-            var odRate = _rate;
-           _rate = Value;
-            RateChangedEvent?.Invoke(oldRAte, _rate)
-            }
-       public static void RateChangednotify(double oldRAte,double newRate)
-       {
-        Console.WriteLine($"Old rate {oldRate} changed to{newRate}");
-       }
+
     }
-    
+    class Rate
+    {
+
+        public void ClassRate(BankAccount bank)
+        {
+            DateTime Check = DateTime.Now;
+        }
+
+    }
+
+    class BA
+    {
+        private static void DisplayMessage(object sender, AccountEventArgs e)
+        {
+            Console.WriteLine($"Сумма транзакции: {e.Sum}");
+            Console.WriteLine(e.Message);
+        }
+        public static void BnkAc()
+        {
+            BankAccount bank = new BankAccount();
+            if (BankAccount.GetNameSurnameIdAgeRate(bank) == true)
+            {
+                Account acc = new Account(10);
+                acc.Notify += DisplayMessage;
+                acc.Put(120);
+                acc.Take(70);
+                acc.Take(150);
+                Console.Read();
+            }
+        }
+    }
+}
+
 
 
 
