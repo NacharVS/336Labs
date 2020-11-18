@@ -93,9 +93,9 @@ class BankAcc
         string _phnum = phnum;
     }
     private int _sum;
-    private _phnum;
-    public string Notify = "Message";
     private string _phnum;
+    public string Notify = "Message";
+   
 
     public int Sum
     {
@@ -120,12 +120,66 @@ class BankAcc
         }
     }
 }
-class BankAcc
+class BankAcco
 {
-    public BankAcc(int sum, string phnum)
+    private string _name;
+    private string _SURNAME;
+    private int[] _id = { };
+    private static double _rate;
+    private double _paymentAccount;
+    private string mass;
+
+    public void Setname(string newName)
     {
+        newName = newName.Trim();
+        var firstLet = newName[0];
+        var lastLet = newName.Remove(0, 1);
+        _name = firstLet.ToString().ToUpper() + lastLet;
+    }
+    public void Sersurname(string newsurName)
+    {
+        newsurName = newsurName.Trim();
+        var firstLet = newsurName[0];
+        var lastLet = newsurName.Remove(0, 1);
+        _SURNAME = firstLet.ToString().ToUpper() + lastLet;
 
     }
+    public void Getid(string us)
+    {
+        Random rndm = new Random();
+        string[] Accid = { };
+        for (int j = 0; j < Accid.Length; j++)
+        {
+            if (_SURNAME == us)
+            {
+                for (int i = 0; i < _id.Length; i++)
+                {
+                    if (i == j)
+                        Console.WriteLine(_id[i]);
+                    else
+                    {
+                        if (i == _id.Length)
+                        {
+                            _id[i] = rndm.Next(000000, 100000);
+                            Console.WriteLine(_id[i]);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    public void info()
+    {
+        Console.WriteLine(mass);
+
+    }
+    public void showinfo(int num)
+    {
+        Console.WriteLine(_id[num] + _name[num] + +_SURNAME[num]);
+    }
 }
+
+
+
 
     
