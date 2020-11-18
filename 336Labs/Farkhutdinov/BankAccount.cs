@@ -15,6 +15,12 @@ namespace _336Labs.Farkhutdinov
         private static double _rate = 7.7;
         private static double _balance = 0;
         private string _phoneNumber;
+        public delegate void Handler(string phoneNumber);
+        public BankAccount(int sum, string phoneNumber)
+        {
+            _balance = sum;
+            _phoneNumber = phoneNumber;
+        }
         public void SetName(string newName)
         {
             newName = newName.Trim();
@@ -87,10 +93,8 @@ namespace _336Labs.Farkhutdinov
         public void GetBalance()
         {
             Console.WriteLine($" Ваш текущий баланс - {_balance}");
-
         }
-        public string PhoneNumber{ get; private set }
-
+        // 18.11.2020
 
     }
 }
