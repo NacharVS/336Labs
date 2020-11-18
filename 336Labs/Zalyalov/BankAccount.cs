@@ -10,16 +10,17 @@ namespace _336Labs.Dolgov
         private string _name;
         private string _surname;
         private int _id, _age;
-        public static double _rate = 0.067;
+        public static double _rate = 0.67;
         private double _paymentAccount;
         private DateTime B = new DateTime();
+        public DateTime AgeAc = DateTime.Now;
 
         public void SetName(string newName)
         {
             newName = newName.Trim();
             var firstLetter = newName[0];
             var otherLetters = newName.Remove(0, 1);
-            _name = firstLetter.ToString().ToUpper() + otherLetters;
+            _name = firstLetter.ToString().ToUpper() + otherLetters.ToString().ToLower();
         }
         public void SetSurname(string newSurname)
         {
@@ -27,7 +28,7 @@ namespace _336Labs.Dolgov
             newSurname = newSurname.Trim();
             var firstletter = newSurname[0];
             var otherletters = newSurname.Remove(0, 1);
-            _surname = firstletter.ToString().ToUpper() + otherletters;
+            _surname = firstletter.ToString().ToUpper() + otherletters.ToString().ToLower();
 
         }
         public void SetAge(DateTime newAge)
@@ -65,52 +66,97 @@ namespace _336Labs.Dolgov
             Console.WriteLine("День рож.");
             int D = Convert.ToInt32(Console.ReadLine());
             bank.B = new DateTime(Y, M, D);
-            Console.WriteLine(bank.B);
             DateTime T = DateTime.Now;
-            Console.WriteLine(T);
             bank._age = T.Year - bank.B.Year;
-            Console.WriteLine(bank._age);
+            Console.WriteLine();
         }
-        public static void GetNSNID(BankAccount bank)
+        public static bool GetNSNIDR(BankAccount bank)
         {
-            Console.WriteLine($"Имя:{bank._name}");
-            Console.WriteLine($"Фамилия:{bank._surname}");
-            Console.WriteLine($"ID:{bank._id}");
-            Console.WriteLine($"Дата рож.:{bank.B.ToString("dd:MM:yyyy")}");
-            Console.WriteLine($"Возраст:{bank._age}");
-        }
-        public void Dep()
-        {
-            Console.WriteLine("Какую сумму хотите положить на счет?");
-
-            double DE = Convert.ToDouble(Console.ReadLine());
-
-            _paymentAccount = _paymentAccount + DE;
-
-            Console.WriteLine("Ваш баланс:" + _paymentAccount);
-        }
-        public void WD()
-        {
-            Console.WriteLine("Какую сумму хотите снять со счета?");
-            double withdraw = Convert.ToDouble(Console.ReadLine());
-            _paymentAccount = _paymentAccount - withdraw;
-            Console.WriteLine("Ваш баланс: " + _paymentAccount);
+            if (bank._age < 16)
+            {
+                Console.WriteLine("Ваш возраст слишком мал для заведения счета.");
+                return false;
+            }
+            else
+            {
+                Console.WriteLine($"Имя:{bank._name}");
+                Console.WriteLine($"Фамилия:{bank._surname}");
+                Console.WriteLine($"ID:{bank._id}");
+                Console.WriteLine($"Дата рож.:{bank.B.ToString("dd:MM:yyyy")}");
+                Console.WriteLine($"Возраст:{bank._age}");
+                Console.WriteLine($"Ставка: {_rate}");
+                return true;
+            }
         }
     }
-    class BankAcсo
+    class AccountEventArgs
     {
-        public static void BankAcc()
+        public string Message { get; }
+        public int Sum { get; }
+        public AccountEventArgs(string mes, int sum)
+        {
+            Message = mes;
+            Sum = sum;
+        }
+    }
+    class Account
+    {
+        public delegate void AccountHandler(object sender, AccountEventArgs e);
+        public event AccountHandler Notify;
+        public int Sum { get; private set; }
+        public Account(int sum)
+        {
+            Sum = sum;
+        }
+        public void Put(int sum)
+        {
+            Sum += sum;
+            Notify?.Invoke(this, new AccountEventArgs($"На счет поступило {sum}.", sum));
+        }
+        public void Take(int sum)
+        {
+            if (Sum >= sum)
+            {
+                Sum -= sum;
+                Notify?.Invoke(this, new AccountEventArgs($"Сумма {sum} снята со счета.", sum));
+            }
+            else
+            {
+                Notify?.Invoke(this, new AccountEventArgs("Нехватка средств на счете.", sum)); ;
+            }
+        }
+
+        public void Rate(BankAccount bank)
+        {
+            DateTime Check = DateTime.Now;
+            Check = bank.AgeAc;
+        }
+
+    }
+
+    class BankAcco
+    {
+
+        private static void DisplayMessage(object sender, AccountEventArgs e)
+        {
+            Console.WriteLine($"Сумма транзакции: {e.Sum}");
+            Console.WriteLine(e.Message);
+        }
+
+        public static void BnkAc()
         {
             BankAccount bank = new BankAccount();
             BankAccount.SetNSNIDA(bank);
             BankAccount.SetId(bank);
             BankAccount.SetAge(bank);
-            BankAccount.GetNSNID(bank);
-            int n = 1;
-            while (n > 0)
+            if (BankAccount.GetNSNIDR(bank) == true)
             {
-                bank.Dep();
-                bank.WD();
+                Account acc = new Account(10);
+                acc.Notify += DisplayMessage;
+                acc.Put(120);
+                acc.Take(70);
+                acc.Take(150);
+                Console.Read();
             }
         }
     }
