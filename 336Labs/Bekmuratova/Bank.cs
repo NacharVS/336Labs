@@ -9,41 +9,86 @@ namespace _336Labs.Bekmuratova
         {
         private string _name;
         private string _surname;
-        private static int _id;
-        public static double _rate;
+        private static int _id, _age;
+        public static double _rate = 0.67;
         private double _paymentAccount;
-        private DateTime B = new DateTime();
+        private DateTime Birth = new DateTime();
+        public DateTime AccAge = DateTime.Now;
+
         public void SetName(string nName)
         {
             nName = nName.Trim();
             var firstLetter = nName[0];
             var oLetters = nName.Remove(0, 1);
-            _surname = firstLetter.ToString().ToUpper() + oLetters;
+            _name = firstLetter.ToString().ToUpper() + oLetters.ToString().ToLower();
+        }
+        public void SetSurName(string nSurName)
+        {
+            nSurName = nSurName.Trim();
+            var firstLetter = nSurName[0];
+            var oLetters = nSurName.Remove(0, 1);
+            _surname = firstLetter.ToString().ToUpper() + oLetters.ToString().ToLower();
 
         }
-        public void SetId()
-        {
-            int a = 0;
-            string ID = "";
-            for (int i = 0; i < 3; i++)
-            {
-                ID = (char)(a % 10 + '0') + ID;
-                a = a - 10;
-            }
-            _id = ID;
 
+        public void SetAge(DateTime nAge)
+        {
+            DateTime Birth = DateTime.Now.Date;
         }
         public double GetRate()
         {
             return _rate;
         }
-        public void SetRate()
+        public void SetRate(double rate)
         {
-            _rate = 5.4;
+            _rate = rate;
         }
-        public void SetPaymentAccount(double nPaymentAccount)
+
+        public void SetId(string v)
         {
-            _paymentAccount = nPaymentAccount;
+            Random rnd = new Random();
+            _id = rnd.Next(10, 100);
+
+        }
+        public static void SetNSNIDA(BankAccount bank)
+        {
+            Console.WriteLine("Write your name");
+            bank.SetName(Console.ReadLine());
+            Console.WriteLine("Write your SurName");
+            bank.SetSurName(Console.ReadLine());
+        }
+
+        public static void SetAge()
+        {
+            Console.WriteLine("Enter year of your birth ");
+            int y = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter month of birth");
+            int m = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter day of birth ");
+            int d = Convert.ToInt32(Console.ReadLine());
+            Birth = new DateTime(y, m, d);
+            DateTime T = DateTime.Now;
+            _age = T.Year - Birth.Year;
+            Console.WriteLine();
+        }
+
+        public static bool GetNSNIDR(BankAccount bank)
+        {
+            if (_age < 18)
+            {
+                Console.WriteLine("You are too young to open an account.");
+                return false;
+            }
+            else
+            {
+                Console.WriteLine($"Name:{_name}");
+                Console.WriteLine($"SurName:{_surname}");
+                Console.WriteLine($"ID:{_id}");
+                Console.WriteLine($"Date of Birth:{Birth.ToString("d:M:y")}");
+                Console.WriteLine($"age:{_age}");
+                Console.WriteLine($"rate: {_rate}");
+                return true;
+            }
         }
         public double GetPaymentAccount()
         {
