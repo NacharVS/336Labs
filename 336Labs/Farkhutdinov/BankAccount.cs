@@ -13,13 +13,19 @@ namespace _336Labs.Farkhutdinov
         private static int _age;
         private static int _id;
         private static double _rate = 7.7;
-        private static double _balance = 0;
+        private static double _balance;
         private string _phoneNumber;
+        public delegate void RateChanged(double oldRate, double newRate);
         public delegate void Handler(string phoneNumber);
-        public BankAccount(int sum, string phoneNumber)
+        public event Handler Notify;
+        public event RateChanged RateChangedEvent;
+        public void SetPhoneNumber(string phoneNumber)
         {
-            _balance = sum;
             _phoneNumber = phoneNumber;
+        }
+        public void SetBalance(double balance)
+        {
+            _balance = balance;
         }
         public void SetName(string newName)
         {
@@ -41,10 +47,6 @@ namespace _336Labs.Farkhutdinov
             if (DateTime.Now.Month >= month && DateTime.Now.Day >= day)
             { _age = DateTime.Now.Year - year; }
             else _age = DateTime.Now.Year - year - 1;
-        }
-        public void SetRate(double newRate)
-        {
-            _rate = newRate;
         }
         public void SetID()
         {
@@ -72,7 +74,6 @@ namespace _336Labs.Farkhutdinov
         {
             Console.WriteLine($"{_rate}");
         }
-
         public void GetInfo()
         {
             Console.WriteLine($" Имя - {_name}");
@@ -85,16 +86,44 @@ namespace _336Labs.Farkhutdinov
         public void SetBalanceRep(double newRep)
         {
             _balance += newRep;
+            Notify?.Invoke($"На ваш счёт зачислены деньги и сообщение отправлено на { _phoneNumber}");
         }
         public void SetBalanceRem(double newRem)
         {
             _balance -= newRem;
+            Notify?.Invoke($"С вашего счёта произошло списание и сообщение отправлено на { _phoneNumber}");
         }
         public void GetBalance()
         {
             Console.WriteLine($" Ваш текущий баланс - {_balance}");
         }
-        // 18.11.2020
-
+        public double Balance
+        {
+            get
+            {
+                return _balance;
+            }
+            private set
+            {
+                _balance = value;
+            }
+        }
+        public double Rate
+        {
+            get
+            {
+                return _rate;
+            }
+            private set
+            {
+                var oldRate = _rate;
+                _rate = value;
+                RateChangedEvent?.Invoke(oldRate, _rate);
+            }
+        }
+        public void SetRate(double newRate)
+        {
+            _rate = newRate;
+        }
     }
 }
