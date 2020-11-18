@@ -68,5 +68,7 @@ namespace _336Labs.Bayburin
         {
         }
         public string PhoneNumber { get; private set; }
+
+        // 18.11.2020
     }
 }
