@@ -14,7 +14,15 @@ namespace _336Labs.Acadullin
         private static double _rate = 0.021;
         private double _paymentAccount;
         private DateTime a = new DateTime();
+        private int _sum;
+        private string _phonenumber;
         public delegate void Hander(string phonenumber);
+
+        public BankAccount(string phoneNumber, int Sum)
+        {
+            phonenumber = phoneNumber;
+            Sum = Sum;
+        }
         public void SetName(string newName)
         {
             newName = newName.Trim();
@@ -41,33 +49,43 @@ namespace _336Labs.Acadullin
         {
             _rate = rate;
         }
-        public static void SetId(BankAccount banks)
+        public string GetId()
         {
-          
-            Random rnd = new Random();
-            banks._id = rnd.Next(0,10);
+            return _id;    
         }
-        public static void SetFIO(BankAccount banks)
+        public void SetId(BankAccount banks)
         {
-            Console.WriteLine("Ваша имя:");
-            banks.SetName(Console.ReadLine());
-            Console.WriteLine("Ваша Фамилия:");
-            banks.SetSurname(Console.ReadLine());
+            int a = 0;
+            string Id = "";
+            for (int i = 0; i < 3; i++)
+            {
+                Id = (char)(a % 10 + '0') + Id;
+                a = a / 10;
+            }
+            _id = Id;
         }
+        //public static void SetFIO(BankAccount banks)
+        //{
+        //    Console.WriteLine("Ваша имя:");
+        //    banks.SetName(Console.ReadLine());
+        //    Console.WriteLine("Ваша Фамилия:");
+        //    banks.SetSurname(Console.ReadLine());
+        //}
         public static void SetAge(BankAccount banks)
         {
             Console.WriteLine("Ваш год рождения:");
-            int y = Convert.ToInt32(Console.ReadLine());
+            int y = int.Parse(Console.ReadLine());
             Console.WriteLine("Ваш месяц рождения:");
-            int m = Convert.ToInt32(Console.ReadLine());
+            int m = int.Parse(Console.ReadLine());
             Console.WriteLine("Ваш день рождения:");
-            int d = Convert.ToInt32(Console.ReadLine());
-            banks.A = new DateTime(y, m, d);
-            Console.WriteLine(banks.A);
-            DateTime T = DateTime.Now;
-            Console.WriteLine(T);
-            banks._age = T.Year - banks.A.Year;
-            Console.WriteLine(banks._age);
+            int d = int.Parse(Console.ReadLine());
+
+            DateTime birthday = new DateTime();
+            int year = DateTime.Now.Year;
+
+            birthday.AddYears(y);
+            birthday.AddMonths(m);
+            birthday.AddDays(d);
         }
         public static void GetFIO(BankAccount banks)
         {
@@ -89,26 +107,7 @@ namespace _336Labs.Acadullin
             _paymentAccount = _paymentAccount - vzyat;
             Console.WriteLine("Ваш баланс:" + _paymentAccount);
         }
-        abstract class Person
-        {
-
-        }
-        class Client : Person
-        { 
-            
-        }
-        class Employee : Person 
-        {
-            
-        }
-        public static void MessageSending(string Phonenomer)
-        {
-            Console.WriteLine($"СМС отправлен на номер: {Phonenomer}");
-        }
-        public static void MessageSending2(string Phonenomer)
-        {
-            Console.WriteLine($"СМС отправлен на номер: {Phonenomer}");
-        }
+       
       
         
 
