@@ -11,7 +11,6 @@ namespace _336Labs.Dolgov
         private string _surname;
         private int _id, _age;
         public static double _rate = 0.67;
-        private double _paymentAccount;
         private DateTime B = new DateTime();
         public DateTime AgeAc = DateTime.Now;
 
