@@ -82,11 +82,13 @@ namespace _336Labs.Vasilev
 
     class chtoto2
     {
+        private object return_name;
+
         public string Name
         {
             get
             {
-                return_name;
+                object return_name1 = return_name;
 
             }
         }
@@ -100,7 +102,7 @@ namespace _336Labs.Vasilev
             stud.SetName("Palpatine");
             stud.SetCompanyName("Empire");
             stud.ShowName();
-            stud.ShowCompanyName();
+            ShowCompanyName();
             Console.WriteLine();
             stud.ShowInfo();
 

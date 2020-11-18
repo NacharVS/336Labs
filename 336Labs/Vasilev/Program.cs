@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _336Labs.Vasilev.Deligate;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
