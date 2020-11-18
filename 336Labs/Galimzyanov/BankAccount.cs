@@ -44,7 +44,21 @@ namespace _336Labs.Galimzyanov
         {
             _rate = rate;
         }
-
+        public string GetId()
+        {
+            return _id;
+        }
+        public void SetId(BankAccount banks)
+        {
+            int a = 0;
+            string Id = "";
+            for (int i = 0; i < 3; i++)
+            {
+                Id = (char)(a % 10 + '0') + Id;
+                a = a / 10;
+            }
+            _id = Id;
+        }
         public void Vnesti(double vnesti)
         {
             _paymentAccount = _paymentAccount + vnesti;
@@ -72,7 +86,7 @@ namespace _336Labs.Galimzyanov
 
             DateTime Birthday = new DateTime(2002, 04, 25);
 
-            //Birthday.AddYears(years);
+            Birthday.AddYears(years);
             Birthday.AddMonths(month);
             Birthday.AddDays(day);
 
