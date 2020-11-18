@@ -134,18 +134,36 @@ namespace _336Labs.Yusupov
                 Notify?.Invoke(this, new AccountEventArgs("Недостаточно денег на счете", sum)); ;
             }
         }
-        public void RateChange(double newRate)
+        class Rate
         {
-            Rate = newRate;
-        }
-        private set
+
+            public void ClassRate(BankAccount bank)
             {
-            var odRate = _rate;
-        _rate = Value;
-            RateChangedEvent?.Invoke(oldRAte, _rate)
+                DateTime Check = DateTime.Now;
             }
-    public static void RateChangednotify(double oldRAte, double newRate)
-    {
-        Console.WriteLine($"Old rate {oldRate} changed to{newRate}");
+
+        }
+
+        class BA
+        {
+            private static void DisplayMessage(object sender, AccountEventArgs e)
+            {
+                Console.WriteLine($"Сумма транзакции: {e.Sum}");
+                Console.WriteLine(e.Message);
+            }
+            public static void BnkAc()
+            {
+                BankAccount bank = new BankAccount();
+                if (BankAccount.GetNameSurnameIdAgeRate(bank) == true)
+                {
+                    Account acc = new Account(10);
+                    acc.Notify += DisplayMessage;
+                    acc.Put(120);
+                    acc.Take(70);
+                    acc.Take(150);
+                    Console.Read();
+                }
+            }
+        }
     }
-}
+ }
