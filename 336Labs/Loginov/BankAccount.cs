@@ -10,7 +10,7 @@ namespace _336Labs.Loginov
         private string _name;
         private string _surname;
         private int _id, _age;
-        private static double _rate = 0.67;
+        public static double _rate = 0.67;
         //private double _paymentAccount;
         private DateTime DayOfBirth = new DateTime();
         public  DateTime AccAge = DateTime.Now;
@@ -103,7 +103,7 @@ namespace _336Labs.Loginov
     {
         public delegate void AccountHandler(object sender, AccountEventArgs e);
         public event AccountHandler Notify;
-        public int Sum { get; private set; }
+        public double Sum { get; private set; }
         public Account(int sum)
         {
             Sum = sum;
@@ -126,10 +126,27 @@ namespace _336Labs.Loginov
             }
         }
 
+        public static void SetAccAge(BankAccount bank)
+        {
+            bank.AccAge = DateTime.Now;
+            Console.WriteLine($"{bank.AccAge} - дата создания ");
+        }
         public void Rate(BankAccount bank)
         {
-            DateTime Check = DateTime.Now;
-            Check = bank.AccAge;
+            double _rate = 0.03;
+            double Wheel = 0;
+            Wheel = Sum;
+            DateTime Today = DateTime.Now;
+            TimeSpan Age = Today.Subtract(bank.AccAge);
+            int secs = (int)Age.TotalSeconds;
+            Console.WriteLine($"Прошло - {Age} секунд");
+            while (secs >= 5)
+            {
+                secs = secs - 5;
+                Sum = Sum + (Sum * _rate);
+            }
+            Console.WriteLine($"Ваш вклад равен - {Sum} рублей");
+            Sum = Wheel;
         }
 
     }
@@ -147,6 +164,7 @@ namespace _336Labs.Loginov
         {
             BankAccount bank = new BankAccount();
             BankAccount.SetNameSurnameIdAge(bank);
+            Account.SetAccAge(bank);
             BankAccount.SetId(bank);
             BankAccount.SetAge(bank);
             if (BankAccount.GetNameSurnameIdAgeRate(bank) == true)
@@ -156,7 +174,13 @@ namespace _336Labs.Loginov
                 acc.Put(120);
                 acc.Take(70);
                 acc.Take(150);
-                Console.Read();
+                int n = 0;
+                while (n == 0)
+                {
+                    Console.WriteLine("Посчитать вклад?");
+                    Console.ReadLine();
+                    acc.Rate(bank);
+                }
             }
         }
     }
