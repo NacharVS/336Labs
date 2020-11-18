@@ -6,14 +6,20 @@ namespace _336Labs.Galimzyanov
 {
     class BankAccount
     {
-        public delegate
+        public delegate void SumChanged(string phonenumber);
+        public delegate void RateChanged(double oldRate, double newRate);
         private string _name;
         private string _surname;
         private string _id, _age;
         private static double _rate = 0.067;
         private double _paymentAccount = 0;
-
-
+        public string _phoneNumber;
+        public BankAccount(int sum, string phoneNumber)
+        {
+            PhoneNumber = phoneNumber;
+            Sum = sum;
+        }
+        
         public void SetName(string newName)
         {
             newName = newName.Trim();
@@ -63,6 +69,7 @@ namespace _336Labs.Galimzyanov
             Console.WriteLine("День вашего рождения:");
             int day = int.Parse(Console.ReadLine());
 
+
             DateTime Birthday = new DateTime(2002, 04, 25);
 
             //Birthday.AddYears(years);
@@ -79,50 +86,14 @@ namespace _336Labs.Galimzyanov
 
         //}
 
-        abstract class Person
-        {
-            //public string Name { get; set }
-
-            //public Person(string name)
-            //{
-            //    Name = name;
-            //}
-
-            //public void Display()
-            //{
-            //    Console.WriteLine(Name);
-            //}
-        }
-        class Client : Person
-        {
-            //public int Sum { get; set }
-
-
-        }
-        class Employee : Person
-        {
-
-        }
-
         
-        public static void MessageSending(string phoneNumber)
-        {
-            Console.WriteLine($"Message send at {phoneNumber}");
-        }
-        public static void MessageSending2(string phoneNumber)
-        {
-            Console.WriteLine($"Message send at {phoneNumber}");
-        }
+        
 
-        public delegate void Handler(string phoneNumber)
-
-            private int_sum;
-            private string _phoneNumber;
-            public BankAccount(int sum, string phoneNumber)
-        {
-            _sum = sum;
+        public delegate void Handler(string phoneNumber)       
            
-        }
+            
+           
+        
 
 
     }
