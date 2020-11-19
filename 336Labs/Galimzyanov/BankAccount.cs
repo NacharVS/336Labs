@@ -14,10 +14,12 @@ namespace _336Labs.Galimzyanov
         private static double _rate = 0.067;
         private double _paymentAccount = 0;
         public string _phoneNumber;
+        private int _sum;
+        
         public BankAccount(int sum, string phoneNumber)
         {
-            PhoneNumber = phoneNumber;
-            Sum = sum;
+            _phoneNumber = phoneNumber;
+            _sum = sum;
         }
         
         public void SetName(string newName)
@@ -70,27 +72,39 @@ namespace _336Labs.Galimzyanov
             Console.WriteLine("Счёт" + _paymentAccount + "рублей");
         }
 
-        public void SetAge(DateTime newAge)
+        public int Sum
         {
-            DateTime d = DateTime.Now.Date;
+            get
+            {
+                return _sum;
+            }
+            set
+            {
+                _sum = value;
+                _phoneNumberEvent?.Invoke(_phoneNumber);
+
+            }
         }
+        
+
+
         public static void SetAge(BankAccount bank)
         {
+            DateTime Birthday = new DateTime();
+            int NowDate = DateTime.Now.Year;
             Console.WriteLine("Ваш год рождения:");
             int уеars = int.Parse(Console.ReadLine());
             Console.WriteLine("Месяц, когда вы родились:");
             int month = int.Parse(Console.ReadLine());
             Console.WriteLine("День вашего рождения:");
             int day = int.Parse(Console.ReadLine());
-
-
-            DateTime Birthday = new DateTime(2002, 04, 25);
-
-            Birthday.AddYears(years);
+           
+            Birthday.AddYears(уеars);
             Birthday.AddMonths(month);
             Birthday.AddDays(day);
 
-            Console.WriteLine();
+            Console.WriteLine("Сколько лет: ");
+            Console.WriteLine(NowDate - уеars);
 
         }
         //public static void SetId(BankAccount bank)
@@ -100,10 +114,10 @@ namespace _336Labs.Galimzyanov
 
         //}
 
-        
-        
 
-        public delegate void Handler(string phoneNumber)       
+
+
+        public delegate void Handler(string phoneNumber);     
            
             
            
