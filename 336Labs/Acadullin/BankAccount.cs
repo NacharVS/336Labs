@@ -5,7 +5,7 @@ using System.Text;
 namespace _336Labs.Acadullin
 {
     class BankAccount
-    { 
+    {
         private string _name;
         private string _surname;
         private string _id, _age;
@@ -17,12 +17,53 @@ namespace _336Labs.Acadullin
         private int _sum;
         private string _phonenumber;
         public delegate void Hander(string phonenumber);
+        public int _accountDateOpen;
+
 
         public BankAccount(string phoneNumber, int Sum)
         {
             phonenumber = phoneNumber;
             Sum = Sum;
         }
+        public double Rate
+        {
+            get
+            {
+                return _rate;
+            }
+            set
+            {
+                var oldRate = _rate;
+                _rate = Rate;
+                RateChangedEvent?.Invoke(oldRate, _rate);
+            }
+        }
+        public int DateOpen
+        {
+            get 
+            {
+                return _accountDateOpen;
+            }
+            set
+            { 
+                var DateOpen = _accountDateOpen;
+                _accountDateOpen = value;
+            }
+        }
+        
+        public int Sum
+        {
+            get
+            {
+                return _sum;
+            }
+            set
+            {
+                _sum = value;
+                PhoneNumberEvent?.Invoke(PhoneNumber);
+            }
+        }
+
         public void SetName(string newName)
         {
             newName = newName.Trim();
@@ -51,7 +92,7 @@ namespace _336Labs.Acadullin
         }
         public string GetId()
         {
-            return _id;    
+            return _id;
         }
         public void SetId(BankAccount banks)
         {
@@ -81,11 +122,14 @@ namespace _336Labs.Acadullin
             int d = int.Parse(Console.ReadLine());
 
             DateTime birthday = new DateTime();
-            int year = DateTime.Now.Year;
+            int newyear = DateTime.Now.Year;
 
             birthday.AddYears(y);
             birthday.AddMonths(m);
             birthday.AddDays(d);
+
+            Console.WriteLine("Вам сейчас:");
+            Console.WriteLine(newyear - y);
         }
         public static void GetFIO(BankAccount banks)
         {
@@ -107,15 +151,28 @@ namespace _336Labs.Acadullin
             _paymentAccount = _paymentAccount - vzyat;
             Console.WriteLine("Ваш баланс:" + _paymentAccount);
         }
-       
-      
-        
-
-        
+        public event Handler Notify;
+        public event PhoneNumberEvent;
+        public event RateChanged RateChangedEvent;
+        public string PhoneNumber
+        {
+            get
+            {
+                return _phonenumber;
+            }
+            private set
+            {
+                _phonenumber = value;               
+            }
+        }
     }
-    
-}   
+}
+          
+            
+            
+     
 
-    
-        
-  
+
+
+
+

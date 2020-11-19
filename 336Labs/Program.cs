@@ -30,6 +30,9 @@ namespace _336Labs
             banks.Vzyat(int.Parse(Console.ReadLine()));
             Console.WriteLine($"Ваш счет: { banks.Sum}");
 
+            banks.RateChangedEvent += RateChangednotify;
+            banks.RateChange(0.38);
+
             public static void MessageSending(string Phonenomer)
             {
                 Console.WriteLine($"СМС отправлен на номер: {Phonenomer}");
@@ -37,6 +40,14 @@ namespace _336Labs
             public static void MessageSending2(string Phonenomer)
             {
                 Console.WriteLine($"СМС отправлен на номер: {Phonenomer}");
+            }
+            public static void AccountConditition(string phonenumber, int sum)
+            {
+                Console.WriteLine($"Стоимость счета: {sum}");
+            }
+            public static void RateChangednotify(double oldRate, double newRate)
+            {
+                Console.WriteLine($"Старая ставка {oldRate} новая ставка {newRate}");
             }
         }
     }         
