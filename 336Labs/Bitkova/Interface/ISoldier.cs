@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _336Labs.Bitkova.Interface
 {
-    interface ISoider
+    interface ISoldier
     {
     }
 }
