@@ -12,11 +12,11 @@ namespace _336Labs.Galimzyanov
         private string _surname;
         private string _id, _age;
         private double _paymentAccount = 4000;
-        private static double _rate = 0.067;        
+        private static double _rate = 0.067;
         public string _phoneNumber;
         private int _sum;
         private int _accountopendate;
-        
+
         public BankAccount(int sum, string phoneNumber)
         {
             _phoneNumber = phoneNumber;
@@ -35,7 +35,7 @@ namespace _336Labs.Galimzyanov
                 _accountopendate = value;
             }
         }
-        
+
         public void SetName(string newName)
         {
             newName = newName.Trim();
@@ -79,20 +79,7 @@ namespace _336Labs.Galimzyanov
             _paymentAccount = _paymentAccount - snytia;
             Console.WriteLine("Счёт" + _paymentAccount + "рублей");
         }
-        public int Sum
-        {
-            get
-            {
-                return _sum;
-            }
-            set
-            {
-                _sum = value;
 
-                _phoneNumberEvent?.Invoke(_phoneNumber);
-
-            }
-        }
 
         public static void SetAge(BankAccount bank)
         {
@@ -104,7 +91,7 @@ namespace _336Labs.Galimzyanov
             int month = int.Parse(Console.ReadLine());
             Console.WriteLine("День вашего рождения:");
             int day = int.Parse(Console.ReadLine());
-           
+
             Birthday.AddYears(уеars);
             Birthday.AddMonths(month);
             Birthday.AddDays(day);
@@ -113,7 +100,7 @@ namespace _336Labs.Galimzyanov
             Console.WriteLine(NowDate - уеars);
 
         }
-       public static void GetFIOandinformation(BankAccount bank)
+        public static void GetFIOandinformation(BankAccount bank)
         {
             Console.WriteLine($":{bank._name}");
             Console.WriteLine($":{bank._surname}");
@@ -122,31 +109,43 @@ namespace _336Labs.Galimzyanov
             Console.WriteLine($":{bank._age}");
         }
 
-       class ACCOUNTENENTARGS
+        class ACCOUNTENENTARGS
         {
             public string Mes { get; }
-            public int Sum { get;  }
-            public ACCOUNTENENTARGS (string message, int summa)
+            public int Sum { get; }
+            public ACCOUNTENENTARGS(string message, int summa)
             {
                 Mes = message;
                 Sum = summa;
             }
         }
-       
-        
-        
-
-
-
-
-            
-           
-            
-           
-        
-
-
-    }
+        public delegate void AccHandler(object sender, ACCOUNTENENTARGS f);
+        public event AccHandler Notify;
+        public double Sum { get; private set; }
+        public AccHandler(int sum)
+        {
+            Sum = sum;
+        }
+        public void Receive(int sum)
+        {
+            Sum += sum;
+            Notify?.Invoke(this, new ACCOUNTENENTARGS($"На счет поступило {sum}.", sum));
+        }
+        public void Acted(int sum)
+        {
+            if (Sum >= sum)
+            {
+                Sum -= sum;
+                Notify?.Invoke(this, new ACCOUNTENENTARGS($"{sum} снята со счета.", sum));
+            }
+            else
+            {
+                Notify?.Invoke(this, new ACCOUNTENENTARGS("На вашем счету нехватает средств, sum"));
+            }
+        }
+       }        
 
 }
+
+
 
