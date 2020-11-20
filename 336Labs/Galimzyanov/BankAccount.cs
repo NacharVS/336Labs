@@ -64,16 +64,10 @@ namespace _336Labs.Galimzyanov
         {
             return _id;
         }
-        public void SetId(BankAccount banks)
+        public static void SetId(BankAccount banks)
         {
-            int a = 0;
-            string Id = "";
-            for (int i = 0; i < 3; i++)
-            {
-                Id = (char)(a % 10 + '0') + Id;
-                a = a / 10;
-            }
-            _id = Id;
+            Random rnd = new Random();
+            banks._id = rnd.Next(1, 10);
         }
         public void Vnesti(double vnesti)
         {
@@ -85,7 +79,6 @@ namespace _336Labs.Galimzyanov
             _paymentAccount = _paymentAccount - snytia;
             Console.WriteLine("Счёт" + _paymentAccount + "рублей");
         }
-
         public int Sum
         {
             get
@@ -95,13 +88,11 @@ namespace _336Labs.Galimzyanov
             set
             {
                 _sum = value;
-                
+
                 _phoneNumberEvent?.Invoke(_phoneNumber);
 
             }
         }
-        
-
 
         public static void SetAge(BankAccount bank)
         {
@@ -131,6 +122,16 @@ namespace _336Labs.Galimzyanov
             Console.WriteLine($":{bank._age}");
         }
 
+       class ACCOUNTENENTARGS
+        {
+            public string Mes { get; }
+            public int Sum { get;  }
+            public ACCOUNTENENTARGS (string message, int summa)
+            {
+                Mes = message;
+                Sum = summa;
+            }
+        }
        
         
         
