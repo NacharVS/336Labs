@@ -4,182 +4,159 @@ using System.Text;
 
 namespace _336Labs.Ziatdinova
 {
+    internal class Person
+    {
+
+    }
     class BankAccount
     {
         private string _name;
         private string _lastname;
-        private int[] _id = { };
-        private static double _rate;
+        private string _id;
         private double _paymentAccount;
-        private string _surname;
-        private string v1;
-        private string v2;
+        private int _age;
 
-        public BankAccount(string v1, string v2)
+        public void Account(string newName, string newLastname)
         {
-            this.v1 = v1;
-            this.v2 = v2;
+            newName = newName.Trim();
+            var firstLetter = newName[0];
+            var otherLetters = newName.Remove(0, 1);
+            _name = firstLetter.ToString().ToUpper() + otherLetters;
+            newLastname = newLastname.Trim();
+            var firstLetterr = newLastname[0];
+            var otherLetterrs = newLastname.Remove(0, 1);
+            _lastname = firstLetterr.ToString().ToUpper() + otherLetterrs;
+            Random rnd = new Random();
+            int a = rnd.Next(888, 88888888);
+            _id = $"(a)";
+            Console.WriteLine($"Name: {_name}");
+            Console.WriteLine($"Last Name:{_lastname}");
+            Console.WriteLine($"#ID: {a}");
         }
 
-        public static int Lenght { get; private set; }
-
-        public void list(string sur, string nam)
+        public void Rename(string reName, string reLastname)
         {
-            nam = nam.Trim();
-            var oneLet = nam[0];
-            var lastLet = nam.Remove(0, 1);
-            _name = oneLet.ToString().ToUpper() + lastLet;
+            reName = reName.Trim();
+            var firstLetter = reName[0];
+            var otherLetters = reName.Remove(0, 1);
+            _name = firstLetter.ToString().ToUpper() + otherLetters;
+            reLastname = reLastname.Trim();
+            var firstLetterr = reLastname[0];
+            var otherLetterrs = reLastname.Remove(0, 1);
+            _lastname = firstLetterr.ToString().ToUpper() + otherLetterrs;
+            Console.WriteLine($"Name: {_name}");
+            Console.WriteLine($"Last Name: {_lastname}");
 
-            sur = sur.Trim();
-            var oneLet1 = sur[0];
-            var lastLet1 = sur.Remove(0, 1);
-            _SURNAME = oneLet1.ToString().ToUpper() + lastLet1;
         }
-
-        public void shinfo(int j)
+        public double PaymentAccount(double a, string b)
         {
-            BankAccount acc1 = new BankAccount("Kuzak", "pvan");
-            BankAccount acc2 = new BankAccount("Kuzap", "uvan");
-            BankAccount acc3 = new BankAccount("Kuzam", "tvan");
-            BankAccount acc4 = new BankAccount("Kuzan", "yvan");
-            BankAccount acc5 = new BankAccount("Kuzab", "evan");
-
-            for (int i = 0; i < BankAccount.Lenght; i++)
+            if (b == "+")
             {
-                if (j == 1)
-                {
-                    Console.WriteLine(_name + " " + _surname);
-                    Console.WriteLine();
-                }
-            }
-        }
-
-        public void Getid(string us)
-        {
-            Random rndm = new Random();
-            string[] Accid = { };
-            for (int j = 0; j < Accid.Length; j++)
-            {
-                if (_SURNAME == us)
-                {
-                    for (int i = 0; i < _id.Length; i++)
-                    {
-                        if (i == j)
-                            Console.WriteLine(_id[i]);
-                        else
-                        {
-                            if (i == _id.Length)
-                            {
-                                _id[i] = rndm.Next(000000, 100000);
-                                Console.WriteLine(_id[i]);
-                            }
-                        }
-                    }
-                }
+                if (a < 10000) { Console.WriteLine("min 10000"); }
+                else _paymentAccount += +a;
 
             }
-
+            else if (b == "-")
+            {
+                if (a > 200000) { Console.WriteLine("max 200000"); }
+                else _paymentAccount = _paymentAccount + a;
+            }
+            return _paymentAccount;
 
         }
+        public void PaymentAccount()
+        {
+            Console.WriteLine("payment:" + _paymentAccount);
+
+        }
+        public int Age
+        {
+            get
+            {
+                if (_age > 14 & _age < 150)
+                    return _age;
+                else Console.WriteLine("error");
+                return Age;
+
+            }
+            set
+            {
+                _age = value;
+            }
+
+        }
+        public void Info()
+        {
+            string ii = _id + " " + " " + _lastname + " " + _name;
+            Console.WriteLine(ii);
+        }
+
     }
-    
-
-}
-class BankAcc
-{
-    public BankAcc(int sum, string phnum)
+    class Client : Person
     {
-        int _sum = sum;
-        string _phnum = phnum;
+        private static double _rate = 6.7;
+        private double _paymentAccount;
+        public double PaymentAc(double a, string b)
+        {
+            if (b == "+")
+            {
+                if (a < 10000) { Console.WriteLine("minimum 10000"); }
+                else _paymentAccount += -a;
+
+            }
+            else if (b == "+")
+            {
+                if (a > 200000) { Console.WriteLine("maximum 200000"); }
+                else _paymentAccount = _paymentAccount - a;
+
+            }
+            return _paymentAccount;
+
+        }
+        public void PaymentAc()
+        {
+            Console.WriteLine("payment: " + _paymentAccount);
+
+        }
+        public void Info()
+        {
+            string ii = "Money: " + _paymentAccount;
+            Console.WriteLine(ii);
+
+        }
+        public double Rate()
+        {
+            _paymentAccount += _paymentAccount * _rate / 100;
+            return _paymentAccount;
+
+        }
+        public static void Rerate(double rerate)
+        {
+            _rate = rerate;
+        }
+        class Employee : Person
+        {
+            private string _position;
+            public string position
+            {
+                get
+                { return _position; }
+                set
+                { _position = value; }
+            }
+            public void InfoE()
+            {
+                string ii = "Position: " + _position;
+                Console.WriteLine(ii);
+            }
+
+
+
+
+
+        }
     }
-    private int _sum;
-    private string _phnum;
-    public string Notify = "Message";
+}
+
    
-
-    public int Sum
-    {
-        get
-        {
-            return _sum;
-        }
-        set
-        {
-            _sum = value;
-        }
-    }
-    public string Phonnumm
-    {
-        get
-        {
-            return _phnum;
-        }
-        set
-        {
-            _phnum = value;
-        }
-    }
-}
-class BankAcco
-{
-    private string _name;
-    private string _SURNAME;
-    private int[] _id = { };
-    private static double _rate;
-    private double _paymentAccount;
-    private string mass;
-
-    public void Setname(string newName)
-    {
-        newName = newName.Trim();
-        var firstLet = newName[0];
-        var lastLet = newName.Remove(0, 1);
-        _name = firstLet.ToString().ToUpper() + lastLet;
-    }
-    public void Sersurname(string newsurName)
-    {
-        newsurName = newsurName.Trim();
-        var firstLet = newsurName[0];
-        var lastLet = newsurName.Remove(0, 1);
-        _SURNAME = firstLet.ToString().ToUpper() + lastLet;
-
-    }
-    public void Getid(string us)
-    {
-        Random rndm = new Random();
-        string[] Accid = { };
-        for (int j = 0; j < Accid.Length; j++)
-        {
-            if (_SURNAME == us)
-            {
-                for (int i = 0; i < _id.Length; i++)
-                {
-                    if (i == j)
-                        Console.WriteLine(_id[i]);
-                    else
-                    {
-                        if (i == _id.Length)
-                        {
-                            _id[i] = rndm.Next(000000, 100000);
-                            Console.WriteLine(_id[i]);
-                        }
-                    }
-                }
-            }
-        }
-    }
-    public void info()
-    {
-        Console.WriteLine(mass);
-
-    }
-    public void showinfo(int num)
-    {
-        Console.WriteLine(_id[num] + _name[num] + +_SURNAME[num]);
-    }
-}
-
-
-
-
-    
+        
