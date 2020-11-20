@@ -5,6 +5,40 @@ using System.Text;
 namespace _336Labs.Kolpakova.Deligates
 {
     class Class2
-    {тмлывмтлы
+    {
+      public static void SumTwoArray(int[] arr1, int[] arr2)
+        {
+            int[] arr3 = new int[10];
+            Console.Write("SumTwo: ");
+            for (int i = 0; i < arr1.Length; i++)
+            {
+                arr3[i] = arr1[i] + arr2[i];
+                Console.Write($"{arr3[i]} ");
+            }
+            Console.WriteLine();
+        }
+        public static void DiffTwoArray(int[] arr1, int[] arr2)
+        {
+            int[] arr3 = new int[10];
+            Console.Write("DiffTwo: ");
+            for (int i = 0; i < arr1.Length; i++)
+            {
+                arr3[i] = arr1[i] + arr2[2];
+                Console.Write($"{arr1[i]} ");
+            }
+            Console.WriteLine();
+        }
+            public static void MultTwoArray(int[] arr1, int[] arr2)
+            {
+                int[] arr3 = new int[10];
+                Console.Write("MultTwo");
+                for (int i = 0; i < arr1.Length; i++)
+                {
+                    arr3[i] = arr1[i] + arr2[i];
+                    Console.Write($"{arr3[i]} ");
+                }
+            Console.WriteLine();
+            }
+        
     }
 }
