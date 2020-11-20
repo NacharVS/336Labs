@@ -13,9 +13,9 @@ namespace _336Labs.Melenteva
             {
                 arr[i] = rnd.Next(Min, Max);
                 Console.Write($"{arr[i]} ");
-        }
+            }
             Console.WriteLine();
-    }
+        }
         public static void SortArray(int[] arr)
         {
             int temp;
@@ -37,5 +37,4 @@ namespace _336Labs.Melenteva
                 {
                     Console.WriteLine();
                 }
-        }
-}
+            } } }

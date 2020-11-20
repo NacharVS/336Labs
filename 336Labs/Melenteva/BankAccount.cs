@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _336Labs.Melenteva;
+using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -7,11 +8,11 @@ namespace _336Labs.Melenteva
 {
     class BankAccount
     {
+        
         private string _name;
         private string _surname;
         private static int _id, _age;
         public static double _rate = 0.67;
-        private double _paymentAccount;
         private DateTime Birth = new DateTime();
         public DateTime AccAge = DateTime.Now;
 
@@ -58,7 +59,7 @@ namespace _336Labs.Melenteva
             bank.SetSurName(Console.ReadLine());
         }
 
-        public static void SetAge()
+        public static void SetAge(BankAccount bank)
         {
             Console.WriteLine("Enter year of your birth ");
             int y = Convert.ToInt32(Console.ReadLine());
@@ -66,9 +67,9 @@ namespace _336Labs.Melenteva
             int m = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter day of birth ");
             int d = Convert.ToInt32(Console.ReadLine());
-            Birth = new DateTime(y, m, d);
+            bank.Birth = new DateTime(y, m, d);
             DateTime T = DateTime.Now;
-            _age = T.Year - Birth.Year;
+            _age = T.Year - bank.Birth.Year;
             Console.WriteLine();
         }
 
@@ -81,22 +82,27 @@ namespace _336Labs.Melenteva
             }
             else
             {
-                Console.WriteLine($"Name:{_name}");
-                Console.WriteLine($"SurName:{_surname}");
+                Console.WriteLine($"Name:{bank._name}");
+                Console.WriteLine($"SurName:{bank._surname}");
                 Console.WriteLine($"ID:{_id}");
-                Console.WriteLine($"Date of Birth:{Birth.ToString("d:M:y")}");
+                Console.WriteLine($"Date of Birth:{bank.Birth.ToString("d:M:y")}");
                 Console.WriteLine($"age:{_age}");
                 Console.WriteLine($"rate: {_rate}");
                 return true;
             }
+        }
+
+        internal static void SetId(BankAccount bank1)
+        {
+            throw new NotImplementedException();
         }
     }
 
 }
 class AccEventAr
 {
-    public string Message {get;}
-    public int Sum {get;}
+    public string Message { get; }
+    public int Sum { get; }
     public AccEventAr(string mes, int sum)
     {
         Message = mes;
@@ -132,51 +138,61 @@ class Acc
         }
     }
 
+    public static void SetAccAge(BankAccount bank)
+    {
+        bank.AccAge = DateTime.Now;
+        Console.WriteLine($"{bank.AccAge} - создан ");
+    }
     public void Rate(BankAccount bank)
     {
-        DateTime Check = DateTime.Now;
-        Check = bank.AgeAc;
+        double _rate = 0.03;
+        double Wheel = 0;
+        Wheel = Sum;
+        DateTime Today = DateTime.Now;
+        TimeSpan Age = Today.Subtract(bank.AccAge);
+        int secs = (int)Age.TotalSeconds;
+        Console.WriteLine($" {Age} секунд прошло");
+        while (secs >= 5)
+        {
+            secs = secs - 5;
+            Sum = (int)(Sum + (Sum * _rate));
+        }
+        Console.WriteLine($"Вклад равен - {Sum} руб.");
+        Sum = (int)Wheel;
     }
-     
+
+
 
 }
 
-public double GetPaymentAccount()
-        {
-            return _paymentAccount;
-        }
-        public void SetSumm(double nPaymentAccount)
-        {
-            _paymentAccount = _paymentAccount + nPaymentAccount;
-            Console.WriteLine(_paymentAccount);
-        }
-        public void SetMinus(double nPaymentAccount)
-        {
-            _paymentAccount = _paymentAccount - nPaymentAccount;
-            Console.WriteLine(_paymentAccount);
-        }
-        static void Main(string[] args)
-        {
-            BankAccount account = new BankAccount();
-            Console.WriteLine("Enter your name: ");
-            account.SetName(Console.ReadLine());
-            Console.WriteLine("Enter your Surname: ");
-            account.SetSurName(Console.ReadLine());
-            Console.WriteLine("Enter ID: ");
-            account.SetId(Console.ReadLine());
-            Console.WriteLine(account.GetRate());
-            Console.WriteLine("Your account: ");
-            account.SetPaymentAccount(double.Parse(Console.ReadLine()));
-            Console.WriteLine("How much do you put? ");
-            account.SetSumm(double.Parse(Console.ReadLine()));
-            Console.WriteLine(" How much do you want to rent? ");
-            account.SetMinus(double.Parse(Console.ReadLine()));
-
-
-
-        }
-
+class BankAcc
+{
+    private static void DisplayMessage(object sender, AccEventAr e)
+    {
+        Console.WriteLine($"Transaction amount: {e.Sum}");
+        Console.WriteLine(e.Message);
     }
-
-
+    public static void BankAc()
+    {
+        BankAccount bank = new BankAccount();
+        BankAccount.SetNSNIDA(bank);
+        BankAccount bank1 = bank;
+        BankAccount.SetId(bank1);
+        BankAccount.SetAge(bank);
+        if (BankAccount.GetNSNIDR(bank) == true)
+        {
+            Account acc = new Account(10);
+            acc.Notify += DisplayMessage;
+            acc.Put(120);
+            acc.Take(70);
+            acc.Take(150);
+            int n = 0;
+            while (n == 0)
+            {
+                Console.WriteLine("Calculate your contribution?");
+                Console.ReadLine();
+                acc.Rate(bank);
+            }
+        }
+    }
 }
