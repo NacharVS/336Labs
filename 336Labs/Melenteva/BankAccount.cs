@@ -10,7 +10,7 @@ namespace _336Labs.Melenteva
         private string _name;
         private string _surname;
         private static int _id, _age;
-        public static double _rate = 0.67 ;
+        public static double _rate = 0.67;
         private double _paymentAccount;
         private DateTime Birth = new DateTime();
         public DateTime AccAge = DateTime.Now;
@@ -90,7 +90,21 @@ namespace _336Labs.Melenteva
                 return true;
             }
         }
-        public double GetPaymentAccount()
+    }
+
+}
+class AccEventAr
+{
+    public string Message {get;}
+    public int Sum {get;}
+    public AccEventAr(string mes, int sum)
+    {
+        Message = mes;
+        Sum = sum;
+    }
+}
+
+public double GetPaymentAccount()
         {
             return _paymentAccount;
         }
