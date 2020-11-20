@@ -13,7 +13,8 @@ namespace _336Labs
             //ClassAndObjects.CaO();
             //SL.StL();
             //StringOperations.StrOpr();
-            BA.BnkAc();
+            //BA.BnkAc();
+            Programsd.notMain();
             //Base.B();
         }
     }

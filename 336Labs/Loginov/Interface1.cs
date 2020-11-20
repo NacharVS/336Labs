@@ -12,7 +12,19 @@ namespace _336Labs.Loginov
     abstract class UnitStats
     {
         int health;
+
         int defense;
-        int 
+        int min_damage;
+        int max_damage;
+
+    }
+
+
+    class NotMain
+    {
+        public static void Game()
+        {
+            
+        }
     }
 }
