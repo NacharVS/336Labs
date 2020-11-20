@@ -104,6 +104,43 @@ class AccEventAr
     }
 }
 
+class Acc
+
+{
+    public delegate void AccHandler(object sender, AccEventAr e);
+    public event AccHandler Notify;
+    public int Sum { get; private set; }
+    public Acc(int sum)
+    {
+        Sum = sum;
+    }
+    public void Put(int sum)
+    {
+        Sum += sum;
+        Notify?.Invoke(this, new AccEventAr($"The account received {sum}.", sum));
+    }
+    public void Take(int sum)
+    {
+        if (Sum >= sum)
+        {
+            Sum -= sum;
+            Notify?.Invoke(this, new AccEventAr($"Summ {sum} withdrawn from the account", sum));
+        }
+        else
+        {
+            Notify?.Invoke(this, new AccEventAr("Lack of funds in the account", sum)); ;
+        }
+    }
+
+    public void Rate(BankAccount bank)
+    {
+        DateTime Check = DateTime.Now;
+        Check = bank.AgeAc;
+    }
+     
+
+}
+
 public double GetPaymentAccount()
         {
             return _paymentAccount;
