@@ -11,15 +11,29 @@ namespace _336Labs.Galimzyanov
         private string _name;
         private string _surname;
         private string _id, _age;
-        private static double _rate = 0.067;
-        private double _paymentAccount = 0;
+        private double _paymentAccount = 4000;
+        private static double _rate = 0.067;        
         public string _phoneNumber;
         private int _sum;
+        private int _accountopendate;
         
         public BankAccount(int sum, string phoneNumber)
         {
             _phoneNumber = phoneNumber;
             _sum = sum;
+        }
+
+        public int opendate
+        {
+            get
+            {
+                return _accountopendate;
+            }
+            set
+            {
+                var opendate = _accountopendate;
+                _accountopendate = value;
+            }
         }
         
         public void SetName(string newName)
@@ -81,6 +95,7 @@ namespace _336Labs.Galimzyanov
             set
             {
                 _sum = value;
+                
                 _phoneNumberEvent?.Invoke(_phoneNumber);
 
             }
@@ -107,17 +122,23 @@ namespace _336Labs.Galimzyanov
             Console.WriteLine(NowDate - уеars);
 
         }
-        //public static void SetId(BankAccount bank)
-        //{
-        //    Random rnd = new Random();
-        //    bank._id = rnd.Next(0, 20);
+       public static void GetFIOandinformation(BankAccount bank)
+        {
+            Console.WriteLine($":{bank._name}");
+            Console.WriteLine($":{bank._surname}");
+            Console.WriteLine($":{bank._id}");
+            Console.WriteLine($":{bank.Birthday.ToString("day:month:years")}");
+            Console.WriteLine($":{bank._age}");
+        }
 
-        //}
+       
+        
+        
 
 
 
 
-        public delegate void Handler(string phoneNumber);     
+            
            
             
            
