@@ -3,6 +3,10 @@ using System;
 
 namespace _336Labs
 {
+    internal class Person
+    {
+
+    }
     class Program
     {
         static void Main(string[] args)
@@ -27,6 +31,7 @@ namespace _336Labs
             //Class1.Class1();
             //Class2.Class2();
             //Bank.Bank();
+            
         }
     }
 }
