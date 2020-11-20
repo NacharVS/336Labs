@@ -34,7 +34,9 @@ namespace _336Labs.Ziatdinova.Deligaties
             }
             for (int i = 0; i < arr.Length; i++)
             {
-                Console.WriteLine();
+                Console.WriteLine($"{arr[i]} ");
+            }
+            Console.WriteLine();
 
 
 
