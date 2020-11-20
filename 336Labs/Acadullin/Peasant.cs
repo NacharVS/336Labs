@@ -17,7 +17,7 @@ namespace _336Labs.Acadullin
 
             public void Move()
             {
-                Console.WriteLine("");
+                Console.WriteLine($"Кретиянин сказал боярину - {_says}");
             }
 
         }

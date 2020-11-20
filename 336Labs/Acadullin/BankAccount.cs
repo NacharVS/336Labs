@@ -12,17 +12,18 @@ namespace _336Labs.Acadullin
         public delegate void SumChanged(string phonenumber);
         public delegate void RateChanged(double oldRate, double newRate);
         private static double _rate = 0.021;
-        private double _paymentAccount;
+        private double _paymentAccount = 1000;
         private DateTime a = new DateTime();
         private int _sum;
         private string _phonenumber;
         public delegate void Hander(string phonenumber);
         public int _accountDateOpen;
 
-
-        public BankAccount(string phoneNumber, int Sum)
+        public string Message { get; }
+        public int Dum { get; }
+        public BankAccount(string messag, int sum)
         {
-            phonenumber = phoneNumber;
+            Message = messag;
             Sum = Sum;
         }
         public double Rate
@@ -50,20 +51,32 @@ namespace _336Labs.Acadullin
                 _accountDateOpen = value;
             }
         }
-        
-        public int Sum
+        public delegate void AccounHandler(object a, BankAccount b);
+        public event BankAccount Notify;
+        public int Sum { get; private set; }
+        public BankAccount(int sum)
         {
-            get
+            Sum = sum;
+        }
+        public void Lay(int sum)
+        {
+            Sum += sum;
+            Notify?.Invoke(this, new BankAccount($"На ваш счет поступило{sum}", sum));
+        }
+        public void Remove(int sum)
+        {
+            if (Sum >= sum)
             {
-                return _sum;
+                Sum -= sum;
+                Notify?.Invoke(this, new BankAccount($"С вашего счета снято {sum}", sum));
             }
-            set
+            else
             {
-                _sum = value;
-                PhoneNumberEvent?.Invoke(PhoneNumber);
+                Notify?.Invoke(this, new BankAccount($"Недостаточно денег на вашем счете", sum));
             }
         }
-
+            
+       
         public void SetName(string newName)
         {
             newName = newName.Trim();
@@ -151,8 +164,6 @@ namespace _336Labs.Acadullin
             _paymentAccount = _paymentAccount - vzyat;
             Console.WriteLine("Ваш баланс:" + _paymentAccount);
         }
-        public event Handler Notify;
-        public event PhoneNumberEvent;
         public event RateChanged RateChangedEvent;
         public string PhoneNumber
         {
