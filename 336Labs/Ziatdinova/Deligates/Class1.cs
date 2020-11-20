@@ -40,8 +40,29 @@ namespace _336Labs.Ziatdinova.Deligaties
 
 
 
-            }   
+            
         }
+        public static void SumArray(int[] arr)
+        {
+            int temp = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                temp = temp + arr[i];
+            }
+            Console.WriteLine($"{temp}");
+        }
+        public static void MaxArray(int[] arr)
+        {
+            if max = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (max < arr[i])
+                {
+                    max = max + arr[i];
 
+                }
+            }
+            Console.WriteLine($"{max}");
+        }
     }
 }
