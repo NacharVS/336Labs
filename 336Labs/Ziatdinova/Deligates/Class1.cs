@@ -53,7 +53,7 @@ namespace _336Labs.Ziatdinova.Deligaties
         }
         public static void MaxArray(int[] arr)
         {
-            if max = 0;
+            if (max = 0);
             for (int i = 0; i < arr.Length; i++)
             {
                 if (max < arr[i])
