@@ -12,13 +12,19 @@ namespace _336Labs.Farkhutdinov
         private static string _datebirth;
         private static int _age;
         private static int _id;
-        private static double _rate = 7.7;
+        private static double _rate = 0.55;
         private static double _balance;
-        private string _phoneNumber;
-        public delegate void RateChanged(double oldRate, double newRate);
+        private static string _phoneNumber;
         public delegate void Handler(string phoneNumber);
         public event Handler Notify;
+        public delegate void RateChanged(double oldRate, double newRate);
         public event RateChanged RateChangedEvent;
+        private DateTime _accountOpenDate;
+        public BankAccount(double balance, string phoneNumber)  
+        {
+            _balance = balance;
+            _phoneNumber = phoneNumber;
+        }
         public void SetPhoneNumber(string phoneNumber)
         {
             _phoneNumber = phoneNumber;
@@ -54,26 +60,6 @@ namespace _336Labs.Farkhutdinov
             _id = rnd.Next(1, 1000000);
             // будет доработано, а пока так. Шанс выпадения идентичного id = 1/1000000
         }
-        public void GetName()
-        {
-            Console.WriteLine($"{_name}");
-        }
-        public void GetSurName()
-        {
-            Console.WriteLine($"{_surname}");
-        }
-        public void GetDateBirth()
-        {
-            Console.WriteLine($" Дата рождения - { _datebirth}");
-        }
-        public void GetID()
-        {
-            Console.WriteLine($"{_id}");
-        }
-        public void GetRate()
-        {
-            Console.WriteLine($"{_rate}");
-        }
         public void GetInfo()
         {
             Console.WriteLine($" Имя - {_name}");
@@ -83,20 +69,19 @@ namespace _336Labs.Farkhutdinov
             Console.WriteLine($" Уникальный id - {_id}");
             Console.WriteLine($" Процентная ставка - {_rate}");
         }
-        public void SetBalanceRep(double newRep)
+        public void SetBalanceRep(double balance)
         {
-            _balance += newRep;
-            Notify?.Invoke($"На ваш счёт зачислены деньги и сообщение отправлено на { _phoneNumber}");
+            Balance += balance;
         }
-        public void SetBalanceRem(double newRem)
+        public void SetBalanceRem(double balance)
         {
-            _balance -= newRem;
-            Notify?.Invoke($"С вашего счёта произошло списание и сообщение отправлено на { _phoneNumber}");
+            Balance -= balance;
         }
-        public void GetBalance()
+        public void SetRate(double newRate)
         {
-            Console.WriteLine($" Ваш текущий баланс - {_balance}");
+            Rate = newRate;
         }
+        public string PhoneNumber { get; private set; }
         public double Balance
         {
             get
@@ -106,6 +91,7 @@ namespace _336Labs.Farkhutdinov
             private set
             {
                 _balance = value;
+                Notify?.Invoke(_phoneNumber);
             }
         }
         public double Rate
@@ -120,10 +106,6 @@ namespace _336Labs.Farkhutdinov
                 _rate = value;
                 RateChangedEvent?.Invoke(oldRate, _rate);
             }
-        }
-        public void SetRate(double newRate)
-        {
-            _rate = newRate;
         }
     }
 }
