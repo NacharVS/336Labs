@@ -7,7 +7,7 @@ namespace _336Labs.Ziatdinova
     class BankAccount
     {
         private string _name;
-        private string _SURNAME;
+        private string _lastname;
         private int[] _id = { };
         private static double _rate;
         private double _paymentAccount;
