@@ -102,7 +102,7 @@ namespace _336Labs.Dolgov
     {
         public delegate void AH(object sender, AEA e);
         public event AH Notify;
-        public int Sum { get; private set; }
+        public double Sum { get; private set; }
         public Account(int sum)
         {
             Sum = sum;
@@ -110,7 +110,7 @@ namespace _336Labs.Dolgov
         public void Put(int sum)
         {
             Sum += sum;
-            Notify?.Invoke(this, new AEA($"На счет поступило {sum}.", sum));
+            Notify?.Invoke(this, new AEA($"Поступило на счет {sum}.", sum));
         }
         public void Take(int sum)
         {
@@ -125,10 +125,27 @@ namespace _336Labs.Dolgov
             }
         }
 
+        public static void SetAccAge(BankAccount bank)
+        {
+            bank.AgeAc = DateTime.Now;
+            Console.WriteLine($"{bank.AgeAc} - создан ");
+        }
         public void Rate(BankAccount bank)
         {
-            DateTime Check = DateTime.Now;
-            Check = bank.AgeAc;
+            double _rate = 0.03;
+            double Wheel = 0;
+            Wheel = Sum;
+            DateTime Today = DateTime.Now;
+            TimeSpan Age = Today.Subtract(bank.AgeAc);
+            int secs = (int)Age.TotalSeconds;
+            Console.WriteLine($" {Age} секунд прошло");
+            while (secs >= 5)
+            {
+                secs = secs - 5;
+                Sum = Sum + (Sum * _rate);
+            }
+            Console.WriteLine($"Вклад равен - {Sum} руб.");
+            Sum = Wheel;
         }
 
     }
@@ -155,7 +172,13 @@ namespace _336Labs.Dolgov
                 acc.Put(120);
                 acc.Take(70);
                 acc.Take(150);
-                Console.Read();
+                int n = 0;
+                while (n == 0)
+                {
+                    Console.WriteLine("Подсчитать ваш вклад?");
+                    Console.ReadLine();
+                    acc.Rate(bank);
+                }
             }
         }
     }
