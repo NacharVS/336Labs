@@ -6,5 +6,8 @@ namespace _336Labs.Bitkova.Interface
 {
     interface IPeasant
     {
+        void Work();
+        public int Health { get; set; }
+        void PeasantHealth();
     }
 }

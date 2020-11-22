@@ -8,7 +8,7 @@ namespace _336Labs.Bitkova.Interface
     {
         public void Stand()
         {
-            Console.WriteLine()
+            Console.WriteLine("Здание стоит");
         }
     }
 }

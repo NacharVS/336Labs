@@ -6,5 +6,6 @@ namespace _336Labs.Bitkova.Interface
 {
     interface IBuilding
     {
+        void Stand();
     }
 }

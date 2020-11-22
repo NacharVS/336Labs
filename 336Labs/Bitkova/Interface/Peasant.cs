@@ -7,7 +7,11 @@ namespace _336Labs.Bitkova.Interface
     sealed class Peasant : IPeasant
     {
         private int _health;
-        private double _scream;
+
+        public void Work()
+        {
+            Console.WriteLine("Крестьянин работает");
+        }
 
         public int Health
         {
@@ -15,10 +19,9 @@ namespace _336Labs.Bitkova.Interface
             set => _health = value;
         }
 
-        public double Scream
+        public void PeasantHealth()
         {
-            get => _scream;
-            set => _scream = value;
+            Console.WriteLine($"Здоровье крестьянина - {_health}");
         }
     }
 }

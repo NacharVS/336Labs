@@ -1,46 +1,35 @@
 ﻿using System;
 
-namespace _336Labs.Bitkova
+namespace _336Labs.Bitkova.Interface
 {
     class Program
     {
         static void Main(string[] args)
         {
-            BankAccount account = new BankAccount("+79003279046", 5000);
-            Console.WriteLine("Введите имя: ");
-            account.SetName(Console.ReadLine());
-            Console.WriteLine("Введите фамилию: ");
-            account.SetSurname(Console.ReadLine());
-            account.Date();
-            Console.WriteLine("Ваш ID: ");
-            account.SetId();
-            Console.WriteLine(account.GetID());
-            account.RateChangedEvent += RateMessage;
-            Console.WriteLine($"Ваша ставка: {account.Rate}");
-            account.newRate(0.47);
-            Console.WriteLine($"Ваша ставка: {account.Rate}");
-            Console.WriteLine("Введите свой день рождения.");
-            account.Age();
-            Console.WriteLine($"Ваш счет: {account.Sum}");
-            account.PhoneNumberEvent += MessageSetting;
-            Console.WriteLine("Сколько хотите закинуть?");
-            account.Deposit(int.Parse(Console.ReadLine()));
-            Console.WriteLine($"Ваш счет: {account.Sum}");
-            Console.WriteLine("Сколько хотите снять?");
-            account.Widthraw(int.Parse(Console.ReadLine()));
-            Console.WriteLine($"Ваш счет: {account.Sum}");
-            Console.WriteLine("Вы взяли кредит, случайно)))");
-        }
+            Console.WriteLine("Здание");
+            IBuilding buildobject;
+            buildobject = new Building();
+            buildobject.Stand();
 
-       
-        
-        public static void MessageSetting(string phoneNumber)
-        {
-            Console.WriteLine($"Message send at {phoneNumber}");
-        }
-        public static void RateMessage(double oldRate, double newRate)
-        {
-            Console.WriteLine($"Old rate {oldRate} changed to {newRate}");
+            Console.WriteLine("--------------------");
+
+            Console.WriteLine("Крестьянин");
+            IPeasant peasantobject;
+            peasantobject = new Peasant();
+            peasantobject.Health = 100;
+            peasantobject.PeasantHealth();
+            peasantobject.Work();
+
+            Console.WriteLine("--------------------");
+
+            Console.WriteLine("Воин");
+            ISoldier soldierobject;
+            soldierobject = new Soldier();
+            soldierobject.Health = 100;
+            soldierobject.SoldierHealth();
+            soldierobject.Work();
+
+            Console.WriteLine("--------------------");
         }
     }
 }

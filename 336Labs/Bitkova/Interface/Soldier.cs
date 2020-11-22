@@ -13,5 +13,15 @@ namespace _336Labs.Bitkova.Interface
             get => _health;
             set => _health = value;
         }
+
+        public void SoldierHealth()
+        {
+            Console.WriteLine($"Здоровье воина - {_health}");
+        }
+
+        public void Work()
+        {
+            Console.WriteLine("Воин орудует мечом");
+        }
     }
 }
