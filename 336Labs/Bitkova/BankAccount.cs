@@ -16,7 +16,6 @@ namespace _336Labs.Bitkova
         private static double _rate = 0.035;
         private int _sum;
         private string _phoneNumber;
-        private int _accountOpenDate;
 
         public BankAccount(string phoneNumber, int sum)
         {
@@ -31,26 +30,8 @@ namespace _336Labs.Bitkova
             var otherletters = newName.Remove(0, 1);
             _name = firstletter.ToString().ToUpper() + otherletters;
         }
-
         
-        public int OpenDate
-        {
-            get
-            {
-                return _accountOpenDate;
-            }
-            set
-            {
-                var OpenDate = _accountOpenDate;
-                _accountOpenDate = value;
-            }
-        }
         
-        static void Time()
-        {
-            Timer timer = new Timer(, null, 0, 10000);
-            Console.ReadLine();
-        }
         public void SetSurname(string newSurname)
         {
             newSurname = newSurname.Trim();
@@ -131,6 +112,13 @@ namespace _336Labs.Bitkova
         public void newRate(double newRate)
         {
             _rate = newRate;
+        }
+
+        public void Date()
+        {
+            Console.WriteLine("Дата регистрации");
+            Console.WriteLine(DateTime.Now);
+
         }
         public void Age()
         {

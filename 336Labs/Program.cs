@@ -11,6 +11,7 @@ namespace _336Labs.Bitkova
             account.SetName(Console.ReadLine());
             Console.WriteLine("Введите фамилию: ");
             account.SetSurname(Console.ReadLine());
+            account.Date();
             Console.WriteLine("Ваш ID: ");
             account.SetId();
             Console.WriteLine(account.GetID());
