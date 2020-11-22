@@ -78,7 +78,7 @@ namespace _336Labs.Bitkova.Deligates
                 array[i] = rnd.Next(0, 10);
                 array2[i] = rnd.Next(0, 10);
             }
-                Console.WriteLine("Сумма двух массивов:");
+                Console.WriteLine("Сумма массивов:");
             int[] array3 = new int[5];
             for (int i = 0; i < array.Length; i++)
             {
@@ -97,7 +97,7 @@ namespace _336Labs.Bitkova.Deligates
                 array[i] = rnd.Next(0, 10);
                 array2[i] = rnd.Next(0, 10);
             }
-            Console.WriteLine("Разность двух массивов:");
+            Console.WriteLine("Разность массивов:");
             int[] array3 = new int[5];
             for (int i = 0; i < array.Length; i++)
             {
@@ -116,7 +116,7 @@ namespace _336Labs.Bitkova.Deligates
                 array[i] = rnd.Next(0, 10);
                 array2[i] = rnd.Next(0, 10);
             }
-            Console.Write("Произведение двух массивов:");
+            Console.Write("Произведение массивов:");
 
             Console.WriteLine();
             int[] array3 = new int[5];
