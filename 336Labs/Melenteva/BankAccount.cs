@@ -16,6 +16,16 @@ namespace _336Labs.Melenteva
         private DateTime Birth = new DateTime();
         public DateTime AccAge = DateTime.Now;
 
+        public BankAccount(int v)
+        {
+        }
+
+        public BankAccount()
+        {
+        }
+
+        public Action<object, AccEventAr> Notify { get; internal set; }
+
         public void SetName(string nName)
         {
             nName = nName.Trim();
@@ -93,6 +103,21 @@ namespace _336Labs.Melenteva
         }
 
         internal static void SetId(BankAccount bank1)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Put(int v)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Take(int v)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Rate(BankAccount bank)
         {
             throw new NotImplementedException();
         }
@@ -181,7 +206,7 @@ class BankAcc
         BankAccount.SetAge(bank);
         if (BankAccount.GetNSNIDR(bank) == true)
         {
-            Account acc = new Account(10);
+            BankAccount acc = new BankAccount(10);
             acc.Notify += DisplayMessage;
             acc.Put(120);
             acc.Take(70);
@@ -195,4 +220,10 @@ class BankAcc
             }
         }
     }
+    class CollectionsStar
+        static void Main(string[] args)
+    {
+        ArrayList TestList1 = new ArrayList;
+    }
+    
 }
