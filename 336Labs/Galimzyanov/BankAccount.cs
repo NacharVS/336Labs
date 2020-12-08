@@ -143,8 +143,12 @@ namespace _336Labs.Galimzyanov
                 Notify?.Invoke(this, new ACCOUNTENENTARGS("На вашем счету нехватает средств, sum"));
             }
         }
-       }        
 
+        TestList.Add("newName");
+        TestList.Add("newName");
+        T.Add("newName");
+       }
+    
 }
 
 
