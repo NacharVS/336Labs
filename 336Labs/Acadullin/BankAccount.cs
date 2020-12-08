@@ -18,6 +18,7 @@ namespace _336Labs.Acadullin
         private string _phonenumber;
         public delegate void Hander(string phonenumber);
         public int _accountDateOpen;
+        ArrayList List = new ArrayList();
 
         public string Message { get; }
         public int Dum { get; }
@@ -83,6 +84,7 @@ namespace _336Labs.Acadullin
             var firstLetter = newName[0];
             var otherLetters = newName.Remove(0, 1);
             _name = firstLetter.ToString().ToUpper() + otherLetters;
+            List.Add(_name);
         }
         public void SetSurname(string newSurname)
         {
@@ -90,6 +92,7 @@ namespace _336Labs.Acadullin
             var firstLetter = newSurname[0];
             var otherLetters = newSurname.Remove(0, 1);
             _surname = firstLetter.ToString().ToUpper() + otherLetters;
+            List.Add(_surname);
         }
         public void SetAge(DateTime newAge)
         {
@@ -106,6 +109,7 @@ namespace _336Labs.Acadullin
         public string GetId()
         {
             return _id;
+            List.Add(_id);
         }
         public void SetId(BankAccount banks)
         {
@@ -117,6 +121,7 @@ namespace _336Labs.Acadullin
                 a = a / 10;
             }
             _id = Id;
+            List.Add(_id);
         }
         //public static void SetFIO(BankAccount banks)
         //{
@@ -176,9 +181,13 @@ namespace _336Labs.Acadullin
                 _phonenumber = value;
             }
         }
-        public AddRange();
+        public ArrayList();
         {
-        Testlist.Add("newName")    
+        foreach (var item in List)
+            {
+                Console.WriteLine(item);
+            }
+            Console.Readline();
         }
     }
 }
