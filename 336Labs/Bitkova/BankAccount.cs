@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+
 
 namespace _336Labs.Bitkova
 {
@@ -136,6 +138,13 @@ namespace _336Labs.Bitkova
             Console.WriteLine("Ваш возраст: ");
             Console.WriteLine(NowDate - year);
         }
+
+      public void AddRange()
+        {
+
+        }
+
+        
          
     }
 }
