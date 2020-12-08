@@ -41,12 +41,12 @@ namespace _336Labs.Acadullin
         }
         public int DateOpen
         {
-            get 
+            get
             {
                 return _accountDateOpen;
             }
             set
-            { 
+            {
                 var DateOpen = _accountDateOpen;
                 _accountDateOpen = value;
             }
@@ -75,8 +75,8 @@ namespace _336Labs.Acadullin
                 Notify?.Invoke(this, new BankAccount($"Недостаточно денег на вашем счете", sum));
             }
         }
-            
-       
+
+
         public void SetName(string newName)
         {
             newName = newName.Trim();
@@ -173,8 +173,12 @@ namespace _336Labs.Acadullin
             }
             private set
             {
-                _phonenumber = value;               
+                _phonenumber = value;
             }
+        }
+        public AddRange();
+        {
+        Testlist.Add("newName")    
         }
     }
 }
