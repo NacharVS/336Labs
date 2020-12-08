@@ -20,7 +20,8 @@ namespace _336Labs.Farkhutdinov
         public delegate void RateChanged(double oldRate, double newRate);
         public event RateChanged RateChangedEvent;
         private DateTime _accountOpenDate;
-        public BankAccount(double balance, string phoneNumber)  
+        ArrayList ClientList = new ArrayList();
+        public BankAccount(double balance, string phoneNumber)
         {
             _balance = balance;
             _phoneNumber = phoneNumber;
@@ -28,6 +29,7 @@ namespace _336Labs.Farkhutdinov
         public void SetPhoneNumber(string phoneNumber)
         {
             _phoneNumber = phoneNumber;
+            ClientList.Add(_phoneNumber);
         }
         public void SetBalance(double balance)
         {
@@ -39,6 +41,7 @@ namespace _336Labs.Farkhutdinov
             var firstLetters = newName[0];
             var otherLetters = newName.Remove(0, 1);
             _name = firstLetters.ToString().ToUpper() + otherLetters;
+            ClientList.Add(_name);
         }
         public void SetSurName(string newSurName)
         {
@@ -46,6 +49,7 @@ namespace _336Labs.Farkhutdinov
             var firstLetters = newSurName[0];
             var otherLetters = newSurName.Remove(0, 1);
             _surname = firstLetters.ToString().ToUpper() + otherLetters;
+            ClientList.Add(_surname);
         }
         public void SetDateBirth(int day, int month, int year)
         {
@@ -53,12 +57,13 @@ namespace _336Labs.Farkhutdinov
             if (DateTime.Now.Month >= month && DateTime.Now.Day >= day)
             { _age = DateTime.Now.Year - year; }
             else _age = DateTime.Now.Year - year - 1;
+            ClientList.Add(_datebirth);
         }
         public void SetID()
         {
             Random rnd = new Random();
             _id = rnd.Next(1, 1000000);
-            // будет доработано, а пока так. Шанс выпадения идентичного id = 1/1000000
+            ClientList.Add(_balance);
         }
         public void GetInfo()
         {
@@ -68,18 +73,25 @@ namespace _336Labs.Farkhutdinov
             Console.WriteLine($" Ваш возраст - { _age}");
             Console.WriteLine($" Уникальный id - {_id}");
             Console.WriteLine($" Процентная ставка - {_rate}");
+            foreach (var item in ClientList)
+            {
+                Console.WriteLine(item);
+            }
         }
         public void SetBalanceRep(double balance)
         {
             Balance += balance;
+            ClientList.Add(Balance);
         }
         public void SetBalanceRem(double balance)
         {
             Balance -= balance;
+            ClientList.Add(Balance);
         }
         public void SetRate(double newRate)
         {
             Rate = newRate;
+            ClientList.Add(Rate);
         }
         public string PhoneNumber { get; private set; }
         public double Balance
