@@ -13,6 +13,7 @@ namespace _336Labs.Sogorin
             //account.shinfo(1);
             Account acc = new Account(500, "+7962532421");
             acc.Getid("Kuzak");
+            
         }        
     }   
 }

@@ -32,11 +32,13 @@ namespace _336Labs.Sogorin
         }        
         public void shinfo(int j)
         {
-            Account acc1 = new Account("Kuzak", "pvan");
-            Account acc2 = new Account("Kuzap", "uvan");
-            Account acc3 = new Account("Kuzam", "tvan");
-            Account acc4 = new Account("Kuzan", "yvan");
-            Account acc5 = new Account("Kuzab", "evan");
+            Account acc = new Account();
+            acc.Add(12);
+            //Account acc = new Account("Kuzak", "pvan");
+            //Account acc = new Account("Kuzap", "uvan");
+            //Account acc = new Account("Kuzam", "tvan");
+            //Account acc = new Account("Kuzan", "yvan");
+            //Account acc = new Account("Kuzab", "evan");
             
             for (int i = 0; i < Account.Lenght; i++)
             {
