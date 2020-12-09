@@ -164,7 +164,6 @@ namespace _336Labs.Ippolitova
                 acc.Take(70);
                 acc.Take(150);
                 Console.Read();
-
             }
         }
     }
