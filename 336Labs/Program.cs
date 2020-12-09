@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace _336Labs.Sogorin
 {
@@ -9,11 +10,8 @@ namespace _336Labs.Sogorin
        
         static void Main(string[] args)
         {
-            //Account account = new Account();
-            //account.shinfo(1);
-            Account acc = new Account(500, "+7962532421");
-            acc.Getid("Kuzak");
-            
+            BankAcc acc = new BankAcc();           
+            acc.Getid();           
         }        
     }   
 }
