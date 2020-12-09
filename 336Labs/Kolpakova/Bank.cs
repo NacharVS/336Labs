@@ -145,7 +145,24 @@ namespace _336Labs.Kolpakova
                 Console.WriteLine(ii);
             }
         }
-        public void info
+
+        public void info(string[] args)
+
+        {
+            List<Person> peopleLis = new List<Person>();
+            peopleLis.Add(new Person("Ksenia", "Pupsik"));
+            peopleLis.Add(new Person("Bulat", "mustang"));
+            peopleLis.Add(new Person("Ziliya", "solnishko"));
+            peopleLis.Add(new Person("Karina", "nosok"));
+            peopleLis.Add(new Person("Liana", "bigmak"));
+
+            foreach (Person p in peopleLis)
+            {
+                Console.WriteLine(_Name);
+            }
+
+        }
+
 
 
     }
