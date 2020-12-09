@@ -13,9 +13,12 @@ namespace _336Labs.Loginov
         public static double _rate = 0.67;
         //private double _paymentAccount;
         private DateTime DayOfBirth = new DateTime();
-        public  DateTime AccAge = DateTime.Now;
+        public DateTime AccAge = DateTime.Now;
+        private string v1;
+        private int v2;
 
         //Установка
+
         public void SetName(string newName)
         {
             newName = newName.Trim();
@@ -182,6 +185,22 @@ namespace _336Labs.Loginov
                     acc.Rate(bank);
                 }
             }
+        }
+    }
+    class BonkAccount
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+
+        public static void Bonk()
+        {
+            List<BonkAccount> BankAccountList = new List<BonkAccount>(3);
+            BankAccountList.Add(new BonkAccount() { Name = "Biba", Age = 15 });
+
+        }
+        public static void MM()
+        {
+            Console.WriteLine(BankAccountList.Name);
         }
     }
 }
