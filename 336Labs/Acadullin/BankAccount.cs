@@ -181,16 +181,21 @@ namespace _336Labs.Acadullin
                 _phonenumber = value;
             }
         }
-        public ArrayList();
+        public List()
         {
-        foreach (var item in List)
+            foreach (var item in StudentsList)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.Name);
+                Console.WriteLine(item.Surname);
             }
-            Console.Readline();
-        }
+
+        }    
     }
+        
+
+        
 }
+
           
             
             
