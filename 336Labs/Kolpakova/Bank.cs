@@ -132,7 +132,7 @@ namespace _336Labs.Kolpakova
         {
             private string _position;
             public string position
-            {
+            {       
                 get
                 { return _position; }
                 set
@@ -145,8 +145,8 @@ namespace _336Labs.Kolpakova
                 Console.WriteLine(ii);
             }
         }
+        public void info
 
-        
-          
+
     }
-}
+}       
