@@ -69,6 +69,21 @@ namespace _336Labs.Dolgov
             bank._age = T.Year - bank.B.Year;
             Console.WriteLine();
         }
+        public void infor(int i)
+        {
+            List<Account> Aclist = new List<Account>();
+            Aclist.Add(new Account("Bulka", "Bulkesh"));
+            Aclist.Add(new Account("Bulka", "Bulkesh"));
+            Aclist.Add(new Account("Bulka", "Bulkesh"));
+            Aclist.Add(new Account("Bulka", "Bulkesh"));
+            Aclist.Add(new Account("Bulka", "Bulkesh"));
+
+            foreach (var i in Aclist)
+            {
+                Console.WriteLine(_name + " " + _surname);
+                Console.WriteLine();
+            }
+        }
         public static bool GetNSNIDR(BankAccount bank)
         {
             if (bank._age < 16)
