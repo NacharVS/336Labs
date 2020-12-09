@@ -6,7 +6,14 @@ namespace _336Labs.Ziatdinova
 {
     internal class Person
     {
+        private string v1;
+        private string v2;
 
+        public Person(string v1, string v2)
+        {
+            this.v1 = v1;
+            this.v2 = v2;
+        }
     }
     class BankAccount
     {
@@ -134,6 +141,7 @@ namespace _336Labs.Ziatdinova
         {
             _rate = rerate;
         }
+       
         class Employee : Person
         {
             private string _position;
@@ -151,8 +159,26 @@ namespace _336Labs.Ziatdinova
             }
 
         }
-        public void info 
+        public void info (string[] args)
+
+        {
+            List<Person> peopleLis = new List<Person>();
+            peopleLis.Add(new Person("Ksenia", "Pupsik"));
+            peopleLis.Add(new Person("Bulat", "mustang"));
+            peopleLis.Add(new Person("Ziliya", "solnishko"));
+            peopleLis.Add(new Person("Karina", "nosok"));
+            peopleLis.Add(new Person("Liana", "bigmak"));
+
+            foreach (Person p in peopleLis)
+            {
+                Console.WriteLine(_Name);
+            }
+
+        }
+
+
     }
+    
 }
 
    
