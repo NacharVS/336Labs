@@ -8,7 +8,7 @@ namespace _336Labs.Melenteva
 {
     class BankAccount
     {
-        
+
         private string _name;
         private string _surname;
         private static int _id, _age;
@@ -16,9 +16,7 @@ namespace _336Labs.Melenteva
         private DateTime Birth = new DateTime();
         public DateTime AccAge = DateTime.Now;
 
-        public BankAccount(int v)
-        {
-        }
+       
 
         public BankAccount()
         {
@@ -41,6 +39,20 @@ namespace _336Labs.Melenteva
             _surname = firstLetter.ToString().ToUpper() + oLetters.ToString().ToLower();
 
         }
+
+        public void shinfo(i)
+        {
+            List<BankAccount> AccList = new List<BankAccount>();
+            AccList.Add (new BankAccount("Ksusha", "Ksushka" ));
+            AccList.Add(new BankAccount("Ziliya", "Zilka"));
+            AccList.Add(new BankAccount("Liana", "Lianka"));
+
+            foreach(var i in AccList)
+            {
+                Console.WriteLine(_name + " " + _surname);
+                Console.WriteLine();
+            }
+        }   
 
         public void SetAge(DateTime nAge)
         {
@@ -221,9 +233,6 @@ class BankAcc
         }
     }
 
-    static void Main(string[] args)
-    {
-
-    }
+ 
     
 }
