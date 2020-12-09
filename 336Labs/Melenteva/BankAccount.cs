@@ -220,10 +220,10 @@ class BankAcc
             }
         }
     }
-    class CollectionsStar
-        static void Main(string[] args)
+
+    static void Main(string[] args)
     {
-        ArrayList TestList1 = new ArrayList;
+
     }
     
 }
