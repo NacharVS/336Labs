@@ -7,7 +7,7 @@ namespace _336Labs.Ippolitova
     class BankAccount
     {
         private string _name;
-        private string _surname;
+        public string _surname;
         private string _id;
         public int _age;
         private double _paymentAccount = 2000;
@@ -24,10 +24,8 @@ namespace _336Labs.Ippolitova
             var otherLetter = newName.Remove(0, 1);
             _name = firstLetter.ToString().ToUpper() + otherLetter;
             Console.WriteLine(_name);
-
-
-
         }
+
         public void Deposit()
         {
             Console.WriteLine("Сколько хотите внести >>> ");
@@ -38,6 +36,7 @@ namespace _336Labs.Ippolitova
 
             Console.WriteLine("На вашем счету стало:" + _paymentAccount);
         }
+
 
         public void Withdraw()
         {
@@ -166,8 +165,14 @@ namespace _336Labs.Ippolitova
                 Console.Read();
             }
         }
-    }
+
+        public void info(int i);
+        {
+         List<BA> AccList = new List<BA>;
+        AccList.Add(new BA ()
+        }
 }
+
 
 
 
