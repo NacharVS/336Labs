@@ -162,6 +162,7 @@ namespace _336Labs.Yusupov
                     acc.Take(70);
                     acc.Take(150);
                     Console.Read();
+
                 }
             }
         }
