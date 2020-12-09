@@ -7,8 +7,11 @@ using System.Threading;
 
 namespace _336Labs.Bitkova
 {
-    class BankAccount
+    
+    class BankAccount : List
     {
+        
+
         public delegate void Number(string phonenumber);
         public delegate void RateChanged(double oldRate, double newRate);
 
@@ -27,22 +30,26 @@ namespace _336Labs.Bitkova
 
         public void SetName(string newName)
         {
-            newName = newName.Trim();
-            var firstletter = newName[0];
-            var otherletters = newName.Remove(0, 1);
-            _name = firstletter.ToString().ToUpper() + otherletters;
+            _name = newName;
+            //newName = newName.Trim();
+            //var firstletter = newName[0];
+            //var otherletters = newName.Remove(0, 1);
+            //_name = firstletter.ToString().ToUpper() + otherletters;
         }
-        
+
+        public string GetName => _name;
         
         public void SetSurname(string newSurname)
         {
-            newSurname = newSurname.Trim();
-            var firstletter = newSurname[0];
-            var otherletters = newSurname.Remove(0, 1);
-            _surname = firstletter.ToString().ToUpper() + otherletters;
+            _surname = newSurname;
+            //newSurname = newSurname.Trim();
+            //var firstletter = newSurname[0];
+            //var otherletters = newSurname.Remove(0, 1);
+            //_surname = firstletter.ToString().ToUpper() + otherletters;
 
         }
-        
+        public string GetSurname => _surname;
+
         public string GetID()
         {
             return _id;
@@ -138,14 +145,15 @@ namespace _336Labs.Bitkova
             Console.WriteLine("Ваш возраст: ");
             Console.WriteLine(NowDate - year);
         }
-
-      public void AddRange()
-        {
-
-        }
-
         
-         
+    }
+    class List
+    {
+        public static void list()
+        {
+            List<BankAccount> banklist = new List<BankAccount>();
+            banklist.Add(new BankAccount() { GetName = "Aня" });
+        }
     }
 }
 
