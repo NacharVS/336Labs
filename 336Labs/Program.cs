@@ -1,5 +1,6 @@
 ﻿using _336Labs.Galimzyanov;
 using System;
+using System.Collections.Generic;
 
 namespace _336Labs
 {
@@ -7,6 +8,8 @@ namespace _336Labs
     {
         static void Main(string[] args)
         {
+            List<BankAccount> list = new List<BankAccount>();
+
         }
     }
 }
