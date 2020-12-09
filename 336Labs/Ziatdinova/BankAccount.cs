@@ -150,11 +150,8 @@ namespace _336Labs.Ziatdinova
                 Console.WriteLine(ii);
             }
 
-
-
-
-
         }
+        public void info 
     }
 }
 
