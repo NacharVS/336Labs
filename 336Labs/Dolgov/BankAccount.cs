@@ -72,11 +72,11 @@ namespace _336Labs.Dolgov
         public void infor(int i)
         {
             List<Account> Aclist = new List<Account>();
-            Aclist.Add(new Account("Bulka", "Bulkesh"));
-            Aclist.Add(new Account("Bulka", "Bulkesh"));
-            Aclist.Add(new Account("Bulka", "Bulkesh"));
-            Aclist.Add(new Account("Bulka", "Bulkesh"));
-            Aclist.Add(new Account("Bulka", "Bulkesh"));
+            Aclist.Add(new Account("Bulat", "Bulkesh"));
+            Aclist.Add(new Account("Maksim", "Maks"));
+            Aclist.Add(new Account("Vitaliy", "Vitya"));
+            Aclist.Add(new Account("Ksyusha", "Uusya"));
+            Aclist.Add(new Account("Zilia", "Ziliyushkeu"));
 
             foreach (var i in Aclist)
             {
