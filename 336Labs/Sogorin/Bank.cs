@@ -5,14 +5,32 @@ using System.Text;
 namespace _336Labs.Sogorin
 {
     class Account
-    {       
+    {
         private static double _rate;
         private double _paymentac;
         public string _name;
         public string _surname;
+        public long _phone;
+        public long _id;
         int _old;
-        
-       public Account(string sur, string nam)
+        DateTime Date;
+        public Account()
+        {
+
+        }
+        public void Id(List<Account> AccLis, List<BankAcc> IdLis)
+        {
+            Random rnd = new Random();
+
+            foreach (Account item in AccLis)
+            {                
+                _id = rnd.Next(0, 999999);
+                int id = int.Parse(_id.ToString("D6"));
+                IdLis.Add(new BankAcc(id));
+                Console.WriteLine($"{item} {id}");
+            }
+        }
+        public Account(string sur, string nam, long pho, string data)
         {
             _surname = sur;
             sur = sur.Trim();
@@ -25,42 +43,99 @@ namespace _336Labs.Sogorin
             var firstLet = nam[0];
             var lastLet = nam.Remove(0, 1);
             _name = firstLet.ToString().ToUpper() + lastLet;
+
+            if ((pho / 10 ^ 10) > 1)
+            {
+                _phone = pho;
+            }
+
+            Date = DateTime.Parse(data);
         }
-        public void GetSu(string sur)
+        public void Change(List<Account> AccLis, List<BankAcc> IdLis)
         {
-                                
-        }  
-        public void GetNa(string nam)
-        {
-            
+            foreach (var item in AccLis)
+            {
+                Console.WriteLine(item);
+            }           
+
+            Console.Write("Введите ваш индекс: ");
+            int ind = int.Parse(Console.ReadLine());
+            if ((IdLis.Contains(new BankAcc(ind))) == true)
+            {
+                //Переход к листу с акаунтами для изменения(синхрон 1 и 2 листа)
+
+                foreach (Account item in AccLis)
+                {
+                    if (AccLis.IndexOf(item) == IdLis.IndexOf(new BankAcc(ind)))
+                    {
+                        Console.WriteLine("1 - Изменить Фамилию");
+                        Console.WriteLine("2 - Изменить Имя");
+                        Console.WriteLine("3 - Изменить Номер");
+                        Console.WriteLine("4 - Изменить Дату рождения");
+                        Console.Write("Введите №: ");
+                        int num = int.Parse(Console.ReadLine());
+                        switch (num)
+                        {
+                            case 1:
+                                {
+                                    _surname = Console.ReadLine();
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    _name = Console.ReadLine();
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    _phone = long.Parse(Console.ReadLine());
+                                    break;
+                                }
+                            case 4:
+                                {
+                                    Date = DateTime.Parse(Console.ReadLine());
+                                    break;
+                                }
+                            default:
+                                Console.WriteLine("Не верный номер");
+                                Console.WriteLine("Желаете продолжить?");
+                                Console.WriteLine("y - Да, n - Нет");
+                                string f = Console.ReadLine();
+                                if (f == "y")
+                                {
+                                    return;
+                                }
+                                else
+                                    break;
+
+                        }
+                    }
+                }
+            }
         }
-        public void shinfo(int j)
+        public void shinfo(int id)
         {
             List<Account> AccLis = new List<Account>();
-            AccLis.Add(new Account("Kuzak", "pvan"));
-            AccLis.Add(new Account("Kuzap", "uvan"));
-            AccLis.Add(new Account("Kuzam", "tvan"));
-            AccLis.Add(new Account("Kuzan", "yvan"));
-            AccLis.Add(new Account("Kuzab", "evan"));
-
-            //foreach (var j in AccLis)
-            //{
-            //    Console.WriteLine(_name + " " + _surname);
-            //    Console.WriteLine();
-            //}           
-
-        }        
+            foreach (var item in AccLis)
+            {
+                Console.WriteLine(item);
+            }
+            AccLis.GetRange(id, 0);
+        }
         public void Getold()
         {
             //DateTime;
         }
     }
     class BankAcc
-    {        
+    {
         private int _sum;
-        private string _phnum;
+        public int _id;
         public string Notify = "Massage ";
-        private int[] _id = { };
+        public BankAcc(int id)
+        {
+            _id = id;
+        }
         public int Sum
         {
             get
@@ -75,99 +150,7 @@ namespace _336Labs.Sogorin
         }
         public void Getid()
         {
-            Random rnd = new Random();
-            string[] Accid = { };
 
-            for (int j = 0; j < Accid.Length; j++)
-            {
-
-                for (int i = 0; i < _id.Length; i++)
-                {
-                    if (i == j)
-                        Console.WriteLine(_id[i]);
-                    else
-                    {
-                        if (i == _id.Length)
-                        {
-                            _id[i] = rnd.Next(000000, 100000);
-                            Console.WriteLine(_id[i]);
-                        }
-                    }
-                }
-
-            }
-        }
-
-        public string Phonnum
-        {
-            get
-            {
-                return _phnum;
-            }
-            set
-            {
-                _phnum = value;
-            }
         }
     }
 }
-
-/*
- *class BankAcc
-    {
-        private string _name;
-        private string _surname;
-        private int[] _id = {};
-        private static double _rate;
-        private double _paymentac;
-
-        public void Setname(string newName)
-        {
-            newName = newName.Trim();
-            var firstLet = newName[0];
-            var lastLet = newName.Remove(0, 1);
-            _name = firstLet.ToString().ToUpper() + lastLet;            
-        }
-        
-        public void Setsurname(string newsurName)
-        {
-            newsurName = newsurName.Trim();
-            var firstLet = newsurName[0];
-            var lastLet = newsurName.Remove(0, 1);
-            _surname = firstLet.ToString().ToUpper() + lastLet;
-        }
-        
-        public void Getid(string us)
-        {
-            Random rnd = new Random();            
-            string[] Accid = {};
-            for (int j = 0; j < Accid.Length; j++)
-            {
-                if (_surname == us)
-                {
-                    for (int i = 0; i < _id.Length; i++)
-                    {
-                        if (i == j)
-                            Console.WriteLine(_id[i]);
-                        else
-                        {
-                            if (i == _id.Length)
-                            {
-                                _id[i] = rnd.Next(000000, 100000);
-                                Console.WriteLine(_id[i]);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        public void info()
-        {
-            Console.WriteLine(mass);
-        }
-        public void showinfo(int num)
-        {
-            Console.WriteLine(_id[num] + _name[num] + _surname[num]);
-        }
-    } 
-*/
