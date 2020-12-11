@@ -7,7 +7,7 @@ namespace _336Labs.Loginov
     class BankAccount
     {
         //Переменные
-        private string _name;
+        public string _name;
         private string _surname;
         private int _id, _age;
         public static double _rate = 0.67;
@@ -164,41 +164,34 @@ namespace _336Labs.Loginov
         public static void BnkAc()
         {
             BankAccount bank = new BankAccount();
-            BankAccount.SetNameSurnameIdAge(bank);
-            Account.SetAccAge(bank);
-            BankAccount.SetId(bank);
-            BankAccount.SetAge(bank);
-            if (BankAccount.GetNameSurnameIdAgeRate(bank) == true)
+            /*           BankAccount.SetNameSurnameIdAge(bank);
+                        Account.SetAccAge(bank);
+                        BankAccount.SetId(bank);
+                        BankAccount.SetAge(bank);*/
+            /*            if (BankAccount.GetNameSurnameIdAgeRate(bank) == true)
+                        {
+                            Account acc = new Account(10);
+                            acc.Notify += DisplayMessage;
+                            acc.Put(120);
+                            acc.Take(70);
+                            acc.Take(150);
+                            int n = 0;
+                            while (n == 0)
+                            {
+                                Console.WriteLine("Посчитать вклад?");
+                                Console.ReadLine();
+                                acc.Rate(bank);
+                            }
+                        }*/
+            List<BankAccount> people = new List<BankAccount>(3);
+            people.Add(new BankAccount() { _name = "Ишиф" });
+            people.Add(new BankAccount() { _name = "Ищиф" });
+            foreach (BankAccount p in people)
             {
-                Account acc = new Account(10);
-                acc.Notify += DisplayMessage;
-                acc.Put(120);
-                acc.Take(70);
-                acc.Take(150);
-                int n = 0;
-                while (n == 0)
-                {
-                    Console.WriteLine("Посчитать вклад?");
-                    Console.ReadLine();
-                    acc.Rate(bank);
-                }
+                    Console.WriteLine(p._name);
+
+
             }
-        }
-        public static void Bonk()
-        {
-            List<BonkAccount> BankAccountList = new List<BonkAccount>(3);
-            BankAccountList.Add(new BonkAccount("Biba", 15));
-        }
-    }
-    class BonkAccount
-    {
-        public string Name;
-        public int Age;
-
-
-        public static void MM(BonkAccount BankAccountList)
-        {
-            //Console.WriteLine(Name);
         }
     }
 }
