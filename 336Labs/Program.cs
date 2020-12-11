@@ -1,5 +1,6 @@
 ﻿using System;
 using _336Labs.Acadullin;
+using System.Collections.Generic;
 
 namespace _336Labs
 {
@@ -7,8 +8,19 @@ namespace _336Labs
     {
         static void Main(string[] args)
         {
-            List<Student> studentList = new List<Student>();
-            StudentsList.Add(new Student("Aizat", 18));
+            List<StudentsList> studentList = new List<StudentsList>();
+
+            studentList.Add(new StudentsList("Aizat", 18, 4222));
+            studentList.Add(new StudentsList("Amir", 17, 5254));
+            studentList.Add(new StudentsList("Azat", 18, 7585));
+
+            EditName(studentList, 5254, "Ainur");
+
+            foreach (var item in studentList)
+            {
+                Console.WriteLine($"{item.Name} {item.Age}");
+            }
+
 
             //BankAccount banks = new BankAccount("+79003279046", 5000);
             //Console.WriteLine("Введите имя: ");

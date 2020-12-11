@@ -8,7 +8,7 @@ namespace _336Labs.Acadullin
     {
         private string _name;
         private string _surname;
-        private string _id, _age;
+        private int _id, _age;
         public delegate void SumChanged(string phonenumber);
         public delegate void RateChanged(double oldRate, double newRate);
         private static double _rate = 0.021;
@@ -18,7 +18,10 @@ namespace _336Labs.Acadullin
         private string _phonenumber;
         public delegate void Hander(string phonenumber);
         public int _accountDateOpen;
-        ArrayList List = new ArrayList();
+
+        public string Name => _name;
+        public int Age => _age;
+        public int Id => _id;
 
         public string Message { get; }
         public int Dum { get; }
@@ -76,23 +79,21 @@ namespace _336Labs.Acadullin
                 Notify?.Invoke(this, new BankAccount($"Недостаточно денег на вашем счете", sum));
             }
         }
+        //public void SetName(string newName)
+        //{
+        //    newName = newName.Trim();
+        //    var firstLetter = newName[0];
+        //    var otherLetters = newName.Remove(0, 1);
+        //    _name = firstLetter.ToString().ToUpper() + otherLetters;
 
-
-        public void SetName(string newName)
-        {
-            newName = newName.Trim();
-            var firstLetter = newName[0];
-            var otherLetters = newName.Remove(0, 1);
-            _name = firstLetter.ToString().ToUpper() + otherLetters;
-            List.Add(_name);
-        }
+        //}
         public void SetSurname(string newSurname)
         {
             newSurname = newSurname.Trim();
             var firstLetter = newSurname[0];
             var otherLetters = newSurname.Remove(0, 1);
             _surname = firstLetter.ToString().ToUpper() + otherLetters;
-            List.Add(_surname);
+            
         }
         public void SetAge(DateTime newAge)
         {
@@ -106,22 +107,22 @@ namespace _336Labs.Acadullin
         {
             _rate = rate;
         }
-        public string GetId()
+        public int GetId()
         {
             return _id;
-            List.Add(_id);
+            
         }
         public void SetId(BankAccount banks)
         {
             int a = 0;
-            string Id = "";
+            int Id = "";
             for (int i = 0; i < 3; i++)
             {
                 Id = (char)(a % 10 + '0') + Id;
                 a = a / 10;
             }
             _id = Id;
-            List.Add(_id);
+            
         }
         //public static void SetFIO(BankAccount banks)
         //{
@@ -181,19 +182,36 @@ namespace _336Labs.Acadullin
                 _phonenumber = value;
             }
         }
-        public List()
+        
+        public Student(string name)
         {
-            foreach (var item in StudentsList)
+            _name = name;
+        }
+        public Student(string name, int id, int age)
+        {
+            _name = name;
+            _id = id;
+            _age = age;
+        }
+        public void SetAge(int newAge)
+        {
+            _age = newAge;
+        }
+        public void SetName(string newName)
+        {
+            _name = newName;
+        }
+        static void EditName(List<StudentList>list, string newName, int searchId)
+        {
+            foreach (var item in list)
             {
-                Console.WriteLine(item.Name);
-                Console.WriteLine(item.Surname);
+                if (item.Id == searchId)
+                {
+                    item.SeName(newName);
+                }
             }
-
-        }    
+        }
     }
-        
-
-        
 }
 
           
