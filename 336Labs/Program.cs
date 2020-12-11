@@ -11,7 +11,8 @@ namespace _336Labs.Sogorin
         static void Main(string[] args)
         {
             BankAcc acc = new BankAcc();           
-            acc.Getid();           
+            acc.Getid();    
+            
         }        
     }   
 }
