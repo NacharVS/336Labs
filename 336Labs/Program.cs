@@ -18,7 +18,7 @@ namespace _336Labs.Sogorin
             AccLis.Add(new Account("Kuzam", "tvan", 89845535697, "1987, 06, 24"));
             AccLis.Add(new Account("Kuzan", "yvan", 89845256776, "1992, 09, 19"));
             AccLis.Add(new Account("Kuzab", "evan", 89845526875, "1988, 01, 30"));
-           
+
             acc.Id(AccLis, IdLis);
             acc.Change(AccLis, IdLis);
         }        
