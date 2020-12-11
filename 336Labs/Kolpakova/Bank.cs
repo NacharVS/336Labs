@@ -88,7 +88,13 @@ namespace _336Labs.Kolpakova
         }
     }
     class Client : Person
+
     {
+        private string _name;
+        private string _lastname;
+        private string _id;
+       
+        private int _age;
         private static double _rate = 6.7;
         private double _paymentAccount;
         public double PaymentAc(double a, string b)
@@ -150,19 +156,48 @@ namespace _336Labs.Kolpakova
 
         {
             List<Person> peopleLis = new List<Person>();
-            peopleLis.Add(new Person("Ksenia", "Pupsik"));
-            peopleLis.Add(new Person("Bulat", "mustang"));
-            peopleLis.Add(new Person("Ziliya", "solnishko"));
-            peopleLis.Add(new Person("Karina", "nosok"));
-            peopleLis.Add(new Person("Liana", "bigmak"));
+            peopleLis.Add(new Person("Ksenia", "Pupsik", 15, 254));
+            peopleLis.Add(new Person("Bulat", "mustang", 31, 458965));
+            peopleLis.Add(new Person("Ziliya", "solnishko", 12, 2554));
+            peopleLis.Add(new Person("Karina", "nosok", 85, 2963));
+            peopleLis.Add(new Person("Liana", "bigmak", 3, 3654));
+
+          
 
             foreach (Person p in peopleLis)
             {
                 Console.WriteLine(p);
             }
+            
 
         }
+        public double rate
+        {
+            get
+            {
+                return _rate;
 
+            }
+            get
+            {
+                return _paymentAccount;
+
+            }
+            private set
+            {
+                _paymentAccount = value;
+            }
+        }
+        public Person(string name)
+        {
+            _name = name;
+        }
+        public peopleLis(string name, string id, int age)
+        {
+            _name = name;
+            _id = id;
+            _age = age;
+        }
 
 
     }
