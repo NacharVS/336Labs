@@ -12,10 +12,19 @@ namespace _336Labs.Ippolitova
         public int _age;
         private double _paymentAccount = 2000;
         public static double _rate = 0.067;
-        private DateTime DayOfBirth = new DateTime();
+        private DateTime DayOfBirth;
 
 
         DateTime dayofbirth = DateTime.Now.Date;
+        private string v;
+
+        public BankAccount(string id, string name, string surname, int age )
+        {
+            _id = id;
+            _name = name;
+            _surname = surname;
+            _age = age;
+        }
 
         public void SetName(string newName)
         {
@@ -25,6 +34,7 @@ namespace _336Labs.Ippolitova
             _name = firstLetter.ToString().ToUpper() + otherLetter;
             Console.WriteLine(_name);
         }
+
 
         public void Deposit()
         {
@@ -133,7 +143,7 @@ namespace _336Labs.Ippolitova
                 Notify?.Invoke(this, new AccountEventArgs("Недостаточно денег на счете", sum)); ;
             }
         }
-
+ 
     }
     class Rate
     {
@@ -154,7 +164,7 @@ namespace _336Labs.Ippolitova
         }
         public static void BnkAc()
         {
-            BankAccount bank = new BankAccount();
+            BankAccount bank = new BankAccount("Liana");
             if (BankAccount.GetNameSurnameIdAgeRate(bank) == true)
             {
                 Account acc = new Account(10);
@@ -165,12 +175,7 @@ namespace _336Labs.Ippolitova
                 Console.Read();
             }
         }
-
-        public void info(int i);
-        {
-         List<BA> AccList = new List<BA>;
-        
-        }
+    }
 }
 
 
