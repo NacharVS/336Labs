@@ -10,12 +10,15 @@ namespace _336Labs.Galimzyanov
         public delegate void RateChanged(double oldRate, double newRate);
         private string _name;
         private string _surname;
-        private string _id, _age;
+        private int _id, _age;
         private double _paymentAccount = 4000;
         private static double _rate = 0.067;
         public string _phoneNumber;
         private int _sum;
         private int _accountopendate;
+        public string Name => _name;
+        public int Age => _age;
+        public int Id => _id;
 
         public BankAccount(int sum, string phoneNumber)
         {
@@ -35,7 +38,10 @@ namespace _336Labs.Galimzyanov
                 _accountopendate = value;
             }
         }
-
+        public Person(string name)
+        {
+            _name = name;
+        }
         public void SetName(string newName)
         {
             newName = newName.Trim();
@@ -80,7 +86,16 @@ namespace _336Labs.Galimzyanov
             Console.WriteLine("Счёт" + _paymentAccount + "рублей");
         }
 
+        public Person(string name, int age)
+        {
+            _name = name;
+            _age = age;
+        }
 
+        public void SetAge(int newAge)
+        {
+            _age = newAge;
+        }
         public static void SetAge(BankAccount bank)
         {
             DateTime Birthday = new DateTime();
@@ -143,10 +158,15 @@ namespace _336Labs.Galimzyanov
                 Notify?.Invoke(this, new ACCOUNTENENTARGS("На вашем счету нехватает средств, sum"));
             }
         }
-        public void List()
+        static void EditName (List<BankAccount>list, int searchId, string newName)
         {
-            List<BankAccount> list = new List<BankAccount>();
-            list.Add(new BankAccount)
+            foreach (var item in list)
+            {
+                if (item.Id == searchId)
+                {
+                    item.SetName(newName);
+                }
+            }
         }
 
 
