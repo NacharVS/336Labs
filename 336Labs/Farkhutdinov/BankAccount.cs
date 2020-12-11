@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections; 
 using System.Text;
 using System.Threading;
 
@@ -21,10 +22,13 @@ namespace _336Labs.Farkhutdinov
         public event RateChanged RateChangedEvent;
         private DateTime _accountOpenDate;
         ArrayList ClientList = new ArrayList();
-        public BankAccount(double balance, string phoneNumber)
+        public BankAccount(string Name, string SurName, string Datebirth, string phoneNumber, int ID)
         {
-            _balance = balance;
+            _name = Name;
+            _surname = SurName;
+            _datebirth = Datebirth;
             _phoneNumber = phoneNumber;
+            _id = ID;
         }
         public void SetPhoneNumber(string phoneNumber)
         {
@@ -59,10 +63,9 @@ namespace _336Labs.Farkhutdinov
             else _age = DateTime.Now.Year - year - 1;
             ClientList.Add(_datebirth);
         }
-        public void SetID()
+        public void SetID(int newId)
         {
-            Random rnd = new Random();
-            _id = rnd.Next(1, 1000000);
+            _id = newId;
             ClientList.Add(_balance);
         }
         public void GetInfo()
@@ -93,7 +96,12 @@ namespace _336Labs.Farkhutdinov
             Rate = newRate;
             ClientList.Add(Rate);
         }
-        public string PhoneNumber { get; private set; }
+        public string phoneNumber { get; set; }
+        public string Name { get; set; }
+        public string SurName { get; set; }
+        public string DateBirth { get; set; }
+        public int Id { get; set; }
+
         public double Balance
         {
             get
@@ -117,6 +125,16 @@ namespace _336Labs.Farkhutdinov
                 var oldRate = _rate;
                 _rate = value;
                 RateChangedEvent?.Invoke(oldRate, _rate);
+            }
+        }
+        public void EditName(List<BankAccount> ClientsList, int searchId, string newName)
+        {
+            foreach (var item in ClientsList)
+            {
+                if (item.Id == searchId)
+                {
+                    Name = newName;
+                }
             }
         }
     }
