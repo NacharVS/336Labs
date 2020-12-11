@@ -13,24 +13,16 @@ namespace _336Labs.Sapegin
         private double _paymentAccount = 0;
         private int _age;
 
-        public void SetName(string newName)
+        public string Name => _name;
+        public string Surname => _surname;
+        public int Age => _age;
+
+        public BankAccount(string Name, string Surname, int Age)
         {
 
-            newName = newName.Trim();
-            var firstletter = newName[0];
-            var otherletter = newName.Remove(0, 1);
-            _name = firstletter.ToString().ToUpper() + otherletter;
-
-        }
-
-
-        public void SetSurname(string newSurname)
-        {
-
-            newSurname = newSurname.Trim();
-            var firstletter = newSurname[0];
-            var otherletters = newSurname.Remove(0, 1);
-            _surname = firstletter.ToString().ToUpper() + otherletters;
+            _name = Name;
+            _surname = Surname;
+            _age = Age;
 
         }
 
@@ -84,39 +76,28 @@ namespace _336Labs.Sapegin
             Console.WriteLine(_paymentAccount);
         }
 
-        public void Age()
-        {
-            DateTime BirthDate = new DateTime();
-            int NowYear = DateTime.Now.Year;
-            Console.WriteLine("Введите дату своего рождения(дд/мм/гг): ");
-            int d = int.Parse(Console.ReadLine());
-            int m = int.Parse(Console.ReadLine());
-            int y = int.Parse(Console.ReadLine());
-            BirthDate.AddYears(y);
-            BirthDate.AddMonths(m);
-            BirthDate.AddDays(d);
-            Console.WriteLine("Возраст клиента: ");
-            Console.WriteLine(NowYear - y);
-        }
+        //public void DateAge()
+        //{
+        //    DateTime BirthDate = new DateTime();
+        //    int NowYear = DateTime.Now.Year;
+        //    Console.WriteLine("Введите дату своего рождения(дд/мм/гг): ");
+        //    int d = int.Parse(Console.ReadLine());
+        //    int m = int.Parse(Console.ReadLine());
+        //    int y = int.Parse(Console.ReadLine());
+        //    BirthDate.AddYears(y);
+        //    BirthDate.AddMonths(m);
+        //    BirthDate.AddDays(d);
+        //    Console.WriteLine("Возраст клиента: ");
+        //    Console.WriteLine(NowYear - y);
+        //}
 
        
        
     }
 
-   abstract class Person
-    {
 
-    }
-    class Client : Person
-    {
-
-    }
-
-    class Employee : Person
-    {
-
-    }
 }
+
 
 //Тo что в классе Program
 //BankAccount account = new BankAccount();
