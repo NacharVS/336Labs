@@ -171,7 +171,7 @@ namespace _336Labs.Ziatdinova
 
             foreach (Person p in peopleLis)
             {
-                Console.WriteLine(_Name);
+                Console.WriteLine(p);
             }
 
         }
