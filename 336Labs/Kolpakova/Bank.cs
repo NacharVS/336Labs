@@ -158,7 +158,7 @@ namespace _336Labs.Kolpakova
 
             foreach (Person p in peopleLis)
             {
-                Console.WriteLine(_Name);
+                Console.WriteLine(p);
             }
 
         }
