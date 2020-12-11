@@ -169,7 +169,7 @@ namespace _336Labs.Ippolitova
         public void info(int i);
         {
          List<BA> AccList = new List<BA>;
-        AccList.Add(new BA ()
+        
         }
 }
 
