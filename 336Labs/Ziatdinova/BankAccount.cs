@@ -101,6 +101,10 @@ namespace _336Labs.Ziatdinova
     }
     class Client : Person
     {
+        private string _name;
+        private string _lastname;
+        private string _id;
+        private int _age;
         private static double _rate = 6.7;
         private double _paymentAccount;
         public double PaymentAc(double a, string b)
@@ -176,7 +180,33 @@ namespace _336Labs.Ziatdinova
 
         }
 
+        public double rate
+        {
+            get
+            {
+                return _rate;
 
+            }
+            get
+            {
+                return _paymentAccount;
+
+            }
+            private set
+            {
+                _paymentAccount = value;
+            }
+        }
+        public Person(string name)
+        {
+            _name = name;
+        }
+        public peopleLis(string name, string id, int age)
+        {
+            _name = name;
+            _id = id;
+            _age = age;
+        }
     }
     
 }
