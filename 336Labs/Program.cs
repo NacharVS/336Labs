@@ -10,7 +10,7 @@ namespace _336Labs.Sogorin
        
         static void Main(string[] args)
         {
-            List<BankAcc> IdLis = new List<BankAcc>();
+            List<String> IdLis = new List<String>();
             List<Account> AccLis = new List<Account>();
             Account acc = new Account();
             AccLis.Add(new Account("Kuzak", "pvan", 89845563326, "1998, 12, 31"));
@@ -21,6 +21,7 @@ namespace _336Labs.Sogorin
 
             acc.Id(AccLis, IdLis);
             acc.Change(AccLis, IdLis);
+            acc.shinfo(AccLis);
         }        
     }   
 }
