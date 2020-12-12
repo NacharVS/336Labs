@@ -22,16 +22,14 @@ namespace _336Labs.Sogorin
         public void Id(List<Account> AccLis, List<String> IdLis)
         {
             Random rnd = new Random();
-
             foreach (Account item in AccLis)
-            {                
+            {
                 i_id = rnd.Next(0, 999999);
                 s_id = i_id.ToString("D6");
-                IdLis.Add(new string(s_id));
-                Console.WriteLine($"{item._surname} {item._name} {s_id}");
+                IdLis.Add(new string(s_id));                
             }
         }
-        public Account(string sur, string nam, long pho, string data)
+        public Account(string sur, string nam, long pho, string data, double cash)
         {
             _surname = sur;
             sur = sur.Trim();
@@ -52,21 +50,112 @@ namespace _336Labs.Sogorin
             else
             {
                 Console.WriteLine("Измените номер");
-            }
-
+            } 
             Date = DateTime.Parse(data);
         }
+        public void Bank(List<Account> AccLis, List<String> IdLis, Account acc)
+        {
+            Console.Clear();
+            acc.Id(AccLis, IdLis);
+            Console.WriteLine("1 - Добавить аккаунт");
+            Console.WriteLine("2 - Изменить данные");
+            Console.WriteLine("3 - Информация");
+            Console.WriteLine("4 - Счет");
+            Console.WriteLine("5 - ставка");
+            Console.Write("Введите №: ");
+            int num = int.Parse(Console.ReadLine());
+            Console.Clear();            
+            switch (num)
+            {
+                case 1:
+                    {
+                        acc.Bank(AccLis, IdLis, acc);
+                        break;
+                    }
+                case 2:
+                    {                        
+                        acc.Change(AccLis, IdLis, acc);
+                        acc.Bank(AccLis, IdLis, acc);
+                        break;
+                    }
+                case 3:
+                    {
+                        acc.Info(AccLis, IdLis, acc);
+                        string i = Console.ReadLine();
+                        acc.Bank(AccLis, IdLis, acc);
+                        break;
+                    }
+                case 4:
+                    {
+                        acc.Bank(AccLis, IdLis, acc);
+                        break;
+                    }
+                case 5:
+                    {
+                        acc.Bank(AccLis, IdLis, acc);
+                        break;
+                    }
+                default:
+                    Console.WriteLine("не верный номер!");
+                    Console.WriteLine("Желаете продолжить?");
+                    Console.WriteLine("y - Да, n - Нет");
+                    string f = Console.ReadLine();
+                    if (f == "y")
+                    {
+                        acc.Bank(AccLis, IdLis, acc);
+                    }
+                    else
+                        return;
+                    break;
+            }
+        }
 
+        public void Info(List<Account> AccLis, List<String> IdLis, Account acc)
+        {
+            Console.Clear();
+            Console.WriteLine("1 - Общая информация");
+            Console.WriteLine("2 - Информацию по id");
+            Console.Write("Введите №: ");
+            int num = int.Parse(Console.ReadLine());
+            Console.Clear();
+            switch (num)
+            {
+                case 1:
+                    {
+                        acc.shinfo(AccLis);
+                        break;
+                    }
+                case 2:
+                    {
+                        acc.shid(AccLis, IdLis);
+                        break;
+                    }
+                default:
+                    Console.WriteLine("не верный номер!");
+                    Console.WriteLine("Желаете продолжить?");
+                    Console.WriteLine("y - Да, n - Нет");
+                    string f = Console.ReadLine();
+                    if (f == "y")
+                    {
+                        acc.Info(AccLis, IdLis, acc);
+                    }
+                    else
+                    {
+                        acc.Bank(AccLis, IdLis, acc);
+                    }                        
+                    break;                    
+            }
+        }
 
-        public void Change(List<Account> AccLis, List<String> IdLis)
-        {       
+        public void Change(List<Account> AccLis, List<String> IdLis, Account acc)
+        {
+            Console.Clear();
+            acc.shid(AccLis, IdLis);
             Console.Write("Введите ваш индекс: ");
             string ind = Console.ReadLine();
-            Account acc = new Account();
-            //Проверка на наличие id-ка
+            Console.Clear();
             if ((IdLis.Contains(new String(ind))) == true)
-            {                
-                Console.WriteLine("Нашёл");
+            {
                 //ind сравниваем с coun IdLis и coun index.IdLis == index.AccLis
                 foreach (var item in IdLis)
                 {
@@ -77,22 +166,40 @@ namespace _336Labs.Sogorin
                         {
                             if (i == AccLis.IndexOf(it))
                             {
-                                acc.ch2(it);
+                                acc.ch2(it, AccLis, IdLis);
                                 Console.WriteLine("Изменения успешно внесены");
                             }
                         }
                     }
                 }
             }
+            else
+            {
+                Console.WriteLine("не верный номер!");
+                Console.WriteLine("Желаете продолжить?");
+                Console.WriteLine("y - Да, n - Нет");
+                string f = Console.ReadLine();
+                if (f == "y")
+                {
+                    acc.Change(AccLis, IdLis, acc);
+                }
+                else
+                {
+                    acc.Bank(AccLis, IdLis, acc);
+                }
+            }
         }
-        public void ch2(Account it)
+
+        public void ch2(Account it, List<Account> AccLis, List<String> IdLis)
         {
+            Console.Clear();
             Console.WriteLine("1 - Изменить Фамилию");
             Console.WriteLine("2 - Изменить Имя");
             Console.WriteLine("3 - Изменить Номер");
             Console.WriteLine("4 - Изменить Дату рождения");
             Console.Write("Введите №: ");
             int num = int.Parse(Console.ReadLine());
+            Console.Clear();
             switch (num)
             {
                 case 1:
@@ -126,23 +233,42 @@ namespace _336Labs.Sogorin
                     string f = Console.ReadLine();
                     if (f == "y")
                     {
+                        it.ch2(it, AccLis, IdLis);
                         return;
                     }
                     else
-                        break;
+                        it.Bank(AccLis, IdLis, it);
+                    break;
+
+            }
+        }
+        //возврат к началу
+        public void shid(List<Account> AccLis, List<String> IdLis)
+        {
+            foreach (Account item in AccLis)
+            {
+                foreach (String it in IdLis)
+                {
+                    if (AccLis.IndexOf(item) == IdLis.IndexOf(it))
+                    {
+                        Console.WriteLine($"{item._surname} {item._name} {it}");
+                    }
+                }                          
             }
         }
 
         public void shinfo(List<Account> AccLis)
-        {            
+        {
+            Console.Clear();
             foreach (var item in AccLis)
             {
                 Console.WriteLine($"{item._surname} {item._name} {item.Date} {item._phone}");
-            }            
+            }   
         }
         public void Getold()
         {
-            //DateTime;
+            Console.Clear();
+            //DateTime
         }
     }
     class BankAcc

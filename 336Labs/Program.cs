@@ -13,15 +13,12 @@ namespace _336Labs.Sogorin
             List<String> IdLis = new List<String>();
             List<Account> AccLis = new List<Account>();
             Account acc = new Account();
-            AccLis.Add(new Account("Kuzak", "pvan", 89845563326, "1998, 12, 31"));
-            AccLis.Add(new Account("Kuzap", "uvan", 89842587953, "1996, 10, 15"));
-            AccLis.Add(new Account("Kuzam", "tvan", 89845535697, "1987, 06, 24"));
-            AccLis.Add(new Account("Kuzan", "yvan", 89845256776, "1992, 09, 19"));
-            AccLis.Add(new Account("Kuzab", "evan", 89845526875, "1988, 01, 30"));
-
-            acc.Id(AccLis, IdLis);
-            acc.Change(AccLis, IdLis);
-            acc.shinfo(AccLis);
+            AccLis.Add(new Account("Kuzak", "pvan", 89845563326, "1998, 12, 31", 0));
+            AccLis.Add(new Account("Kuzap", "uvan", 89842587953, "1996, 10, 15", 0));
+            AccLis.Add(new Account("Kuzam", "tvan", 89845535697, "1987, 06, 24", 0));
+            AccLis.Add(new Account("Kuzan", "yvan", 89845256776, "1992, 09, 19", 0));
+            AccLis.Add(new Account("Kuzab", "evan", 89845526875, "1988, 01, 30", 0));
+            acc.Bank(AccLis, IdLis, acc);            
         }        
     }   
 }
