@@ -97,25 +97,25 @@ namespace _336Labs.Sogorin
             {
                 case 1:
                     {
-                        Console.WriteLine("Введите новую фамилию");
+                        Console.WriteLine("Введите новую фамилию:");
                         it._surname = Console.ReadLine();
                         break;
                     }
                 case 2:
                     {
-                        Console.WriteLine("Введите новое имя");
+                        Console.WriteLine("Введите новое имя:");
                         it._name = Console.ReadLine();
                         break;
                     }
                 case 3:
                     {
-                        Console.WriteLine("Введите новый телефон");
+                        Console.WriteLine("Введите новый телефон:");
                         it._phone = long.Parse(Console.ReadLine());
                         break;
                     }
                 case 4:
                     {
-                        Console.WriteLine("Введите новую дату");
+                        Console.WriteLine("Введите новую дату:");
                         it.Date = DateTime.Parse(Console.ReadLine());
                         break;
                     }
@@ -137,7 +137,7 @@ namespace _336Labs.Sogorin
         {            
             foreach (var item in AccLis)
             {
-                Console.WriteLine($"{item._surname} {item._name} {s_id}");
+                Console.WriteLine($"{item._surname} {item._name} {item.Date} {item._phone}");
             }            
         }
         public void Getold()
