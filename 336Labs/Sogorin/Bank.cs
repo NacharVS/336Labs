@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace _336Labs.Sogorin
 {
@@ -367,7 +366,7 @@ namespace _336Labs.Sogorin
         public void ch2(List<Account> AccLis, List<String> IdLis, Account acc)
         {
             Console.Clear();
-            Console.WriteLine("1 - Изменить Фамилию" + "\n" +
+            Console.Write("1 - Изменить Фамилию" + "\n" +
                 "2 - Изменить Имя" + "\n" +
                 "3 - Изменить Номер" + "\n" +
                 "4 - Изменить Дату рождения" + "\n" +
