@@ -235,11 +235,8 @@ namespace _336Labs.Sogorin
 
         public void Cash(List<Account> AccLis, List<String> IdLis, Account acc)
         {
-            foreach (var it in AccLis)
-            {
-                acc.Ca2(AccLis, IdLis, it);
-                Console.WriteLine("Изменения успешно внесены");
-            }
+            Console.Clear();
+            acc.Ca2(AccLis, IdLis, acc);
         }
 
         public void Ca2(List<Account> AccLis, List<String> IdLis, Account acc)
@@ -285,7 +282,7 @@ namespace _336Labs.Sogorin
                     }
                 case 3:
                     {
-                        acc.Bank(AccLis, IdLis, acc);
+                        acc.Aut2(AccLis, IdLis, acc);
                         break;
                     }
                 default:
@@ -299,7 +296,7 @@ namespace _336Labs.Sogorin
                     }
                     else
                     {
-                        acc.Bank(AccLis, IdLis, acc);
+                        acc.Aut2(AccLis, IdLis, acc);
                     }
                     break;
             }
