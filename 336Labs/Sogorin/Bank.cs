@@ -7,7 +7,7 @@ namespace _336Labs.Sogorin
     class Account
     {
         private static double _rate;
-        private double _paymentac;
+        public double _cash;
         public string _name;
         public string _surname;
         public long _phone;
@@ -27,7 +27,7 @@ namespace _336Labs.Sogorin
             {
                 i_id = rnd.Next(0, 999999);
                 s_id = i_id.ToString("D6");
-                IdLis.Add(new string(s_id));                
+                IdLis.Add(new string(s_id));
             }
         }
 
@@ -52,8 +52,9 @@ namespace _336Labs.Sogorin
             else
             {
                 Console.WriteLine("Измените номер");
-            } 
-            _date = DateTime.Parse(data);            
+            }
+            _date = DateTime.Parse(data);
+            _cash = cash;
         }
 
         public void AddAcc(List<Account> AccLis)
@@ -71,7 +72,7 @@ namespace _336Labs.Sogorin
             Console.WriteLine("Введите Дату рождения:");
             string DOB = Console.ReadLine();
             Console.Clear();
-            int Cas = 0;            
+            int Cas = 0;
             AccLis.Add(new Account(Sur, Nam, Num, DOB, Cas));
         }
 
@@ -80,7 +81,12 @@ namespace _336Labs.Sogorin
             foreach (var item in AccLis)
             {
                 item._old = DateTime.Now.Year - item._date.Year;
-            }            
+            }
+        }
+
+        public void Stav(List<Account> AccLis)
+        {
+
         }
 
         public void Bank(List<Account> AccLis, List<String> IdLis, Account acc)
@@ -88,14 +94,14 @@ namespace _336Labs.Sogorin
             Console.Clear();
             acc.Id(AccLis, IdLis);
             acc.Data(AccLis);
-            Console.WriteLine("1 - Добавить аккаунт" + "\n" +
-                "2 - Изменить данные" + "\n" +
+            Console.Write("1 - Добавить аккаунт" + "\n" +
+                "2 - Авторизация" + "\n" +
                 "3 - Информация" + "\n" +
-                "4 - Счет" + "\n" +
-                "5 - ставка" + "\n" +
+                "4 - ставка" + "\n" +
+                "5 - Выход" + "\n" +
                 "Введите №: ");
             int num = int.Parse(Console.ReadLine());
-            Console.Clear();            
+            Console.Clear();
             switch (num)
             {
                 case 1:
@@ -105,24 +111,26 @@ namespace _336Labs.Sogorin
                         break;
                     }
                 case 2:
-                    {                        
-                        acc.Change(AccLis, IdLis, acc);
+                    {
+                        acc.Aut(AccLis, IdLis, acc);
                         acc.Bank(AccLis, IdLis, acc);
                         break;
                     }
                 case 3:
                     {
-                        acc.Info(AccLis, IdLis, acc);                        
+                        acc.shinfo(AccLis);
+                        string i = Console.ReadLine();
+                        acc.Bank(AccLis, IdLis, acc);
                         break;
                     }
                 case 4:
                     {
+                        acc.Stav(AccLis);
                         acc.Bank(AccLis, IdLis, acc);
                         break;
                     }
                 case 5:
                     {
-                        acc.Bank(AccLis, IdLis, acc);
                         break;
                     }
                 default:
@@ -140,63 +148,7 @@ namespace _336Labs.Sogorin
             }
         }
 
-        public void Info(List<Account> AccLis, List<String> IdLis, Account acc)
-        {
-            Console.Clear();
-            Console.WriteLine("1 - Общая информация" + "\n" +
-                "2 - Информацию по id" + "\n" +
-                "3 - Возраст всех клиентов" + "\n" +
-                "4 - Выход");
-            
-            Console.Write("Введите №: ");
-            int num = int.Parse(Console.ReadLine());           
-            Console.Clear();
-            switch (num)
-            {
-                case 1:
-                    {
-                        acc.shinfo(AccLis);
-                        string i = Console.ReadLine();
-                        acc.Info(AccLis, IdLis, acc);
-                        break;
-                    }
-                case 2:
-                    {
-                        acc.shid(AccLis, IdLis);
-                        string i = Console.ReadLine();
-                        acc.Info(AccLis, IdLis, acc);
-                        break;
-                    }
-                case 3:
-                    {
-                        acc.Getold(AccLis);
-                        string i = Console.ReadLine();
-                        acc.Info(AccLis, IdLis, acc);
-                        break;
-                    }
-                case 4:
-                    {
-                        acc.Bank(AccLis,IdLis,acc);                        
-                        break;
-                    }
-                default:
-                    Console.WriteLine("не верный номер!" + "\n" +
-                        "Желаете продолжить?" + "\n" +
-                        "y - Да, n - Нет" + "\n");
-                    string f = Console.ReadLine();
-                    if (f == "y")
-                    {
-                        acc.Info(AccLis, IdLis, acc);
-                    }
-                    else
-                    {
-                        acc.Bank(AccLis, IdLis, acc);
-                    }                        
-                    break;                    
-            }
-        }
-
-        public void Change(List<Account> AccLis, List<String> IdLis, Account acc)
+        public void Aut(List<Account> AccLis, List<String> IdLis, Account acc)
         {
             Console.Clear();
             acc.shid(AccLis, IdLis);
@@ -215,8 +167,8 @@ namespace _336Labs.Sogorin
                         {
                             if (i == AccLis.IndexOf(it))
                             {
-                                acc.ch2(it, AccLis, IdLis);
-                                Console.WriteLine("Изменения успешно внесены");
+                                //sw между функциями
+                                acc.Aut2(AccLis, IdLis, it);
                             }
                         }
                     }
@@ -239,7 +191,183 @@ namespace _336Labs.Sogorin
             }
         }
 
-        public void ch2(Account acc, List<Account> AccLis, List<String> IdLis)
+        public void Aut2(List<Account> AccLis, List<String> IdLis, Account acc)
+        {
+            Console.Clear();
+            Console.WriteLine($"Вы вошли под {acc._surname}");
+            Console.Write("1 - Изменить данные" + "\n" +
+                "2 - Информация" + "\n" +
+                "3 - Счет" + "\n" +
+                "4 - Выход" + "\n" +
+                "Введите №: ");
+            int num = int.Parse(Console.ReadLine());
+            Console.Clear();
+            switch (num)
+            {
+                case 1:
+                    {
+                        acc.Change(AccLis, IdLis, acc);
+                        acc.Aut2(AccLis, IdLis, acc);
+                        break;
+                    }
+                case 2:
+                    {
+                        acc.Info(AccLis, IdLis, acc);
+                        break;
+                    }
+                case 3:
+                    {
+                        acc.Cash(AccLis, IdLis, acc);
+                        acc.Aut2(AccLis, IdLis, acc);
+                        break;
+                    }
+                case 4:
+                    {
+                        acc.Bank(AccLis, IdLis, acc);
+                        break;
+                    }
+                case 5:
+                    break;
+                default:
+                    return;
+            }
+        }
+
+        public void Cash(List<Account> AccLis, List<String> IdLis, Account acc)
+        {
+            foreach (var it in AccLis)
+            {
+                acc.Ca2(AccLis, IdLis, it);
+                Console.WriteLine("Изменения успешно внесены");
+            }
+        }
+
+        public void Ca2(List<Account> AccLis, List<String> IdLis, Account acc)
+        {
+            Console.Clear();
+            Console.WriteLine("1 - Пополнить счет" + "\n" +
+                "2 - Снять наличные" + "\n" +
+                "3 - Выход");
+            Console.Write("Введите №: ");
+            int i = int.Parse(Console.ReadLine());
+            switch (i)
+            {
+                case 1:
+                    {
+                        Console.Clear();
+                        Console.Write("Ведите сумму: ");
+                        acc._cash += double.Parse(Console.ReadLine());
+                        break;
+                    }
+                case 2:
+                    {
+                        Console.Clear();
+                        Console.Write("Ведите сумму: ");
+                        double n = double.Parse(Console.ReadLine());
+                        if (n > acc._cash)
+                        {
+                            Console.WriteLine("Сумма превышает ваш баланс" + "\n" +
+                                "Желаете продолжить?" + "\n" +
+                                "y - Да, n - Нет" + "\n");
+                            string fe = Console.ReadLine();
+                            if (fe == "y")
+                            {
+                                acc.Ca2(AccLis, IdLis, acc);
+                            }
+                            else
+                            {
+                                acc.Cash(AccLis, IdLis, acc);
+                            }
+                        }
+                        else
+                            acc._cash -= n;
+                        break;
+                    }
+                case 3:
+                    {
+                        acc.Bank(AccLis, IdLis, acc);
+                        break;
+                    }
+                default:
+                    Console.WriteLine("не верный номер!" + "\n" +
+                       "Желаете продолжить?" + "\n" +
+                       "y - Да, n - Нет" + "\n");
+                    string f = Console.ReadLine();
+                    if (f == "y")
+                    {
+                        acc.Cash(AccLis, IdLis, acc);
+                    }
+                    else
+                    {
+                        acc.Bank(AccLis, IdLis, acc);
+                    }
+                    break;
+            }
+        }
+
+        public void Info(List<Account> AccLis, List<String> IdLis, Account acc)
+        {
+            Console.Clear();
+            Console.WriteLine("1 - Общая информация" + "\n" +                
+                "2 - Возраст клиента" + "\n" +
+                "3 - Счет клиента" + "\n" +
+                "4 - Выход");
+
+            Console.Write("Введите №: ");
+            int num = int.Parse(Console.ReadLine());
+            Console.Clear();
+            switch (num)
+            {
+                case 1:
+                    {
+                        acc.shinfoac(acc);
+                        string i = Console.ReadLine();
+                        acc.Info(AccLis, IdLis, acc);
+                        break;
+                    }
+                case 2:
+                    {
+                        acc.Getold(acc);
+                        string i = Console.ReadLine();
+                        acc.Info(AccLis, IdLis, acc);
+                        break;
+                    }
+                case 3:
+                    {
+                        acc.shCash(acc);
+                        string i = Console.ReadLine();
+                        acc.Info(AccLis, IdLis, acc);
+                        break;
+                    }
+                case 4:
+                    {
+                        acc.Aut2(AccLis, IdLis, acc);
+                        break;
+                    }
+                default:
+                    Console.WriteLine("не верный номер!" + "\n" +
+                        "Желаете продолжить?" + "\n" +
+                        "y - Да, n - Нет" + "\n");
+                    string f = Console.ReadLine();
+                    if (f == "y")
+                    {
+                        acc.Info(AccLis, IdLis, acc);
+                    }
+                    else
+                    {
+                        acc.Aut2(AccLis, IdLis, acc);
+                    }
+                    break;
+            }
+        }
+
+        public void Change(List<Account> AccLis, List<String> IdLis, Account acc)
+        {
+            Console.Clear();
+            acc.ch2(AccLis, IdLis, acc);            
+        }
+
+        public void ch2(List<Account> AccLis, List<String> IdLis, Account acc)
         {
             Console.Clear();
             Console.WriteLine("1 - Изменить Фамилию" + "\n" +
@@ -256,29 +384,33 @@ namespace _336Labs.Sogorin
                     {
                         Console.WriteLine("Введите новую фамилию:");
                         acc._surname = Console.ReadLine();
+                        acc.ch2(AccLis, IdLis, acc);
                         break;
                     }
                 case 2:
                     {
                         Console.WriteLine("Введите новое имя:");
                         acc._name = Console.ReadLine();
+                        acc.ch2(AccLis, IdLis, acc);
                         break;
                     }
                 case 3:
                     {
                         Console.WriteLine("Введите новый телефон:");
                         acc._phone = long.Parse(Console.ReadLine());
+                        acc.ch2(AccLis, IdLis, acc);
                         break;
                     }
                 case 4:
                     {
                         Console.WriteLine("Введите новую дату:");
                         acc._date = DateTime.Parse(Console.ReadLine());
+                        acc.ch2(AccLis, IdLis, acc);
                         break;
                     }
                 case 5:
                     {
-                        acc.Bank(AccLis, IdLis, acc);
+                        acc.Aut2(AccLis, IdLis, acc);
                         break;
                     }
                 default:
@@ -288,17 +420,18 @@ namespace _336Labs.Sogorin
                     string f = Console.ReadLine();
                     if (f == "y")
                     {
-                        acc.ch2(acc, AccLis, IdLis);
+                        acc.ch2(AccLis, IdLis, acc);
                         return;
                     }
                     else
-                        acc.Bank(AccLis, IdLis, acc);
+                        acc.Aut2(AccLis, IdLis, acc);
                     break;
             }
         }
 
         public void shid(List<Account> AccLis, List<String> IdLis)
         {
+            Console.Clear();
             foreach (Account item in AccLis)
             {
                 foreach (String it in IdLis)
@@ -307,7 +440,7 @@ namespace _336Labs.Sogorin
                     {
                         Console.WriteLine($"{item._surname} {item._name} {it}");
                     }
-                }                          
+                }
             }
         }
 
@@ -316,17 +449,26 @@ namespace _336Labs.Sogorin
             Console.Clear();
             foreach (var item in AccLis)
             {
-                Console.WriteLine($"{item._surname} {item._name} {item._date} {item._phone}");
-            }   
+                Console.WriteLine($"{item._surname} {item._name} {item._date.ToShortDateString()} {item._phone}");
+            }
         }
 
-        public void Getold(List<Account> AccLis)
+        public void shinfoac(Account acc)
         {
             Console.Clear();
-            foreach (var item in AccLis)
-            {
-                Console.WriteLine($"{item._surname} {item._name} {item._old}");
-            }            
+            Console.WriteLine($"{acc._surname} {acc._name} {acc._date.ToShortDateString()} {acc._phone}");
+        }
+
+        public void shCash(Account acc)
+        {
+            Console.Clear();
+            Console.WriteLine(acc._cash);
+        }
+
+        public void Getold(Account acc)
+        {
+            Console.Clear();
+            Console.WriteLine($"{acc._surname} {acc._name} {acc._old}");
         }
     }
     class BankAcc
