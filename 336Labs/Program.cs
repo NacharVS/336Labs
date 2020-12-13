@@ -8,15 +8,15 @@ namespace _336Labs
     {
         static void Main(string[] args)
         {
-            List<StudentsList> studentList = new List<StudentsList>();
+            List<BankAccount> List = new List<BankAccount>();
 
-            studentList.Add(new StudentsList("Aizat", 18, 4222));
-            studentList.Add(new StudentsList("Amir", 17, 5254));
-            studentList.Add(new StudentsList("Azat", 18, 7585));
+            List.Add(new BankAccount("Aizat", "Asadullin", 18, "+79397777777", "2002.01.21", 222));
+            List.Add(new BankAccount("Amir", "Galimzaynov", 17, "+79318888888", "2005.06.22", 888));
+            List.Add(new BankAccount("Azat", "Baiburin", 18, "+79166666666", "2003.03.15", 666));
 
-            EditName(studentList, 5254, "Ainur");
+            EditName(BankAccount, 666, "Ainur");
 
-            foreach (var item in studentList)
+            foreach (var item in BankAccount)
             {
                 Console.WriteLine($"{item.Name} {item.Age}");
             }

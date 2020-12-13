@@ -155,7 +155,7 @@ namespace _336Labs.Acadullin
             Console.WriteLine($":{banks._name}");
             Console.WriteLine($":{banks._surname}");
             Console.WriteLine($":{banks._id}");
-            Console.WriteLine($":{banks.A.ToString("d:m:y")}");
+            Console.WriteLine($":{banks._birthday.ToString("d:m:y")}");
             Console.WriteLine($":{banks._age}");
         }
         public void Polosh(double polosh)
@@ -182,14 +182,12 @@ namespace _336Labs.Acadullin
                 _phonenumber = value;
             }
         }
-        
-        public Student(string name)
+        public Student(string name, string surname, string phonenumber, int birthday, int id, int age)
         {
             _name = name;
-        }
-        public Student(string name, int id, int age)
-        {
-            _name = name;
+            _surname = surname;
+            _phonenumber = phonenumber;
+            _birthday = birthday;
             _id = id;
             _age = age;
         }
@@ -197,11 +195,14 @@ namespace _336Labs.Acadullin
         {
             _age = newAge;
         }
-        public void SetName(string newName)
+        public void SetName(string newName, string newsurname, string newphonenumber, int newbirthday)
         {
             _name = newName;
+            _surname = newsurname;
+            _phonenumber = newphonenumber;
+            _birthday = newbirthday;
         }
-        static void EditName(List<StudentList>list, string newName, int searchId)
+        static void EditName(List<BankAccount>list, string newName, int searchId)
         {
             foreach (var item in list)
             {
