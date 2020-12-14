@@ -8,8 +8,9 @@ using System.Threading;
 namespace _336Labs.Bitkova
 {
     
-    class BankAccount : List
+    class BankAccount
     {
+        
         
 
         public delegate void Number(string phonenumber);
@@ -17,56 +18,28 @@ namespace _336Labs.Bitkova
 
         private string _name;
         private string _surname;
-        private string _id;
+        private int _id;
         private static double _rate = 0.035;
         private int _sum;
         private string _phoneNumber;
+        private int _age;
 
-        public BankAccount(string phoneNumber, int sum)
-        {
-            PhoneNumber = phoneNumber;
-            Sum = sum;
-        }
+        public string Name => _name;
+        public string Surname => _surname;
+        public int Age => _age;
+        public int ID => _id;
 
-        public void SetName(string newName)
-        {
-            _name = newName;
-            //newName = newName.Trim();
-            //var firstletter = newName[0];
-            //var otherletters = newName.Remove(0, 1);
-            //_name = firstletter.ToString().ToUpper() + otherletters;
-        }
-
-        public string GetName => _name;
         
-        public void SetSurname(string newSurname)
-        {
-            _surname = newSurname;
-            //newSurname = newSurname.Trim();
-            //var firstletter = newSurname[0];
-            //var otherletters = newSurname.Remove(0, 1);
-            //_surname = firstletter.ToString().ToUpper() + otherletters;
 
-        }
-        public string GetSurname => _surname;
-
-        public string GetID()
+        public BankAccount(string Name, string Surname, int Age, int ID)
         {
-            return _id;
-        }
-
-        public void SetId()
-        {
-            int a = 0;
-            string ID = "";
-            for (int i = 0; i < 3; i++)
-            {
-                ID = (char)(a % 10 + '0') + ID;
-                a = a / 10;
-            }
+            _name = Name;
+            _surname = Surname;
+            _age = Age;
             _id = ID;
         }
 
+        
         public double Rate
         {
             get
@@ -129,32 +102,26 @@ namespace _336Labs.Bitkova
             Console.WriteLine(DateTime.Now);
 
         }
-        public void Age()
-        {
-            DateTime BirthDate = new DateTime();
-            int NowDate = DateTime.Now.Year;
-            Console.WriteLine("Введите день: ");
-            int day = int.Parse(Console.ReadLine());
-            Console.WriteLine("Введите месяц: ");
-            int month = int.Parse(Console.ReadLine());
-            Console.WriteLine("Введите год: ");
-            int year = int.Parse(Console.ReadLine());
-            BirthDate.AddYears(year);
-            BirthDate.AddMonths(month);
-            BirthDate.AddDays(day);
-            Console.WriteLine("Ваш возраст: ");
-            Console.WriteLine(NowDate - year);
-        }
+        //public void Age()
+        //{
+        //    DateTime BirthDate = new DateTime();
+        //    int NowDate = DateTime.Now.Year;
+        //    Console.WriteLine("Введите день: ");
+        //    int day = int.Parse(Console.ReadLine());
+        //    Console.WriteLine("Введите месяц: ");
+        //    int month = int.Parse(Console.ReadLine());
+        //    Console.WriteLine("Введите год: ");
+        //    int year = int.Parse(Console.ReadLine());
+        //    BirthDate.AddYears(year);
+        //    BirthDate.AddMonths(month);
+        //    BirthDate.AddDays(day);
+        //    Console.WriteLine("Ваш возраст: ");
+        //    Console.WriteLine(NowDate - year);
+        //}
+
         
     }
-    class List
-    {
-        public static void list()
-        {
-            List<BankAccount> banklist = new List<BankAccount>();
-            banklist.Add(new BankAccount() { GetName = "Aня" });
-        }
-    }
+    
 }
 
 
