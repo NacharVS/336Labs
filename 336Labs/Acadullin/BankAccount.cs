@@ -13,13 +13,15 @@ namespace _336Labs.Acadullin
         public delegate void RateChanged(double oldRate, double newRate);
         private static double _rate = 0.021;
         private double _paymentAccount = 1000;
-        private DateTime a = new DateTime();
+        private DateTime _brithday;
         private int _sum;
         private string _phonenumber;
         public delegate void Hander(string phonenumber);
         public int _accountDateOpen;
 
         public string Name => _name;
+        public string Surname => _surname;
+        public DateTime Brithday => _brithday;
         public int Age => _age;
         public int Id => _id;
 
@@ -28,7 +30,11 @@ namespace _336Labs.Acadullin
         public BankAccount(string messag, int sum)
         {
             Message = messag;
-            Sum = Sum;
+            _sum = sum;
+        }
+        public BankAccount()
+        {
+
         }
         public double Rate
         {
@@ -56,6 +62,7 @@ namespace _336Labs.Acadullin
             }
         }
         public delegate void AccounHandler(object a, BankAccount b);
+        /*
         public event BankAccount Notify;
         public int Sum { get; private set; }
         public BankAccount(int sum)
@@ -66,7 +73,7 @@ namespace _336Labs.Acadullin
         {
             Sum += sum;
             Notify?.Invoke(this, new BankAccount($"На ваш счет поступило{sum}", sum));
-        }
+        }        
         public void Remove(int sum)
         {
             if (Sum >= sum)
@@ -78,15 +85,16 @@ namespace _336Labs.Acadullin
             {
                 Notify?.Invoke(this, new BankAccount($"Недостаточно денег на вашем счете", sum));
             }
-        }
-        //public void SetName(string newName)
-        //{
-        //    newName = newName.Trim();
-        //    var firstLetter = newName[0];
-        //    var otherLetters = newName.Remove(0, 1);
-        //    _name = firstLetter.ToString().ToUpper() + otherLetters;
+        }*/
 
-        //}
+        public void SetName(string newName)
+        {
+            newName = newName.Trim();
+            var firstLetter = newName[0];
+            var otherLetters = newName.Remove(0, 1);
+            _name = firstLetter.ToString().ToUpper() + otherLetters;
+
+        }
         public void SetSurname(string newSurname)
         {
             newSurname = newSurname.Trim();
@@ -115,7 +123,7 @@ namespace _336Labs.Acadullin
         public void SetId(BankAccount banks)
         {
             int a = 0;
-            int Id = "";
+            int Id = int.Parse("");
             for (int i = 0; i < 3; i++)
             {
                 Id = (char)(a % 10 + '0') + Id;
@@ -124,13 +132,13 @@ namespace _336Labs.Acadullin
             _id = Id;
             
         }
-        //public static void SetFIO(BankAccount banks)
-        //{
-        //    Console.WriteLine("Ваша имя:");
-        //    banks.SetName(Console.ReadLine());
-        //    Console.WriteLine("Ваша Фамилия:");
-        //    banks.SetSurname(Console.ReadLine());
-        //}
+        public void SetFIO(BankAccount banks)
+        {
+            Console.WriteLine("Ваша имя:");
+            banks.SetName(Console.ReadLine());
+            Console.WriteLine("Ваша Фамилия:");
+            banks.SetSurname(Console.ReadLine());
+        }
         public static void SetAge(BankAccount banks)
         {
             Console.WriteLine("Ваш год рождения:");
@@ -140,22 +148,22 @@ namespace _336Labs.Acadullin
             Console.WriteLine("Ваш день рождения:");
             int d = int.Parse(Console.ReadLine());
 
-            DateTime birthday = new DateTime();
+            //banks._brithday = DateTime.Parse(Console.ReadLine()); 
+            
             int newyear = DateTime.Now.Year;
 
-            birthday.AddYears(y);
-            birthday.AddMonths(m);
-            birthday.AddDays(d);
+            banks._brithday.AddYears(y);
+            banks._brithday.AddMonths(m);
+            banks._brithday.AddDays(d);
 
-            Console.WriteLine("Вам сейчас:");
-            Console.WriteLine(newyear - y);
+            Console.WriteLine($"Вам сейчас: {newyear - y}");            
         }
         public static void GetFIO(BankAccount banks)
         {
             Console.WriteLine($":{banks._name}");
             Console.WriteLine($":{banks._surname}");
             Console.WriteLine($":{banks._id}");
-            Console.WriteLine($":{banks._birthday.ToString("d:m:y")}");
+            Console.WriteLine($":{banks._brithday.ToString("d:m:y")}");
             Console.WriteLine($":{banks._age}");
         }
         public void Polosh(double polosh)
@@ -182,33 +190,44 @@ namespace _336Labs.Acadullin
                 _phonenumber = value;
             }
         }
-        public Student(string name, string surname, string phonenumber, int birthday, int id, int age)
+        public BankAccount(string name, string surname, string phonenumber, DateTime brithday, int age)
         {
             _name = name;
             _surname = surname;
             _phonenumber = phonenumber;
-            _birthday = birthday;
-            _id = id;
+            _brithday = brithday;
             _age = age;
         }
         public void SetAge(int newAge)
         {
             _age = newAge;
         }
-        public void SetName(string newName, string newsurname, string newphonenumber, int newbirthday)
+        public void SetName(string newName, BankAccount bank)
         {
-            _name = newName;
-            _surname = newsurname;
-            _phonenumber = newphonenumber;
-            _birthday = newbirthday;
+            bank._name = newName;
         }
-        static void EditName(List<BankAccount>list, string newName, int searchId)
+        public void SetSurname(string newsurname, BankAccount bank)
+        {
+            bank._surname = newsurname;
+        }
+        public void Sethonenumber(string newphonenumber, BankAccount bank)
+        {
+            bank._phonenumber = newphonenumber;
+        }
+        public void Setbrithday(DateTime newbrithday, BankAccount bank)
+        {
+            bank._brithday = newbrithday;
+        }
+        static void Edit(List<BankAccount>list, string newName, int searchId, string newsurname, string newphonenumber, DateTime newbrithday, BankAccount bank) 
         {
             foreach (var item in list)
             {
                 if (item.Id == searchId)
                 {
-                    item.SeName(newName);
+                    item.SetName(newName);
+                    item.SetSurname(newsurname);
+                    item.Sethonenumber(newphonenumber, bank);
+                    item.Setbrithday(newbrithday, bank);
                 }
             }
         }
