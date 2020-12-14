@@ -304,7 +304,7 @@ namespace _336Labs.Sogorin
         public void Info(List<Account> AccLis, List<String> IdLis, Account acc)
         {
             Console.Clear();
-            Console.WriteLine("1 - Общая информация" + "\n" +                
+            Console.WriteLine("1 - Общая информация" + "\n" +
                 "2 - Возраст клиента" + "\n" +
                 "3 - Счет клиента" + "\n" +
                 "4 - Выход");
@@ -360,7 +360,7 @@ namespace _336Labs.Sogorin
         public void Change(List<Account> AccLis, List<String> IdLis, Account acc)
         {
             Console.Clear();
-            acc.ch2(AccLis, IdLis, acc);            
+            acc.ch2(AccLis, IdLis, acc);
         }
 
         public void ch2(List<Account> AccLis, List<String> IdLis, Account acc)
@@ -379,14 +379,22 @@ namespace _336Labs.Sogorin
                 case 1:
                     {
                         Console.WriteLine("Введите новую фамилию:");
-                        acc._surname = Console.ReadLine();
+                        string sur = Console.ReadLine();                         
+                        sur = sur.Trim();
+                        var firstLet1 = sur[0];
+                        var lastLet1 = sur.Remove(0, 1);
+                        _surname = firstLet1.ToString().ToUpper() + lastLet1;
                         acc.ch2(AccLis, IdLis, acc);
                         break;
                     }
                 case 2:
                     {
                         Console.WriteLine("Введите новое имя:");
-                        acc._name = Console.ReadLine();
+                        string nam = Console.ReadLine();
+                        nam = nam.Trim();
+                        var firstLet = nam[0];
+                        var lastLet = nam.Remove(0, 1);
+                        _name = firstLet.ToString().ToUpper() + lastLet;
                         acc.ch2(AccLis, IdLis, acc);
                         break;
                     }
@@ -465,23 +473,6 @@ namespace _336Labs.Sogorin
         {
             Console.Clear();
             Console.WriteLine($"{acc._surname} {acc._name} {acc._old}");
-        }
-    }
-    class BankAcc
-    {
-        private int _sum;
-        public string Notify = "Massage ";       
-        public int Sum
-        {
-            get
-            {
-                return _sum;
-            }
-            set
-            {
-                _sum = value;
-                //Notify?.Invoke(Phonnum);
-            }
         }
     }
 }
