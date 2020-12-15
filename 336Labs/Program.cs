@@ -8,42 +8,35 @@ namespace _336Labs.Bitkova
     {
         static void Main(string[] args)
         {
-            List<BankAccount> accounts = new List<BankAccount>();
-            accounts.Add(new BankAccount("Vasya", "Pupkin", 12, 0001));
-            accounts.Add(new BankAccount("Andrey", "Sapegin", 18, 0002));
-            accounts.Add(new BankAccount("Tanya", "Bitkova", 103, 0003));
+            Dictionary<string, string> hi = new Dictionary<string, string>();
+            Console.WriteLine("---Введите имя---");
+            string Name = Console.ReadLine().ToString();
+            
+            Random rnd = new Random();
+            string ID = rnd.Next(60, 65).ToString();
+            hi.Add(ID, Name);
 
-            //Edit("Dima", "Bitkov", 103, 0003, accounts);
-
-            foreach (var item in accounts)
+            foreach (var it in hi)
             {
-                Console.WriteLine($"{item.Name} {item.Surname}, {item.Age} y.o, ID:{item.ID}");
+                Console.WriteLine("---Ваши данные---");
+                Console.WriteLine($"Id - {it.Key}, Name - {it.Value}");
             }
 
-            Console.WriteLine("------------------------------");
+            Console.WriteLine("---Ваш ID---");
+            ID = Console.ReadLine().ToString();
 
-            for(int i = 0; i < accounts.Count; i++)
+            foreach (var item in hi)
             {
-                if (accounts[i].ID == 0003)
+                if (item.Key == ID)
                 {
-                   
+                    Console.WriteLine("---Введите имя---");
+                    string newName = Console.ReadLine();
+                    hi[item.Value] = newName;
+                    Console.WriteLine($"id - {item.Key}, Name - {item.Value}");
+                    break;
                 }
-            }
-
-            //static void Edit(string newName, string newSurname, int newAge, int searchID, List<BankAccount> accounts)
-            //{
-            //    foreach (BankAccount item in accounts)
-            //    {
-            //        if (item.ID == 0003)
-            //        {
-            //            Console.WriteLine($"{newName} {newSurname}, {newAge} y.o, ID:{searchID}");
-            //        }
-            //    }
-            //}
-
-
+            } 
         }
-
     }
 }
 
