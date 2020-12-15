@@ -51,7 +51,7 @@ namespace _336Labs.Dolgov.Branch
             int max = 0;
             for (int i = 0; i < ar.Length; i++)
             {
-                if (max < ar[i]) ;
+                if (max < ar[i]);
                     {
                     max = max + ar[i];
                     }
