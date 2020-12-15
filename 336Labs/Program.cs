@@ -13,9 +13,10 @@ namespace _336Labs
             //ClassAndObjects.CaO();
             //SL.StL();
             //StringOperations.StrOpr();
-            BA.BnkAc();
+            //BA.BnkAc();
             //Program.notMain();
             //Base.B();
+            Dictionary.D();
         }
     }
 }
