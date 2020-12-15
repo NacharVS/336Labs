@@ -115,7 +115,7 @@ namespace _336Labs.Acadullin
         {
             _rate = rate;
         }
-        public int GetId()
+        public string GetId(string _id)
         {
             return _id;
             
@@ -132,14 +132,14 @@ namespace _336Labs.Acadullin
             _id = Id;
             
         }
-        public void SetFIO(BankAccount banks)
-        {
-            Console.WriteLine("Ваша имя:");
-            banks.SetName(Console.ReadLine());
-            Console.WriteLine("Ваша Фамилия:");
-            banks.SetSurname(Console.ReadLine());
-        }
-        public static void SetAge(BankAccount banks)
+        //public void SetFIO(BankAccount banks)
+        //{
+        //    Console.WriteLine("Ваше имя:");
+        //    banks.SetName(Console.ReadLine());
+        //    Console.WriteLine("Ваше Фамилия:");
+        //    banks.SetSurname(Console.ReadLine());
+        //}
+        public void SetAge(BankAccount banks)
         {
             Console.WriteLine("Ваш год рождения:");
             int y = int.Parse(Console.ReadLine());
@@ -158,7 +158,7 @@ namespace _336Labs.Acadullin
 
             Console.WriteLine($"Вам сейчас: {newyear - y}");            
         }
-        public static void GetFIO(BankAccount banks)
+        public void GetFIO(BankAccount banks)
         {
             Console.WriteLine($":{banks._name}");
             Console.WriteLine($":{banks._surname}");
