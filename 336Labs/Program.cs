@@ -20,13 +20,7 @@ namespace _336Labs
                     Console.WriteLine(item._age);
                 }
 
-                foreach (BankAccount item in AccLis)
-                {
-                    if (item._age == 15)
-                    {
-
-                    }
-                }
+                
             }
 
         }
