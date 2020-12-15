@@ -6,7 +6,7 @@ namespace _336Labs.Dolgov
 {
     class Dictionary
     {
-        public static void Dict()
+        public static void Dicti()
         {
             int id = 0;
             Dictionary<int, string> list = new Dictionary<int, string>();

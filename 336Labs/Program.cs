@@ -18,7 +18,7 @@ namespace _336Labs
             //StudentsSelection.Selection(list, 3);
             //StringOperations.StringOperationss();
             //BankAcco.BnkAc();
-            Dictionary.Dict();
+            Dictionary.Dicti();
         }
     }
 }
