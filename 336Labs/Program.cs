@@ -9,9 +9,13 @@ namespace _336Labs
         static void Main(string[] args)
         {
             List<BankAccount> list = new List<BankAccount>();
-            list.Add(new BankAccount("Platina", 45, 77777));
-            list.Add(new BankAccount("OG", 19, 76677));
-            list.Add(new BankAccount("Feduk", 43, 66666));
+            BankAccount bank = new BankAccount();
+            //list.Add(new BankAccount("Platina", 45, 77777));
+            //list.Add(new BankAccount("OG", 19, 76677));
+            //list.Add(new BankAccount("Feduk", 43, 66666));
+            Dictionary<int, string> list = new Dictionary<int, string>();
+
+          
         }
     }
 }

@@ -16,6 +16,8 @@ namespace _336Labs.Galimzyanov
         public string _phoneNumber;
         private int _sum;
         private int _accountopendate;
+        private static string newSurname;
+
         public string Name => _name;
         public int Age => _age;
         public int Id => _id;
@@ -66,7 +68,7 @@ namespace _336Labs.Galimzyanov
         {
             _rate = rate;
         }
-        public string GetId()
+        public string GetId(string _id)
         {
             return _id;
         }
@@ -141,6 +143,11 @@ namespace _336Labs.Galimzyanov
         {
             Sum = sum;
         }
+
+        public BankAccount()
+        {
+        }
+
         public void Receive(int sum)
         {
             Sum += sum;
@@ -158,24 +165,28 @@ namespace _336Labs.Galimzyanov
                 Notify?.Invoke(this, new ACCOUNTENENTARGS("На вашем счету нехватает средств, sum"));
             }
         }
-        static void EditName (List<BankAccount>list, int searchId, string newName)
+        static void EditName(List<BankAccount> list, int searchId, string newName, string newphonenumber, BankAccount bank)
         {
             foreach (var item in list)
             {
                 if (item.Id == searchId)
                 {
                     item.SetName(newName);
+                    item.SetSurname(newSurname);
+                    item._phoneNumber();
+                    
                 }
             }
+
+
+
+
+
+
         }
 
-
-           
         
-
-           
     }
-    
 }
 
 
