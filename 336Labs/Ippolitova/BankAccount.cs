@@ -164,7 +164,7 @@ namespace _336Labs.Ippolitova
         }
         public static void BnkAc()
         {
-            BankAccount bank = new BankAccount("Liana");
+            BankAccount bank = new BankAccount("dhjs","liana","bekmyratova", 18 );
             if (BankAccount.GetNameSurnameIdAgeRate(bank) == true)
             {
                 Account acc = new Account(10);
