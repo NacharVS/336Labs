@@ -145,12 +145,12 @@ namespace _336Labs.Ziatdinova
         {
             _rate = rerate;
         }
-       
+
         class Employee : Person
         {
             private string _position;
             public string position
-            {
+        {
                 get
                 { return _position; }
                 set
@@ -185,13 +185,14 @@ namespace _336Labs.Ziatdinova
             get
             {
                 return _rate;
-
             }
+
+
             get
             {
                 return _paymentAccount;
-
             }
+            
             private set
             {
                 _paymentAccount = value;
@@ -199,17 +200,16 @@ namespace _336Labs.Ziatdinova
         }
         public Person(string name)
         {
-            _name = name;
+           _name = name;
         }
-        public peopleLis(string name, string id, int age)
-        {
-            _name = name;
+         public peopleLis(string name, string id, int age)
+         {
+           _name = name;
             _id = id;
             _age = age;
-        }
+         }
     }
-    
+
 }
 
-   
-        
+
