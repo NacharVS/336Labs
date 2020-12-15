@@ -7,9 +7,9 @@ namespace _336Labs.Yusupov
     class BankAccount
     {
         private string _name;
-        private string _surname;
+        public string _surname;
         private string _id;
-        private int _age;
+        public int _age;
         private double _paymentAccount = 2000;
         public static double _rate = 0.067;
         private DateTime DayOfBirth = new DateTime();
