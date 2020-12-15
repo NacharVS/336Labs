@@ -21,9 +21,15 @@ namespace _336Labs.Sogorin
             AccLis.Add(new Account("Kuzab", "evan", 89845526875, "1988, 01, 30", 78354));
             acc.Bank(AccLis, IdLis, acc);   
             */
-            Slova sl = new Slova();            
-            //List.Add(Dictionary<string, Slova>());
-            sl.Dic(sl);
+            Dictionary<string, string> List = new Dictionary<string, string>();
+            Slova sl = new Slova();
+            sl.AddN("petr", List);
+            sl.AddN("ivan", List);
+            sl.AddN("den", List);
+            sl.AddN("boris", List);
+            sl.shId(List);
+            sl.change(List);
+            sl.shId(List);
         }        
     }   
 }

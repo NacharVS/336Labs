@@ -9,8 +9,7 @@ namespace _336Labs.Sogorin
         public double _cash;
         public string _name;
         public string _surname;
-        public long _phone;
-        public int i_id;
+        public long _phone;        
         public string s_id;
         public int _old;
         public DateTime _date;
@@ -23,9 +22,8 @@ namespace _336Labs.Sogorin
         {
             Random rnd = new Random();
             foreach (Account item in AccLis)
-            {
-                i_id = rnd.Next(0, 999999);
-                s_id = i_id.ToString("D6");
+            {                
+                s_id = rnd.Next(0, 999999).ToString("D6");
                 IdLis.Add(new string(s_id));
             }
         }
